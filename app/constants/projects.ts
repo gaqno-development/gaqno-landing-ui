@@ -58,4 +58,3 @@ export const PROJECT_THUMBNAILS: Record<string, string> = {
   atech: '/img/atech.webp',
   ambev: '/img/ambev.webp',
 }
-

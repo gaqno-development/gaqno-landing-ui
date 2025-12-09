@@ -298,53 +298,66 @@ export default function Landing({ dict }: { dict: Dictionary['landing'] }) {
       <section id="sobre" className="relative max-w-6xl mx-auto px-4 pb-20">
         <SectionAnimation>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-              {dict.about.tagline}
-            </p>
-            <h2 className="text-3xl md:text-4xl font-semibold mt-2">
-              {dict.about.title}
-            </h2>
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+                {dict.about.tagline}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-2">
+                {dict.about.title}
+              </h2>
+            </div>
+            <div className="text-muted-foreground max-w-xl">
+              {dict.about.description}
+            </div>
           </div>
-          <div className="text-muted-foreground max-w-xl">
-            {dict.about.description}
-          </div>
-        </div>
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold">{dict.about.background.title}</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              {dict.about.background.content}
-            </p>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold">{dict.about.education.title}</h3>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="space-y-4">
-              {dict.about.education.items.map((item, index) => (
-                <div key={index} className="border-l-2 border-foreground/20 pl-4">
-                  <div className="font-semibold">{item.institution}</div>
-                  <div className="text-sm text-muted-foreground">{item.degree}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{item.period}</div>
+              <h3 className="text-xl font-semibold">
+                {dict.about.background.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {dict.about.background.content}
+              </p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">
+                {dict.about.education.title}
+              </h3>
+              <div className="space-y-4">
+                {dict.about.education.items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="border-l-2 border-foreground/20 pl-4"
+                  >
+                    <div className="font-semibold">{item.institution}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {item.degree}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">
+                      {item.period}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold">
+              {dict.about.achievements.title}
+            </h3>
+            <div className="grid md:grid-cols-3 gap-4">
+              {dict.about.achievements.items.map((achievement, index) => (
+                <div
+                  key={index}
+                  className="rounded-lg border border-foreground/10 bg-secondary/40 p-4"
+                >
+                  <div className="font-semibold mb-2">{achievement.title}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {achievement.description}
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold">{dict.about.achievements.title}</h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            {dict.about.achievements.items.map((achievement, index) => (
-              <div
-                key={index}
-                className="rounded-lg border border-foreground/10 bg-secondary/40 p-4"
-              >
-                <div className="font-semibold mb-2">{achievement.title}</div>
-                <div className="text-sm text-muted-foreground">
-                  {achievement.description}
-                </div>
-              </div>
-            ))}
-          </div>
           </div>
         </SectionAnimation>
       </section>
@@ -354,68 +367,70 @@ export default function Landing({ dict }: { dict: Dictionary['landing'] }) {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-              {dict.experience.tagline}
-            </p>
-            <h2 className="text-3xl md:text-4xl font-semibold mt-2">
-              {dict.experience.title}
-            </h2>
-          </div>
-          <div className="text-muted-foreground max-w-xl">
-            {dict.experience.description}
-          </div>
-          </div>
-        <div className="space-y-8">
-          {dict.experience.items.map((item, index) => (
-            <div
-              key={index}
-              className="rounded-lg border border-foreground/10 bg-secondary/40 p-6 md:p-8"
-            >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold mb-1">{item.company}</h3>
-                  <div className="text-sm font-medium text-muted-foreground mb-2">
-                    {item.role}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {item.period} · {item.location}
-                  </div>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                {item.description}
+                {dict.experience.tagline}
               </p>
-              <div className="space-y-3">
-                <div>
-                  <h4 className="text-sm font-semibold mb-2">
-                    {dict.experience.labels.responsibilities}
-                  </h4>
-                  <ul className="space-y-1 text-sm text-muted-foreground">
-                    {item.responsibilities.map((responsibility, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-foreground/40 flex-shrink-0" />
-                        <span>{responsibility}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-2">
+                {dict.experience.title}
+              </h2>
+            </div>
+            <div className="text-muted-foreground max-w-xl">
+              {dict.experience.description}
+            </div>
+          </div>
+          <div className="space-y-8">
+            {dict.experience.items.map((item, index) => (
+              <div
+                key={index}
+                className="rounded-lg border border-foreground/10 bg-secondary/40 p-6 md:p-8"
+              >
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-1">
+                      {item.company}
+                    </h3>
+                    <div className="text-sm font-medium text-muted-foreground mb-2">
+                      {item.role}
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {item.period} · {item.location}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-sm font-semibold mb-2">
-                    {dict.experience.labels.technologies}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {item.technologies.map((tech, idx) => (
-                      <span
-                        key={idx}
-                        className="rounded-full border border-foreground/20 bg-background/50 px-3 py-1 text-xs font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {item.description}
+                </p>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-sm font-semibold mb-2">
+                      {dict.experience.labels.responsibilities}
+                    </h4>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {item.responsibilities.map((responsibility, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-foreground/40 flex-shrink-0" />
+                          <span>{responsibility}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold mb-2">
+                      {dict.experience.labels.technologies}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {item.technologies.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="rounded-full border border-foreground/20 bg-background/50 px-3 py-1 text-xs font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
           </div>
         </SectionAnimation>
       </section>

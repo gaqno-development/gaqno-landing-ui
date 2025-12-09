@@ -49,9 +49,7 @@ export default function Navbar({ className, dict }: NavbarProps) {
             item={dict.items.start.label}
           >
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href={`#`}>
-                {dict.items.start.home}
-              </HoveredLink>
+              <HoveredLink href={`#`}>{dict.items.start.home}</HoveredLink>
               <HoveredLink href={`#sobre`}>
                 {dict.items.start.who_am_i}
               </HoveredLink>
