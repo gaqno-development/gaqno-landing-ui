@@ -3,9 +3,10 @@ import '@/styles/globals.css'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/utils/cn'
 import { ThemeProvider } from '@/components/theme-provider'
-import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import type { Metadata } from 'next'
+import Script from 'next/script'
+import { Analytics } from './components/Analytics'
 
 interface RootLayoutProps {
   children: ReactNode
@@ -17,6 +18,7 @@ const fontSans = FontSans({
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gaqno.dev'
+const gaId = process.env.NEXT_PUBLIC_GA_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -116,6 +118,19 @@ const structuredData = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','${gaId}',{send_page_view:false});`}
+            </Script>
+          </>
+        ) : null}
+      </head>
       <body
         className={cn(
           'min-h-screen bg-background py-2 font-sans antialiased',
@@ -128,6 +143,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
+          <Analytics />
           {children}
         </ThemeProvider>
       </body>

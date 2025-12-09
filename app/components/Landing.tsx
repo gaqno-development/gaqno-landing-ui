@@ -1,29 +1,23 @@
-'use client'
-import { BackgroundBeams } from '@/components/ui/background-beams'
 import { HoverEffect } from '@/components/ui/card-hover-effect'
-import { HeroParallax } from '@/components/ui/hero-parallax'
-import { StickyScroll } from '@/components/ui/sticky-scroll-reveal'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Globe } from './Globe'
-import PescaFuriosaImg from '@/public/img/pesca-furiosa.png'
-import LeninGptImg from '@/public/img/lenin-gpt.png'
-import TovariXImg from '@/public/img/tovarix.png'
-import MarvelDashboardImg from '@/public/img/MarvelDashboard.png'
-import NewcoreLandingImg from '@/public/img/newcore_landing.png'
-import FFIDImg from '@/public/img/ffidLogo.png'
-import NewcoreImg from '@/public/img/newcore.png'
-import RedeAncoraImg from '@/public/img/rede-ancora.jpg'
-import SparkImg from '@/public/img/spark.gif'
-import AtechImg from '@/public/img/atech.png'
-import AmbevImg from '@/public/img/ambev.png'
+import LeninGptImg from '@/public/img/lenin-gpt.webp'
+import NewcoreLandingImg from '@/public/img/newcore_landing.webp'
+import FFIDImg from '@/public/img/ffidLogo.webp'
+import NewcoreImg from '@/public/img/newcore.webp'
+import RedeAncoraImg from '@/public/img/rede-ancora.webp'
+import AtechImg from '@/public/img/atech.webp'
+import AmbevImg from '@/public/img/ambev.webp'
+import { HeroParallaxClient } from './client/HeroParallaxClient'
+import { StickyScrollClient } from './client/StickyScrollClient'
+import { GlobeClient } from './client/GlobeClient'
 
 export default function Landing() {
   const capabilities = [
     {
       icon: 'mdi:react',
       title: 'Interfaces',
-      description: 'React, Next.js e animações suaves para experiências premium.',
+      description:
+        'React, Next.js e animações suaves para experiências premium.',
       link: '#contact',
     },
     {
@@ -35,7 +29,8 @@ export default function Landing() {
     {
       icon: 'mdi:database',
       title: 'Banco de dados',
-      description: 'SQL e NoSQL para armazenar e recuperar dados de forma eficiente.',
+      description:
+        'SQL e NoSQL para armazenar e recuperar dados de forma eficiente.',
       link: '#contact',
     },
     {
@@ -60,12 +55,13 @@ export default function Landing() {
       icon: 'mdi:git',
       title: 'Entrega',
       description: 'Repos limpos, CI/CD previsível e versionamento impecável.',
-      link: '#contact', 
+      link: '#contact',
     },
     {
       icon: 'mdi:motion-play',
       title: 'Motion',
-      description: 'Transições, parallax e microinterações que contam história.',
+      description:
+        'Transições, parallax e microinterações que contam história.',
       link: '#contact',
     },
   ]
@@ -100,7 +96,7 @@ export default function Landing() {
       title: 'Ambev',
       link: 'https://www.ambev.com.br',
       thumbnail: AmbevImg,
-    }
+    },
   ]
 
   const companies = [
@@ -128,7 +124,7 @@ export default function Landing() {
       title: 'Ambev',
       link: 'https://www.ambev.com.br',
       thumbnail: AmbevImg,
-    }
+    },
   ]
 
   const approach = [
@@ -186,7 +182,6 @@ export default function Landing() {
         { icon: 'mdi:vuejs', name: 'Vue 3' },
         { icon: 'mdi:nuxt', name: 'Nuxt 3' },
         { icon: 'mdi:head-snowflake-outline', name: 'OpenAI' },
-        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
       ],
       description:
         'Chatbot afinado com personalidade e fluxo natural, entregando respostas claras sem engasgar.',
@@ -209,11 +204,8 @@ export default function Landing() {
         { icon: 'mdi:angular', name: 'Angular' },
         { icon: 'mdi:nodejs', name: 'Node.js' },
         { icon: 'mdi:database', name: 'PostgreSQL' },
-        { icon: 'mdi:api', name: 'RESTful API' },
-        { icon: 'mdi:cloud', name: 'Cloudflare' },
       ],
-      description:
-        'Projeto de acompanhamento de projetos e gestão de equipe.',
+      description: 'Projeto de acompanhamento de projetos e gestão de equipe.',
       content: (
         <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-indigo-600 via-sky-500 to-cyan-400">
           <Image
@@ -259,9 +251,6 @@ export default function Landing() {
         { icon: 'mdi:vuejs', name: 'Vue 3' },
         { icon: 'mdi:nuxt', name: 'Nuxt 3' },
         { icon: 'mdi:database', name: 'PostgreSQL' },
-        { icon: 'mdi:api', name: 'RESTful API' },
-        { icon: 'mdi:cloud', name: 'Vercel' },
-        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
       ],
       description:
         'Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos.',
@@ -272,7 +261,7 @@ export default function Landing() {
             width={320}
             height={320}
             className="h-full w-full object-cover"
-            alt='FFID'
+            alt="FFID"
           />
         </div>
       ),
@@ -284,10 +273,6 @@ export default function Landing() {
         { icon: 'mdi:angular', name: 'Angular' },
         { icon: 'mdi:react', name: 'React' },
         { icon: 'mdi:nestjs', name: 'NestJS' },
-        { icon: 'mdi:database', name: 'PostgreSQL' },
-        { icon: 'mdi:api', name: 'RESTful API' },
-        { icon: 'mdi:cloud', name: 'Vercel' },
-        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
       ],
       description:
         'Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos.',
@@ -310,10 +295,6 @@ export default function Landing() {
         { icon: 'mdi:angular', name: 'Angular' },
         { icon: 'mdi:react', name: 'React' },
         { icon: 'mdi:nestjs', name: 'NestJS' },
-        { icon: 'mdi:database', name: 'PostgreSQL' },
-        { icon: 'mdi:api', name: 'RESTful API' },
-        { icon: 'mdi:cloud', name: 'Vercel' },
-        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
       ],
       description:
         'Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos.',
@@ -333,10 +314,6 @@ export default function Landing() {
 
   return (
     <div className="relative overflow-hidden bg-background text-foreground">
-      <div className="absolute inset-0">
-        <BackgroundBeams />
-      </div>
-
       <section
         id="hero"
         className="relative max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-2 gap-12 items-end"
@@ -346,17 +323,12 @@ export default function Landing() {
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
               Fullstack · Produto · Motion
             </p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight"
-            >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight">
               Software sereno para ideias ambiciosas.
-            </motion.h1>
+            </h1>
             <p className="text-lg md:text-xl text-muted-foreground">
-              Experiências digitais com estética precisa, copy enxuta e
-              entregas seguras. Do conceito à produção, sem ruído.
+              Experiências digitais com estética precisa, copy enxuta e entregas
+              seguras. Do conceito à produção, sem ruído.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -378,12 +350,7 @@ export default function Landing() {
             </div>
           </div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative"
-        >
+        <div className="relative">
           <div className="rounded-[32px] border border-foreground/10 bg-gradient-to-br from-foreground to-black text-background p-8 shadow-2xl">
             <div className="flex items-center justify-between text-sm">
               <span className="uppercase tracking-[0.2em] text-white/70">
@@ -415,7 +382,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-accent blur-3xl opacity-50" />
-        </motion.div>
+        </div>
       </section>
 
       <section id="expertise" className="relative max-w-6xl mx-auto px-4 pb-20">
@@ -440,14 +407,11 @@ export default function Landing() {
         <h2 className="text-3xl md:text-4xl font-semibold mb-6">
           Uma história guiada ao rolar.
         </h2>
-        <StickyScroll
-          id="approach"
-          content={approach}
-        />
+        <StickyScrollClient id="approach" content={approach} />
       </section>
 
       <section id="work" className="relative pb-10">
-        <HeroParallax
+        <HeroParallaxClient
           id="work"
           title="Projetos com propósito"
           description="Experiências digitais que misturam clareza, movimento e execução sólida."
@@ -459,7 +423,7 @@ export default function Landing() {
         <h2 className="text-3xl md:text-4xl font-semibold mb-6">
           Detalhes que sustentam a confiança.
         </h2>
-        <StickyScroll id="cases" content={workDetails} />
+        <StickyScrollClient id="cases" content={workDetails} />
       </section>
 
       <section
@@ -512,7 +476,7 @@ export default function Landing() {
           </div>
         </div>
         <div className="rounded-3xl border border-foreground/10 bg-secondary/40 backdrop-blur p-4">
-          <Globe />
+          <GlobeClient />
         </div>
       </section>
 
@@ -557,13 +521,6 @@ export default function Landing() {
           </div>
         </div>
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
-          <Image
-            src={SparkImg}
-            alt="Spark"
-            width={32}
-            height={32}
-            className="h-8 w-8 rounded-full object-cover"
-          />
           Prazo apertado? Vamos priorizar o essencial e lançar com elegância.
         </div>
       </section>

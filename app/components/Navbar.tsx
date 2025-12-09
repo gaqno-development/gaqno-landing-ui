@@ -6,9 +6,9 @@ import {
   MenuItem,
   ProductItem,
 } from '@/components/ui/navbar-menu'
-import LeninGPTImage from '@/public/img/lenin-gpt.png'
-import TovariXImage from '@/public/img/tovarix.png'
-import PescaFuriosaImg from '@/public/img/pesca-furiosa.png'
+import LeninGPTImage from '@/public/img/lenin-gpt.webp'
+import TovariXImage from '@/public/img/tovarix.webp'
+import PescaFuriosaImg from '@/public/img/pesca-furiosa.webp'
 import { cn } from '@/utils/cn'
 import { DarkModeToggle } from './DarkModeToggle'
 
@@ -17,7 +17,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'fixed top-10 inset-x-0 mx-auto z-50 w-auto max-w-[14em]',
+        'fixed top-10 inset-x-0 mx-auto md:ml-[73%] z-50 w-auto max-w-[14em]',
         className,
       )}
     >
