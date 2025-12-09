@@ -1,0 +1,229 @@
+{
+  "navbar": {
+    "items": {
+      "start": {
+        "label": "Home",
+        "who_am_i": "Who am I?",
+        "techs": "Technologies",
+        "projects": "Projects",
+        "path": "My Path",
+        "contact": "Contact"
+      },
+      "projects": "Projects"
+    }
+  },
+  "landing": {
+    "hero": {
+      "tagline": "Fullstack · Product · Motion",
+      "title": "Serene software for ambitious ideas.",
+      "description": "Digital experiences with precise aesthetics, lean copy, and secure delivery. From concept to production, without noise.",
+      "cta_work": "See work",
+      "cta_process": "My process",
+      "available": "Available for new projects",
+      "profile": {
+        "title": "Profile",
+        "name": "Gabriel Aquino",
+        "role": "Fullstack Developer",
+        "experience": "5+ years delivering products that delight and scale",
+        "stack": "React, Next.js, Vue, Node, NestJS, OpenAI, GraphQL",
+        "skills": "Motion, micro-interactions, and brand-aligned copy"
+      }
+    },
+    "about": {
+      "tagline": "About",
+      "title": "Who I am",
+      "description": "Fullstack developer passionate about creating digital products that combine technical excellence with thoughtful design.",
+      "background": {
+        "title": "My journey",
+        "content": "With over 5 years of experience, I transform ideas into functional and elegant digital products. I work with international teams, leading projects from conception to delivery, always prioritizing quality, performance, and user experience."
+      },
+      "education": {
+        "title": "Education",
+        "items": [
+          {
+            "institution": "Universidade Cruzeiro do Sul",
+            "degree": "Technology in Artificial Intelligence",
+            "period": "Mar 2024 - Dec 2026"
+          },
+          {
+            "institution": "Centro Universitário FAM",
+            "degree": "Information Systems",
+            "period": "In progress"
+          }
+        ]
+      },
+      "achievements": {
+        "title": "Achievements",
+        "items": [
+          {
+            "title": "EF SET C1 Advanced",
+            "description": "English proficiency certification (advanced level)"
+          },
+          {
+            "title": "International projects",
+            "description": "Experience working with global teams and clients from multiple countries"
+          },
+          {
+            "title": "Products in production",
+            "description": "Multiple digital products running in production, serving thousands of users"
+          }
+        ]
+      }
+    },
+    "experience": {
+      "tagline": "Experience",
+      "title": "Professional journey",
+      "description": "Years of experience building digital products in companies of different sizes and sectors.",
+      "labels": {
+        "responsibilities": "Responsibilities:",
+        "technologies": "Technologies:"
+      },
+      "items": [
+        {
+          "company": "Rede ANCORA",
+          "role": "Mid-level Front-end Developer",
+          "period": "Aug 2023 - Oct 2025 · 2 yrs 3 mos",
+          "location": "São Paulo, Brazil · Remote",
+          "description": "Rede ANCORA has over 20 years of experience in the auto parts market and is currently known as one of the only distribution networks for franchisees in Brazil, also being one of the largest distributors in the country, with partnerships among the world's largest auto parts replacement manufacturers.",
+          "responsibilities": [
+            "Maintenance of legacy HandlebarsJS systems",
+            "Creation of company Design System",
+            "Porting systems to React environment",
+            "Porting to micro-frontends structure using Federation",
+            "Creation of back-office modules using these implemented technologies"
+          ],
+          "technologies": ["React", "HandlebarsJS", "Module Federation", "Design System", "Micro-frontends"]
+        },
+        {
+          "company": "FFID - Inteligência Digital",
+          "role": "Mid-level Front-end Developer",
+          "period": "Nov 2022 - Aug 2023 · 10 mos",
+          "location": "São Paulo, Brazil · Remote",
+          "description": "FFID is a platform that offers message sending services and other tools to help companies communicate with their customers.",
+          "responsibilities": [
+            "Development of fixes and features across all company platforms",
+            "Work on portal migration to a new version",
+            "Use of modern technologies such as AWS, TailwindCSS, Vue, Nuxt 3, TypeScript and Node"
+          ],
+          "technologies": ["Vue", "Nuxt 3", "TypeScript", "Node.js", "AWS", "TailwindCSS"]
+        },
+        {
+          "company": "NEWCORE",
+          "role": "Mid-level Fullstack Developer",
+          "period": "Dec 2021 - Nov 2022 · 1 yr",
+          "location": "São Paulo, Brazil",
+          "description": "Startup that develops an application to help brokers close sales and capture leads.",
+          "responsibilities": [
+            "Development of new tools and fixes in CRM and backoffice",
+            "Use of technologies such as React, React Native, TypeScript, Node, Angular, NestJS, Docker, DataDog and Google Cloud"
+          ],
+          "technologies": ["React", "React Native", "TypeScript", "Node.js", "Angular", "NestJS", "Docker", "DataDog", "Google Cloud"]
+        }
+      ]
+    },
+    "expertise": {
+      "tagline": "Expertise",
+      "title": "Technical precision with brand aesthetics.",
+      "description": "Modern stack, data-driven decisions, and intentional motion for a smooth user journey.",
+      "capabilities": [
+        {
+          "title": "Interfaces",
+          "description": "React, Next.js, and smooth animations for premium experiences."
+        },
+        {
+          "title": "Platforms",
+          "description": "Solid APIs with Node, NestJS, and tuned databases."
+        },
+        {
+          "title": "Database",
+          "description": "SQL and NoSQL to store and retrieve data efficiently."
+        },
+        {
+          "title": "API",
+          "description": "Solid APIs with Node, NestJS, and tuned databases."
+        },
+        {
+          "title": "Cloud",
+          "description": "Scalable infra on Vercel, AWS, and well-maintained containers."
+        },
+        {
+          "title": "AI & Automation",
+          "description": "Flows with OpenAI and pipelines that reduce human steps."
+        },
+        {
+          "title": "Delivery",
+          "description": "Clean repos, predictable CI/CD, and impeccable versioning."
+        },
+        {
+          "title": "Motion",
+          "description": "Transitions, parallax, and micro-interactions that tell a story."
+        }
+      ]
+    },
+    "approach": {
+      "title": "A story guided by scrolling.",
+      "items": [
+        {
+          "title": "Tailored Architecture",
+          "description": "I map domains, define clear boundaries, and choose the right stack to avoid coupling and rework.",
+          "highlight": "Structures that sustain the product for years"
+        },
+        {
+          "title": "Continuous Delivery",
+          "description": "Predictable CI/CD, feature flags, and active monitoring to launch without noise, even on long journeys.",
+          "highlight": "Launches that preserve the team's calm"
+        },
+        {
+          "title": "Performance & Real UX",
+          "description": "Core Web Vitals, accessibility, and lean journeys for higher conversions and less support.",
+          "highlight": "Fast pace without sacrificing clarity"
+        },
+        {
+          "title": "Purposeful Motion",
+          "description": "Fine interactions, parallax, and micro-animations that guide attention and reinforce the brand without distraction.",
+          "highlight": "Movement in service of the narrative"
+        }
+      ]
+    },
+    "work": {
+      "title": "Purposeful Projects",
+      "description": "Digital experiences that blend clarity, motion, and solid execution.",
+      "details_title": "Details that build trust.",
+      "items": {
+        "lenin": {
+          "description": "Own Large Language Model (LLM) trained on lots of books using graphs and Neo4j. Chatbot tuned with personality and natural flow, delivering clear answers without stuttering."
+        },
+        "atech": {
+          "description": "Project tracking and team management platform."
+        },
+        "newcore": {
+          "description": "Application for brokers with CRM and backoffice developed in React, React Native and NestJS, with monitoring via DataDog and deployment on Google Cloud."
+        },
+        "ffid": {
+          "description": "Message sending platform migrated to Vue 3 and Nuxt 3, with AWS infrastructure and modern interface with TailwindCSS."
+        },
+        "rede_ancora": {
+          "description": "Legacy systems modernized to React, Design System implemented and micro-frontends architecture with Module Federation for auto parts distribution."
+        },
+        "ambev": {
+          "description": "Corporate site with CMS and integrations for live catalog and fast checkouts."
+        }
+      }
+    },
+    "credentials": {
+      "tagline": "Reach",
+      "title": "Advanced English",
+      "description": "I can communicate in English fluently, both in writing and speaking, which allows me to work with people from different parts of the world.",
+      "cta_efset": "See EF SET C1 Advanced certificate"
+    },
+    "contact": {
+      "tagline": "Next Step",
+      "title": "Let's build something remarkable.",
+      "description": "Products that sound modern, smooth, and reliable. Tell me the vision, and I'll orchestrate the delivery.",
+      "cta_email": "Write now",
+      "cta_whatsapp": "Chat on WhatsApp",
+      "footer_note": "Tight deadline? Let's prioritize the essential and launch with elegance."
+    }
+  }
+}
+

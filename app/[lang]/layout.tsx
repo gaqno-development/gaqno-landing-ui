@@ -3,13 +3,15 @@ import '@/styles/globals.css'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/utils/cn'
 import { ThemeProvider } from '@/components/theme-provider'
-import Navbar from './components/Navbar'
+import Navbar from '../components/Navbar'
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Analytics } from './components/Analytics'
+import { Analytics } from '../components/Analytics'
+import { getDictionary } from '../dictionaries'
 
 interface RootLayoutProps {
   children: ReactNode
+  params: { lang: string }
 }
 
 const fontSans = FontSans({
@@ -115,9 +117,18 @@ const structuredData = {
   ],
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'pt' }]
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  const dict = await getDictionary(params.lang as 'en' | 'pt')
+
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang={params.lang} suppressHydrationWarning>
       <head>
         {gaId ? (
           <>
@@ -142,7 +153,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Navbar />
+          <Navbar dict={dict.navbar} />
           <Analytics />
           {children}
         </ThemeProvider>

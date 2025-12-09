@@ -8,67 +8,94 @@ import {
 } from '@/components/ui/navbar-menu'
 import { cn } from '@/utils/cn'
 import { DarkModeToggle } from './DarkModeToggle'
+import { LanguageToggle } from './LanguageToggle'
+import type { Dictionary } from '../types/dictionary'
 
-import NewcoreImage from '@/public/img/newcore.webp'
-import FFIDImage from '@/public/img/ffid.webp'
-import RedeAncoraImage from '@/public/img/rede-ancora.webp'
-import ATECHImage from '@/public/img/atech.webp'
-import AmbevImage from '@/public/img/ambev.webp'
+const NewcoreImage = '/img/newcore.webp'
+const FFIDImage = '/img/ffid.webp'
+const RedeAncoraImage = '/img/rede-ancora.webp'
+const ATECHImage = '/img/atech.webp'
+const AmbevImage = '/img/ambev.webp'
 
-export default function Navbar({ className }: { className?: string }) {
+export default function Navbar({
+  className,
+  dict,
+}: {
+  className?: string
+  dict: Dictionary['navbar']
+}) {
   const [active, setActive] = useState<string | null>(null)
   return (
     <div
       className={cn(
-        'fixed top-10 inset-x-0 mx-auto md:ml-[73%] z-50 w-auto max-w-[14em]',
+        'fixed bottom-10 md:bottom-auto md:top-10 inset-x-0 mx-auto md:ml-[73%] z-50 w-auto max-w-[20em] md:max-w-[14em]',
         className,
       )}
     >
       <Menu setActive={setActive}>
         <div className="flex flex-row items-center gap-4">
-          <MenuItem setActive={setActive} active={active} item="Inicio">
+          <MenuItem
+            setActive={setActive}
+            active={active}
+            item={dict.items.start.label}
+          >
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="#sobre">Quem sou?</HoveredLink>
-              <HoveredLink href="#techs">Técnologias</HoveredLink>
-              <HoveredLink href="#projetos">Projetos</HoveredLink>
-              <HoveredLink href="#caminho">Meu caminho</HoveredLink>
-              <HoveredLink href="#contact">Contato</HoveredLink>
+              <HoveredLink href={`#sobre`}>
+                {dict.items.start.who_am_i}
+              </HoveredLink>
+              <HoveredLink href={`#techs`}>
+                {dict.items.start.techs}
+              </HoveredLink>
+              <HoveredLink href={`#projetos`}>
+                {dict.items.start.projects}
+              </HoveredLink>
+              <HoveredLink href={`#caminho`}>
+                {dict.items.start.path}
+              </HoveredLink>
+              <HoveredLink href={`#contact`}>
+                {dict.items.start.contact}
+              </HoveredLink>
             </div>
           </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Projetos">
+          <MenuItem
+            setActive={setActive}
+            active={active}
+            item={dict.items.projects}
+          >
             <div className="text-sm grid grid-cols-1 md:grid-cols-2 gap-10 p-4">
               <ProductItem
                 title="NewCore"
-                href="#projetos/newcore"
+                href={`#projetos/newcore`}
                 src={NewcoreImage}
                 description="E-commerce com CMS e integrações para catálogo vivo e checkouts rápidos."
               />
               <ProductItem
                 title="FFID"
-                href="#projetos/ffid"
+                href={`#projetos/ffid`}
                 src={FFIDImage}
                 description="Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos."
               />
               <ProductItem
                 title="Rede Ancora"
-                href="#projetos/rede-ancora"
+                href={`#projetos/rede-ancora`}
                 src={RedeAncoraImage}
                 description="Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos."
               />
               <ProductItem
                 title="ATECH"
-                href="#projetos/atech"
+                href={`#projetos/atech`}
                 src={ATECHImage}
                 description="Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos."
               />
               <ProductItem
                 title="Ambev"
-                href="#projetos/ambev"
+                href={`#projetos/ambev`}
                 src={AmbevImage}
                 description="Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos."
               />
             </div>
           </MenuItem>
+          <LanguageToggle />
           <DarkModeToggle />
         </div>
       </Menu>

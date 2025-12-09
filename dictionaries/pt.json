@@ -1,0 +1,229 @@
+{
+  "navbar": {
+    "items": {
+      "start": {
+        "label": "Início",
+        "who_am_i": "Quem sou?",
+        "techs": "Tecnologias",
+        "projects": "Projetos",
+        "path": "Meu caminho",
+        "contact": "Contato"
+      },
+      "projects": "Projetos"
+    }
+  },
+  "landing": {
+    "hero": {
+      "tagline": "Fullstack · Produto · Motion",
+      "title": "Software tranquilo para ideias ambiciosas.",
+      "description": "Experiências digitais com estética no ponto, copy direta e entregas seguras. Do conceito à produção, sem enrolação.",
+      "cta_work": "Ver trabalhos",
+      "cta_process": "Como eu entrego",
+      "available": "Disponível para novos projetos",
+      "profile": {
+        "title": "Perfil",
+        "name": "Gabriel Aquino",
+        "role": "Desenvolvedor Fullstack",
+        "experience": "5+ anos entregando produtos que encantam e escalam",
+        "stack": "React, Next.js, Vue, Node, NestJS, OpenAI, GraphQL",
+        "skills": "Motion, microinterações e copy que faz sentido com a marca"
+      }
+    },
+    "about": {
+      "tagline": "Sobre",
+      "title": "Quem sou eu",
+      "description": "Desenvolvedor Fullstack que adora criar produtos digitais que juntam técnica de qualidade com design bem pensado.",
+      "background": {
+        "title": "Minha trajetória",
+        "content": "Com mais de 5 anos na área, transformo ideias em produtos digitais que funcionam bem e são bonitos. Trabalho com times internacionais, liderando projetos do início ao fim, sempre pensando em qualidade, performance e experiência do usuário."
+      },
+      "education": {
+        "title": "Formação",
+        "items": [
+          {
+            "institution": "Universidade Cruzeiro do Sul",
+            "degree": "Superior de Tecnologia em Inteligência Artificial",
+            "period": "Mar 2024 - Dez 2026"
+          },
+          {
+            "institution": "Centro Universitário FAM",
+            "degree": "Sistemas da Informação",
+            "period": "Em andamento"
+          }
+        ]
+      },
+      "achievements": {
+        "title": "Conquistas",
+        "items": [
+          {
+            "title": "EF SET C1 Advanced",
+            "description": "Certificação de proficiência em inglês (nível avançado)"
+          },
+          {
+            "title": "Projetos internacionais",
+            "description": "Experiência trabalhando com equipes globais e clientes de múltiplos países"
+          },
+          {
+            "title": "Produtos em produção",
+            "description": "Diversos produtos digitais rodando em produção, atendendo milhares de usuários"
+          }
+        ]
+      }
+    },
+    "experience": {
+      "tagline": "Experiência",
+      "title": "Onde já trabalhei",
+      "description": "Anos de experiência criando produtos digitais em empresas de vários tamanhos e áreas diferentes.",
+      "labels": {
+        "responsibilities": "Responsabilidades:",
+        "technologies": "Tecnologias:"
+      },
+      "items": [
+        {
+          "company": "Rede ANCORA",
+          "role": "Pleno Front-end Developer",
+          "period": "Ago 2023 - Out 2025 · 2 anos 3 meses",
+          "location": "São Paulo, Brasil · Remoto",
+          "description": "A Rede ANCORA possui mais de 20 anos de atuação no mercado de autopeças e, atualmente é conhecida como uma das únicas redes de distribuição para franqueados no Brasil, sendo também uma das maiores distribuidoras do país, com parcerias entre os maiores fabricantes de reposição de autopeças do mundo.",
+          "responsibilities": [
+            "Manutenção em sistemas legado HandlebarsJS",
+            "Criação de Design System da empresa",
+            "Portabilidade de sistemas para ambiente React",
+            "Portabilidade para estrutura micro-frontends utilizando Federation",
+            "Criação de módulos back-office utilizando dessas tecnologias implementadas"
+          ],
+          "technologies": ["React", "HandlebarsJS", "Module Federation", "Design System", "Micro-frontends"]
+        },
+        {
+          "company": "FFID - Inteligência Digital",
+          "role": "Pleno Front-end Developer",
+          "period": "Nov 2022 - Ago 2023 · 10 meses",
+          "location": "São Paulo, Brasil · Remoto",
+          "description": "A FFID é uma plataforma que oferece serviços de disparo de mensagens e outras ferramentas para ajudar empresas a se comunicar com seus clientes.",
+          "responsibilities": [
+            "Desenvolvimento de correções e features em todas as plataformas da empresa",
+            "Trabalho na migração do portal para uma nova versão",
+            "Utilização de tecnologias modernas como AWS, TailwindCSS, Vue, Nuxt 3, TypeScript e Node"
+          ],
+          "technologies": ["Vue", "Nuxt 3", "TypeScript", "Node.js", "AWS", "TailwindCSS"]
+        },
+        {
+          "company": "NEWCORE",
+          "role": "Pleno Fullstack Developer",
+          "period": "Dez 2021 - Nov 2022 · 1 ano",
+          "location": "São Paulo, Brasil",
+          "description": "Startup que desenvolve um aplicativo para auxiliar corretores a fechar vendas e captar leads.",
+          "responsibilities": [
+            "Desenvolvimento de novas ferramentas e correções no CRM e backoffice",
+            "Utilização de tecnologias como React, React Native, TypeScript, Node, Angular, NestJS, Docker, DataDog e Google Cloud"
+          ],
+          "technologies": ["React", "React Native", "TypeScript", "Node.js", "Angular", "NestJS", "Docker", "DataDog", "Google Cloud"]
+        }
+      ]
+    },
+    "expertise": {
+      "tagline": "Expertise",
+      "title": "Técnica no ponto com estética de marca.",
+      "description": "Stack moderna, decisões baseadas em dados e movimento pensado para uma experiência suave pro usuário.",
+      "capabilities": [
+        {
+          "title": "Interfaces",
+          "description": "React, Next.js e animações suaves pra experiências de qualidade."
+        },
+        {
+          "title": "Plataformas",
+          "description": "APIs sólidas com Node, NestJS e bancos de dados bem configurados."
+        },
+        {
+          "title": "Banco de dados",
+          "description": "SQL e NoSQL pra guardar e buscar dados de forma eficiente."
+        },
+        {
+          "title": "API",
+          "description": "APIs sólidas com Node, NestJS e bancos de dados bem configurados."
+        },
+        {
+          "title": "Cloud",
+          "description": "Infra escalável no Vercel, AWS e containers bem cuidados."
+        },
+        {
+          "title": "AI e automação",
+          "description": "Fluxos com OpenAI e pipelines que cortam trabalho manual."
+        },
+        {
+          "title": "Entrega",
+          "description": "Repos organizados, CI/CD que funciona e versionamento no ponto."
+        },
+        {
+          "title": "Motion",
+          "description": "Transições, parallax e microinterações que contam uma história."
+        }
+      ]
+    },
+    "approach": {
+      "title": "Uma história que aparece conforme você rola.",
+      "items": [
+        {
+          "title": "Arquitetura sob medida",
+          "description": "Mapeio domínios, defino limites claros e escolho a stack certa pra evitar bagunça e retrabalho.",
+          "highlight": "Estruturas que aguentam o produto por anos"
+        },
+        {
+          "title": "Entrega contínua",
+          "description": "CI/CD que funciona, feature flags e monitoramento ativo pra lançar sem stress, mesmo em projetos longos.",
+          "highlight": "Lançamentos que mantêm o time tranquilo"
+        },
+        {
+          "title": "Performance e UX de verdade",
+          "description": "Core Web Vitals, acessibilidade e jornadas diretas pra mais conversões e menos suporte.",
+          "highlight": "Rápido sem perder clareza"
+        },
+        {
+          "title": "Motion com propósito",
+          "description": "Interações bem feitas, parallax e microanimações que guiam a atenção e reforçam a marca sem atrapalhar.",
+          "highlight": "Movimento a serviço da história"
+        }
+      ]
+    },
+    "work": {
+      "title": "Projetos que fazem sentido",
+      "description": "Experiências digitais que juntam clareza, movimento e execução no ponto.",
+      "details_title": "Detalhes que geram confiança.",
+      "items": {
+        "lenin": {
+          "description": "Meu próprio modelo de linguagem (LLM) treinado em vários livros usando grafos e Neo4j. Chatbot com personalidade e fluxo natural, que entrega respostas claras sem travar."
+        },
+        "atech": {
+          "description": "Projeto de acompanhamento de projetos e gestão de equipe."
+        },
+        "newcore": {
+          "description": "Aplicativo para corretores com CRM e backoffice desenvolvidos em React, React Native e NestJS, com monitoramento via DataDog e deploy no Google Cloud."
+        },
+        "ffid": {
+          "description": "Plataforma de disparo de mensagens migrada para Vue 3 e Nuxt 3, com infraestrutura na AWS e interface moderna com TailwindCSS."
+        },
+        "rede_ancora": {
+          "description": "Sistemas legados modernizados para React, Design System implementado e arquitetura micro-frontends com Module Federation para distribuição de autopeças."
+        },
+        "ambev": {
+          "description": "Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos."
+        }
+      }
+    },
+    "credentials": {
+      "tagline": "Alcance",
+      "title": "Inglês avançado",
+      "description": "Consigo me comunicar em inglês de forma fluente, tanto na escrita quanto na fala e isso me permite trabalhar com pessoas de diferentes partes do mundo.",
+      "cta_efset": "Ver certificado EF SET C1 Advanced"
+    },
+    "contact": {
+      "tagline": "Próximo passo",
+      "title": "Vamos criar algo massa.",
+      "description": "Produtos que soam modernos, suaves e confiáveis. Me conta a ideia que eu organizo a entrega.",
+      "cta_email": "Mandar email",
+      "cta_whatsapp": "Chamar no WhatsApp",
+      "footer_note": "Prazo apertado? Vamos focar no essencial e lançar com estilo."
+    }
+  }
+}
+

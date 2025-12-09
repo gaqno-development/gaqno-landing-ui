@@ -63,7 +63,7 @@ export const HoverEffect = ({
                 {item.title}
               </div>
             </CardTitle>
-            <CardDescription className="text-black black:text-white">
+            <CardDescription className="text-black dark:text-white">
               {item.description}
             </CardDescription>
           </Card>
