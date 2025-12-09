@@ -3,86 +3,104 @@ import { BackgroundBeams } from '@/components/ui/background-beams'
 import { HoverEffect } from '@/components/ui/card-hover-effect'
 import { HeroParallax } from '@/components/ui/hero-parallax'
 import { StickyScroll } from '@/components/ui/sticky-scroll-reveal'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
-import RadarComponent from './radar/RadarComponent'
+import { Globe } from './Globe'
 import PescaFuriosaImg from '@/public/img/pesca-furiosa.png'
 import LeninGptImg from '@/public/img/lenin-gpt.png'
 import TovariXImg from '@/public/img/tovarix.png'
-import Profile from './Profile'
-import BrandBanner from './BrandBanner'
-import { Globe } from './Globe'
+import MarvelDashboardImg from '@/public/img/MarvelDashboard.png'
+import NewcoreLandingImg from '@/public/img/newcore_landing.png'
 import FFIDImg from '@/public/img/ffidLogo.png'
 import NewcoreImg from '@/public/img/newcore.png'
 import RedeAncoraImg from '@/public/img/rede-ancora.jpg'
-import MarvelDashboardImg from '@/public/img/MarvelDashboard.png'
+import SparkImg from '@/public/img/spark.gif'
+import AtechImg from '@/public/img/atech.png'
+import AmbevImg from '@/public/img/ambev.png'
 
 export default function Landing() {
-  const techs = [
+  const capabilities = [
     {
       icon: 'mdi:react',
-      title: 'React.js',
-      description:
-        'Proficiente em desenvolvimento de aplicações web utiliando React.js e Next.js.',
-      link: 'https://stripe.com',
-    },
-    {
-      icon: 'mdi:vuejs',
-      title: 'Vue.js',
-      description:
-        'Proviciente em desenvolvimento de aplicações web utiliando Vue.js e Nuxt.js.',
-      link: 'https://stripe.com',
+      title: 'Interfaces',
+      description: 'React, Next.js e animações suaves para experiências premium.',
+      link: '#contact',
     },
     {
       icon: 'mdi:nodejs',
-      title: 'Node.js',
-      description:
-        'Proviciente em desenvolvimento de aplicações web utiliando Node.js e Express.js.',
-      link: 'https://stripe.com',
+      title: 'Plataformas',
+      description: 'APIs sólidas com Node, NestJS e bases de dados afinadas.',
+      link: '#contact',
     },
     {
       icon: 'mdi:database',
       title: 'Banco de dados',
-      description:
-        'Proviciente em desenvolvimento de aplicações web utiliando bancos de dados SQL e NoSQL.',
-      link: 'https://stripe.com',
+      description: 'SQL e NoSQL para armazenar e recuperar dados de forma eficiente.',
+      link: '#contact',
+    },
+    {
+      icon: 'mdi:api',
+      title: 'API',
+      description: 'APIs sólidas com Node, NestJS e bases de dados afinadas.',
+      link: '#contact',
     },
     {
       icon: 'mdi:cloud',
-      title: 'Cloud Computing',
-      description:
-        'Proviciente em desenvolvimento de aplicações web utiliando serviços de cloud computing.',
-      link: 'https://stripe.com',
+      title: 'Cloud',
+      description: 'Infra escalável em Vercel, AWS e contêineres bem cuidados.',
+      link: '#contact',
+    },
+    {
+      icon: 'mdi:head-snowflake-outline',
+      title: 'AI e automação',
+      description: 'Fluxos com OpenAI e pipelines que reduzem passos humanos.',
+      link: '#contact',
     },
     {
       icon: 'mdi:git',
-      title: 'Controle de versão',
-      description:
-        'Proviciente em desenvolvimento de aplicações web utiliando controle de versão com Git.',
-      link: 'https://stripe.com',
+      title: 'Entrega',
+      description: 'Repos limpos, CI/CD previsível e versionamento impecável.',
+      link: '#contact', 
+    },
+    {
+      icon: 'mdi:motion-play',
+      title: 'Motion',
+      description: 'Transições, parallax e microinterações que contam história.',
+      link: '#contact',
     },
   ]
 
   const projects = [
     {
       title: 'Lenin GPT',
-      link: '#projetos/lenin-gpt',
+      link: 'https://lenin.gaqno.com.br',
       thumbnail: LeninGptImg,
     },
     {
-      title: 'TovariX - Assistente Geral',
-      link: 'https://tovarix.vercel.app',
-      thumbnail: TovariXImg,
+      title: 'NewCore',
+      link: 'https://www.newcore.com.br',
+      thumbnail: NewcoreLandingImg,
     },
     {
-      title: 'Pesca Furiosa',
-      link: 'https://pesca-furiosa.vercel.app',
-      thumbnail: PescaFuriosaImg,
+      title: 'FFID',
+      link: 'https://www.ffid.com.br',
+      thumbnail: FFIDImg,
     },
     {
-      title: 'Marvel Dashboard',
-      link: 'https://marvel-dashboard.vercel.app',
+      title: 'Rede Ancora',
+      link: 'https://www.redeancora.com.br',
       thumbnail: RedeAncoraImg,
     },
+    {
+      title: 'ATECH',
+      link: 'https://www.atech.com.br',
+      thumbnail: AtechImg,
+    },
+    {
+      title: 'Ambev',
+      link: 'https://www.ambev.com.br',
+      thumbnail: AmbevImg,
+    }
   ]
 
   const companies = [
@@ -101,9 +119,66 @@ export default function Landing() {
       link: 'https://www.redeancora.com.br',
       thumbnail: RedeAncoraImg,
     },
+    {
+      title: 'ATECH',
+      link: 'https://www.atech.com.br',
+      thumbnail: AtechImg,
+    },
+    {
+      title: 'Ambev',
+      link: 'https://www.ambev.com.br',
+      thumbnail: AmbevImg,
+    }
   ]
 
-  const projectsDetails = [
+  const approach = [
+    {
+      title: 'Arquitetura sob medida',
+      href: 'descoberta',
+      description:
+        'Mapeio domínios, defino limites claros e escolho a pilha certa para evitar acoplamentos e retrabalho.',
+      content: (
+        <div className="h-full w-full bg-gradient-to-br from-slate-900 via-slate-800 to-black flex items-end p-6 text-white text-lg font-semibold">
+          Estruturas que sustentam o produto por anos
+        </div>
+      ),
+    },
+    {
+      title: 'Entrega contínua',
+      href: 'entrega',
+      description:
+        'CI/CD previsível, feature flags e monitoração ativa para lançar sem ruído, mesmo em jornadas longas.',
+      content: (
+        <div className="h-full w-full bg-gradient-to-br from-slate-200 via-white to-slate-100 text-black flex items-end p-6 text-lg font-semibold">
+          Lançamentos que preservam a calma do time
+        </div>
+      ),
+    },
+    {
+      title: 'Performance e UX real',
+      href: 'motion',
+      description:
+        'Core Web Vitals, acessibilidade e journeys enxutas para conversões mais altas e menos suporte.',
+      content: (
+        <div className="h-full w-full bg-gradient-to-br from-indigo-600 via-sky-500 to-cyan-400 flex items-end p-6 text-white text-lg font-semibold">
+          Ritmo rápido sem sacrificar clareza
+        </div>
+      ),
+    },
+    {
+      title: 'Motion com propósito',
+      href: 'motion-avancado',
+      description:
+        'Interações finas, parallax e microanimações que guiam atenção e reforçam a marca sem distrair.',
+      content: (
+        <div className="h-full w-full bg-gradient-to-br from-foreground via-black to-foreground flex items-end p-6 text-white text-lg font-semibold">
+          Movimento a serviço da narrativa
+        </div>
+      ),
+    },
+  ]
+
+  const workDetails = [
     {
       title: 'Lenin GPT',
       href: 'lenin-gpt',
@@ -114,206 +189,384 @@ export default function Landing() {
         { icon: 'mdi:tailwind', name: 'TailwindCSS' },
       ],
       description:
-        'LeninGPT é um chatbot usando o ChatGPT da OpenAI. Ele é capaz de responder perguntas, fazer traduções, gerar textos e muito mais. LeninGPT é a solução perfeita para quem quer ter um assistente pessoal inteligente e eficiente. LeninGPT é o exemplo de solução perfeita para quem quer ter um assistente pessoal inteligente e eficiente.',
+        'Chatbot afinado com personalidade e fluxo natural, entregando respostas claras sem engasgar.',
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+        <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-slate-900 via-slate-800 to-black">
           <Image
             src={LeninGptImg}
-            width={300}
-            height={300}
+            width={320}
+            height={320}
             className="h-full w-full object-cover"
-            alt="linear board demo"
+            alt="Lenin GPT"
           />
         </div>
       ),
     },
     {
-      title: 'TovariX',
-      href: 'tovarix',
+      title: 'ATECH',
+      href: 'atech',
       techs: [
-        { icon: 'mdi:react', name: 'React.js' },
-        { icon: 'mdi:head-snowflake-outline', name: 'OpenAI' },
-        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
-        { icon: 'mdi:nodejs', name: 'NodeJS' },
-        { icon: 'mdi:api', name: 'NestJS' },
-        { icon: 'mdi:api', name: 'Prisma ORM' },
-      ],
-      description:
-        'TovariX é uma plataforma feita para ajudar você a gerenciar suas finanças de forma simples e eficiente. Com TovariX, você pode controlar suas despesas, fazer orçamentos, planejar investimentos e muito mais. TovariX é a solução perfeita para quem quer ter controle total sobre suas finanças. TovariX é a solução perfeita para quem quer ter controle total sobre suas finanças.',
-      content: (
-        <div className="h-full w-full  flex items-center justify-center text-white">
-          <Image
-            src={TovariXImg}
-            width={300}
-            height={300}
-            className="h-full w-full object-cover"
-            alt="linear board demo"
-          />
-        </div>
-      ),
-    },
-    {
-      title: 'Pesca Furiosa',
-      href: 'pesca-furiosa',
-      techs: [
-        { icon: 'mdi:vuejs', name: 'Vue 3' },
-        { icon: 'mdi:nuxt', name: 'Nuxt 3' },
-        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
-        { icon: 'mdi:graphql', name: 'GraphQL' },
-        { icon: 'logos:datocms', name: 'DatoCMS' },
-      ],
-      description:
-        'Pesca Furiosa é um e-commerce conectado com um CMS, sendo possível conectar no Mercado Livre e Mercado Pago. Construido usando Nuxt 3 e GraphQL, em conjunto do DatoCMS. Utiliza TailwindCSS para estilização de compontes.',
-      content: (
-        <div className="h-full w-full  flex items-center justify-center text-white">
-          <Image
-            src={PescaFuriosaImg}
-            width={300}
-            height={300}
-            className="h-full w-full object-cover"
-            alt="linear board demo"
-          />
-        </div>
-      ),
-    },
-    {
-      title: 'Marvel Dashboard',
-      href: 'marvel-dashboard',
-      techs: [
-        { icon: 'mdi:vuejs', name: 'Vue 3' },
-        { icon: 'mdi:nuxt', name: 'Nuxt 3' },
-        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
-      ],
-      description:
-        'Desenvolva um dashboard dinâmico e interativo utilizando a MarvelAPI como fonte de dados. Explore um vasto universo de personagens, quadrinhos e séries da Marvel, tudo em uma única plataforma. Navegue facilmente pelos heróis e vilões favoritos, descubra as últimas edições de quadrinhos e acompanhe as séries mais emocionantes. Com uma interface intuitiva e visualmente cativante, mergulhe fundo no universo Marvel e mantenha-se atualizado com as últimas novidades e lançamentos.',
-      content: (
-        <div className="h-full w-full  flex items-center justify-center text-white">
-          <Image
-            src={MarvelDashboardImg}
-            width={300}
-            height={300}
-            className="h-full w-full object-cover"
-            alt="linear board demo"
-          />
-        </div>
-      ),
-    },
-    {
-      title: 'Novidades em breve...',
-      description: '',
-    },
-  ]
-
-  const companiesDetails = [
-    {
-      title: 'NEWCORE',
-      href: 'https://newcore.com.br/',
-      techs: [
-        { icon: 'mdi:react', name: 'React.js' },
         { icon: 'mdi:angular', name: 'Angular' },
         { icon: 'mdi:nodejs', name: 'Node.js' },
-        { icon: 'file-icons:nestjs', name: 'Nest.js' },
-        { icon: 'mdi:database-export-outline', name: 'TypeORM' },
-        { icon: 'material-symbols:view-kanban-outline', name: 'Kanban' },
+        { icon: 'mdi:database', name: 'PostgreSQL' },
+        { icon: 'mdi:api', name: 'RESTful API' },
+        { icon: 'mdi:cloud', name: 'Cloudflare' },
       ],
       description:
-        'Na Newcore, uma startup que desenvolve um aplicativo para auxiliar corretores a fechar vendas e captar leads, eu era desenvolvedor responsável por novas ferramentas e correções no CRM e backoffice.',
+        'Projeto de acompanhamento de projetos e gestão de equipe.',
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+        <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-indigo-600 via-sky-500 to-cyan-400">
           <Image
-            src={NewcoreImg}
-            width={300}
-            height={300}
+            src={AtechImg}
+            width={320}
+            height={320}
             className="h-full w-full object-cover"
-            alt="linear board demo"
+            alt="ATECH"
+          />
+        </div>
+      ),
+    },
+    {
+      title: 'NewCore',
+      href: 'newcore',
+      techs: [
+        { icon: 'mdi:angular', name: 'Angular' },
+        { icon: 'mdi:react', name: 'React' },
+        { icon: 'mdi:nestjs', name: 'NestJS' },
+        { icon: 'mdi:database', name: 'PostgreSQL' },
+        { icon: 'mdi:api', name: 'RESTful API' },
+        { icon: 'mdi:cloud', name: 'Vercel' },
+        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
+      ],
+      description:
+        'E-commerce com CMS e integrações para catálogo vivo e checkouts rápidos.',
+      content: (
+        <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-indigo-600 via-sky-500 to-cyan-400">
+          <Image
+            src={NewcoreLandingImg}
+            width={320}
+            height={320}
+            className="h-full w-full object-cover"
+            alt="NewCore"
           />
         </div>
       ),
     },
     {
       title: 'FFID',
-      href: 'https://ffid.com.br/',
+      href: 'ffid',
       techs: [
-        { icon: 'mdi:vuejs', name: 'Vue 2' },
+        { icon: 'mdi:vuejs', name: 'Vue 3' },
         { icon: 'mdi:nuxt', name: 'Nuxt 3' },
+        { icon: 'mdi:database', name: 'PostgreSQL' },
+        { icon: 'mdi:api', name: 'RESTful API' },
+        { icon: 'mdi:cloud', name: 'Vercel' },
         { icon: 'mdi:tailwind', name: 'TailwindCSS' },
-        { icon: 'material-symbols:view-kanban-outline', name: 'Kanban' },
       ],
       description:
-        'A FFID é uma plataforma que oferece serviços de disparo de mensagens e outras ferramentas para ajudar empresas a se comunicar com seus clientes. Como desenvolvedor na empresa, minha principal responsabilidade é desenvolver correções e features em todas as plataformas da empresa.',
+        'Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos.',
       content: (
-        <div className="h-full w-full  flex items-center justify-center text-white">
+        <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-slate-900 via-slate-800 to-black">
           <Image
             src={FFIDImg}
-            width={300}
-            height={300}
+            width={320}
+            height={320}
             className="h-full w-full object-cover"
-            alt="linear board demo"
+            alt='FFID'
           />
         </div>
       ),
     },
     {
       title: 'Rede Ancora',
-      href: 'https://www.redeancora.com.br/',
+      href: 'rede-ancora',
       techs: [
-        { icon: 'mdi:react', name: 'React.js' },
-        { icon: 'mdi:language-javascript', name: 'JavaScript Vanilla' },
+        { icon: 'mdi:angular', name: 'Angular' },
+        { icon: 'mdi:react', name: 'React' },
+        { icon: 'mdi:nestjs', name: 'NestJS' },
+        { icon: 'mdi:database', name: 'PostgreSQL' },
+        { icon: 'mdi:api', name: 'RESTful API' },
+        { icon: 'mdi:cloud', name: 'Vercel' },
         { icon: 'mdi:tailwind', name: 'TailwindCSS' },
-        { icon: 'mdi:git', name: 'Git' },
-        { icon: 'teenyicons:docker-outline', name: 'Docker' },
-        { icon: 'material-symbols:view-kanban-outline', name: 'Kanban' },
       ],
       description:
-        'A Rede ANCORA possui mais de 20 anos de atuação no mercado de autopeças e, atualmente é conhecida como uma das únicas redes de distribuição para franqueados no Brasil, sendo também uma das maiores distribuidoras do país, com parcerias entre os maiores fabricantes de reposição de autopeças do mundo.',
+        'Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos.',
       content: (
-        <div className="h-full w-full  flex items-center justify-center text-white">
+        <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-slate-900 via-slate-800 to-black">
           <Image
             src={RedeAncoraImg}
-            width={300}
-            height={300}
+            width={320}
+            height={320}
             className="h-full w-full object-cover"
-            alt="linear board demo"
+            alt="Rede Ancora"
           />
         </div>
       ),
     },
     {
-      title: '',
-      description: '',
+      title: 'Ambev',
+      href: 'ambev',
+      techs: [
+        { icon: 'mdi:angular', name: 'Angular' },
+        { icon: 'mdi:react', name: 'React' },
+        { icon: 'mdi:nestjs', name: 'NestJS' },
+        { icon: 'mdi:database', name: 'PostgreSQL' },
+        { icon: 'mdi:api', name: 'RESTful API' },
+        { icon: 'mdi:cloud', name: 'Vercel' },
+        { icon: 'mdi:tailwind', name: 'TailwindCSS' },
+      ],
+      description:
+        'Site institucional com CMS e integrações para catálogo vivo e checkouts rápidos.',
+      content: (
+        <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-slate-900 via-slate-800 to-black">
+          <Image
+            src={AmbevImg}
+            width={320}
+            height={320}
+            className="h-full w-full object-cover"
+            alt="Ambev"
+          />
+        </div>
+      ),
     },
   ]
 
   return (
-    <div>
-      <BackgroundBeams />
-      <BrandBanner />
-      <Profile />
-      <HoverEffect items={techs} />
-      <HeroParallax
-        id="projetos"
-        title="Projetos"
-        description="Conheça alguns projetos que já desenvolvi."
-        products={projects}
-      />
-      <StickyScroll id="projetos" content={projectsDetails} />
-      <Globe />
-      <iframe
-        src="https://cert.efset.org/Nf7zLt"
-        title="EFSET Certificate"
-        width="100%"
-        height="728px"
-        className="p-10 md:px-40 rounded"
-        style={{ border: 'none' }}
-      />
-      <HeroParallax
-        id="caminho"
-        title="Meu caminho"
-        description="Conheça algumas empresas e startups "
-        products={companies}
-      />
-      <StickyScroll id="projetos" content={companiesDetails} />
-      <RadarComponent />
+    <div className="relative overflow-hidden bg-background text-foreground">
+      <div className="absolute inset-0">
+        <BackgroundBeams />
+      </div>
+
+      <section
+        id="hero"
+        className="relative max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-2 gap-12 items-end"
+      >
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              Fullstack · Produto · Motion
+            </p>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight"
+            >
+              Software sereno para ideias ambiciosas.
+            </motion.h1>
+            <p className="text-lg md:text-xl text-muted-foreground">
+              Experiências digitais com estética precisa, copy enxuta e
+              entregas seguras. Do conceito à produção, sem ruído.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="#work"
+              className="rounded-full bg-foreground text-background px-5 py-3 text-sm font-medium hover:-translate-y-0.5 transition"
+            >
+              Ver trabalhos
+            </a>
+            <a
+              href="#approach"
+              className="rounded-full border border-foreground/30 px-5 py-3 text-sm font-medium hover:border-foreground transition"
+            >
+              Como entrego
+            </a>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              Disponível para novos projetos
+            </div>
+          </div>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative"
+        >
+          <div className="rounded-[32px] border border-foreground/10 bg-gradient-to-br from-foreground to-black text-background p-8 shadow-2xl">
+            <div className="flex items-center justify-between text-sm">
+              <span className="uppercase tracking-[0.2em] text-white/70">
+                Perfil
+              </span>
+              <span className="rounded-full bg-white/10 px-3 py-1 text-white">
+                Gabriel Aquino
+              </span>
+            </div>
+            <div className="mt-10 space-y-6">
+              <div className="flex items-center gap-3">
+                <span className="h-3 w-3 rounded-full bg-emerald-400" />
+                <span className="text-white/80">
+                  5+ anos entregando produtos que encantam e escalam
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="h-3 w-3 rounded-full bg-cyan-400" />
+                <span className="text-white/80">
+                  React, Next.js, Vue, Node, NestJS, OpenAI, GraphQL
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="h-3 w-3 rounded-full bg-white/60" />
+                <span className="text-white/80">
+                  Motion, microinterações e copy alinhada à marca
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-accent blur-3xl opacity-50" />
+        </motion.div>
+      </section>
+
+      <section id="expertise" className="relative max-w-6xl mx-auto px-4 pb-20">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+              Expertise
+            </p>
+            <h2 className="text-3xl md:text-4xl font-semibold mt-2">
+              Precisão técnica com estética de marca.
+            </h2>
+          </div>
+          <div className="text-muted-foreground max-w-xl">
+            Pilha moderna, decisão baseada em dados e movimento intencional para
+            uma jornada suave do usuário.
+          </div>
+        </div>
+        <HoverEffect items={capabilities} />
+      </section>
+
+      <section id="approach" className="relative max-w-6xl mx-auto px-4 pb-10">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+          Uma história guiada ao rolar.
+        </h2>
+        <StickyScroll
+          id="approach"
+          content={approach}
+        />
+      </section>
+
+      <section id="work" className="relative pb-10">
+        <HeroParallax
+          id="work"
+          title="Projetos com propósito"
+          description="Experiências digitais que misturam clareza, movimento e execução sólida."
+          products={projects}
+        />
+      </section>
+
+      <section id="cases" className="relative max-w-6xl mx-auto px-4 pb-20">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+          Detalhes que sustentam a confiança.
+        </h2>
+        <StickyScroll id="cases" content={workDetails} />
+      </section>
+
+      <section
+        id="credentials"
+        className="relative max-w-6xl mx-auto px-4 pb-20 grid lg:grid-cols-2 gap-12"
+      >
+        <div className="space-y-6">
+          <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+            Alcance
+          </p>
+          <h2 className="text-3xl md:text-4xl font-semibold">
+            Projetos rodando em múltiplos fusos, sempre em inglês avançado.
+          </h2>
+          <p className="text-muted-foreground">
+            Pronto para liderar squads internacionais, conduzir cerimônias e
+            apresentar resultados com clareza.
+          </p>
+          <a
+            href="https://cert.efset.org/Nf7zLt"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-5 py-3 text-sm font-medium hover:border-foreground transition"
+          >
+            Ver certificado EF SET C2
+          </a>
+          <div className="flex flex-wrap gap-3">
+            {companies.map((company) => (
+              <div
+                key={company.title}
+                className="flex items-center gap-3 rounded-full border border-foreground/10 px-4 py-2"
+              >
+                <Image
+                  src={company.thumbnail}
+                  alt={company.title}
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 rounded-full object-cover"
+                />
+                <div className="text-sm">
+                  <div className="font-semibold">{company.title}</div>
+                  <a
+                    href={company.link}
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    {company.link}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="rounded-3xl border border-foreground/10 bg-secondary/40 backdrop-blur p-4">
+          <Globe />
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        className="relative max-w-6xl mx-auto px-4 pb-24 flex flex-col gap-6"
+      >
+        <div className="rounded-[32px] border border-foreground/15 bg-gradient-to-br from-slate-200/80 via-slate-500/60 to-foreground text-foreground p-10 md:p-14">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="space-y-3">
+              <p className="text-sm uppercase tracking-[0.3em] text-foreground/70">
+                Próximo passo
+              </p>
+              <h3 className="text-3xl md:text-4xl font-semibold">
+                Vamos construir algo notável.
+              </h3>
+              <p className="text-foreground/80 max-w-xl">
+                Produtos que soam modernos, suaves e confiáveis. Conte a visão e
+                eu orquestro a entrega.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="mailto:gabriel.aquino@outlook.com"
+                className="rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:-translate-y-0.5 transition shadow-lg shadow-black/10"
+              >
+                Escrever agora
+              </a>
+              <a
+                href="https://wa.me/5511991610328"
+                className="rounded-full border border-foreground/30 text-foreground px-6 py-3 text-sm font-medium hover:-translate-y-0.5 transition bg-white/10 backdrop-blur"
+              >
+                Falar no WhatsApp
+              </a>
+              <a
+                href="https://www.linkedin.com/in/gaqno/"
+                className="rounded-full border border-foreground/30 text-foreground px-6 py-3 text-sm font-medium hover:-translate-y-0.5 transition bg-white/10 backdrop-blur"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 text-sm text-muted-foreground">
+          <Image
+            src={SparkImg}
+            alt="Spark"
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-full object-cover"
+          />
+          Prazo apertado? Vamos priorizar o essencial e lançar com elegância.
+        </div>
+      </section>
     </div>
   )
 }

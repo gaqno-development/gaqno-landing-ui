@@ -5,10 +5,35 @@ import { cn } from '@/utils/cn'
 import { Badge } from './badge'
 import { Icon } from '@iconify/react/dist/iconify.js'
 
+type ScrollOffset = NonNullable<Parameters<typeof useScroll>[0]>['offset']
+
+export type StickyScrollConfig = {
+  heightClass: string
+  paddingClass: string
+  usePageScroll: boolean
+  offset: ScrollOffset
+  backgroundColors: string[]
+  linearGradients: string[]
+}
+
+export const stickyScrollConfig: StickyScrollConfig = {
+  heightClass: 'h-[80rem] md:h-[120vh]',
+  paddingClass: 'p-10 md:p-16',
+  usePageScroll: false,
+  offset: ['start start', 'end end'] as const,
+  backgroundColors: ['var(--slate-900)', 'var(--black)', 'var(--slate-900)'],
+  linearGradients: [
+    'linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))',
+    'linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))',
+    'linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))',
+  ],
+}
+
 export const StickyScroll = ({
   id,
   content,
   contentClassName,
+  config,
 }: {
   id: string
   content: {
@@ -22,19 +47,20 @@ export const StickyScroll = ({
     }[]
   }[]
   contentClassName?: string
+  config?: Partial<StickyScrollConfig>
 }) => {
+  const mergedConfig = { ...stickyScrollConfig, ...config }
   const [activeCard, setActiveCard] = React.useState(0)
   const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
-    container: ref,
-    offset: ['start start', 'end start'],
-  })
+  const scrollOptions = mergedConfig.usePageScroll
+    ? { target: ref, offset: mergedConfig.offset }
+    : { container: ref, offset: mergedConfig.offset }
+  const { scrollYProgress } = useScroll(scrollOptions)
   const cardLength = content.length
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    const cardsBreakpoints = content.map((_, index) => index / cardLength)
+    const divisor = cardLength > 1 ? cardLength - 1 : 1
+    const cardsBreakpoints = content.map((_, index) => index / divisor)
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
         const distance = Math.abs(latest - breakpoint)
@@ -48,23 +74,26 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex)
   })
 
-  const backgroundColors = [
-    'var(--slate-900)',
-    'var(--black)',
-    'var(--slate-900)',
-  ]
-  const linearGradients = [
-    'linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))',
-    'linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))',
-    'linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))',
-  ]
+  const { backgroundColors, linearGradients } = mergedConfig
+
+  const containerClasses = mergedConfig.usePageScroll
+    ? cn(
+        'pl-[2em] no-scrollbar flex justify-center relative space-x-10 rounded-md',
+        mergedConfig.heightClass,
+        mergedConfig.paddingClass,
+      )
+    : cn(
+        'pl-[2em] no-scrollbar overflow-y-auto flex justify-center relative space-x-10 rounded-md',
+        mergedConfig.heightClass,
+        mergedConfig.paddingClass,
+      )
   return (
     <motion.div
       id={id}
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="pl-[2em]  no-scrollbar h-[50rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
+      className={containerClasses}
       ref={ref}
     >
       <div className="div relative flex items-start px-4">
@@ -116,11 +145,11 @@ export const StickyScroll = ({
           background: linearGradients[activeCard % linearGradients.length],
         }}
         className={cn(
-          'hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden',
+          'hidden md:block h-72 w-96 rounded-xl bg-white/90 border border-white/20 sticky top-10 overflow-hidden shadow-2xl shadow-black/20',
           contentClassName,
         )}
       >
-        {content[activeCard].content ?? null}
+        {content[activeCard]?.content ?? null}
       </motion.div>
     </motion.div>
   )

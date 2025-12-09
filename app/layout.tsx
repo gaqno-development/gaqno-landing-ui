@@ -129,7 +129,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
