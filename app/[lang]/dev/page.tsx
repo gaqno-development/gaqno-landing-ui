@@ -1,13 +1,13 @@
 import { Suspense } from 'react'
 import { Metadata } from 'next'
-import PlatformLanding from '../components/PlatformLanding'
-import { getDictionary } from '../dictionaries'
+import Landing from '../../components/Landing'
+import { getDictionary } from '../../dictionaries'
 import { Skeleton } from '@/components/ui/skeleton'
 
 export const metadata: Metadata = {
-  title: 'Início',
+  title: 'Dev',
   description:
-    'Plataforma gaqno - CRM, ERP, IA, Finance, PDV, Omnichannel e SaaS. Soluções integradas para operar e vender com inteligência.',
+    'Portfólio de gaqno - Desenvolvedor Fullstack especializado em React, Next.js, Vue.js, Node.js e NestJS. Conheça meus projetos e experiência.',
 }
 
 function Loading() {
@@ -23,7 +23,7 @@ function Loading() {
   )
 }
 
-export default async function Home({
+export default async function DevPage({
   params: { lang },
 }: {
   params: { lang: string }
@@ -32,7 +32,7 @@ export default async function Home({
 
   return (
     <Suspense fallback={<Loading />}>
-      <PlatformLanding dict={dict.platform} lang={lang} />
+      <Landing dict={dict.landing} />
     </Suspense>
   )
 }

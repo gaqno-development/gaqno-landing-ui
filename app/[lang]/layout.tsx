@@ -153,7 +153,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Navbar dict={{ ...dict.navbar, work: dict.landing.work }} />
+          <Navbar lang={params.lang} dict={{ ...dict.navbar, work: dict.landing.work, platform: dict.platform }} />
           <Analytics />
           {children}
         </ThemeProvider>

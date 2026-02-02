@@ -1,271 +1,432 @@
 {
-  "navbar": {
-    "items": {
-      "start": {
-        "label": "Home",
-        "home": "Home",
-        "who_am_i": "Who am I?",
-        "techs": "Technologies",
-        "projects": "Projects",
-        "path": "My Path",
-        "contact": "Contact"
-      },
-      "projects": "Projects"
+    "navbar": {
+        "items": {
+            "start": {
+                "label": "Home",
+                "home": "Home",
+                "products": "Products",
+                "custos": "WhatsApp Pricing",
+                "dev": "Meet the dev"
+            },
+            "projects": "Projects",
+            "dev": "Dev"
+        }
+    },
+    "platform": {
+        "navbar": {
+            "main": [
+                { "label": "Products", "href": "#produtos" },
+                { "label": "Solutions", "href": "#produtos" },
+                { "label": "Why gaqno?", "href": "#por-que" },
+                { "label": "Resources", "href": "#recursos" },
+                { "label": "Pricing", "href": "/custos" },
+                { "label": "Meet the developer", "href": "/dev" }
+            ]
+        },
+        "banner": {
+            "cta_talk": "Talk to sales",
+            "cta_start": "Start free"
+        },
+        "hero": {
+            "tagline": "Platform · Products · Solutions",
+            "title": "Where amazing customer experiences are built",
+            "description": "The gaqno platform combines CRM, Omnichannel, AI and your business data in integrated applications to operate and sell with intelligence.",
+            "cta_primary": "Start free",
+            "cta_secondary": "See what's possible",
+            "badges": ["Free trial", "No credit card required", "Flexible pricing"]
+        },
+        "products": {
+            "title": "Platform applications",
+            "description": "Ready-made modules for management, sales, support and automation. Choose what fits your business.",
+            "usage_examples_label": "Usage examples",
+            "testimonials_label": "Testimonials",
+            "items": {
+                "crm": {
+                    "description": "Centralize leads, opportunities and customer history. Visual pipelines, activities and integrated sales reports.",
+                    "features": ["Sales pipelines", "Customer history", "Activities and tasks", "Reports and dashboards", "Channel integration"],
+                    "usageExamples": ["Create lead and move through pipeline", "View customer history", "Generate sales report by period"],
+                    "testimonials": [{"quote": "The visual pipeline helped us close more deals in less time.", "author": "Sales team", "role": "B2B company"}]
+                },
+                "erp": {
+                    "description": "Inventory, purchasing and operations in one place. Control of inbound and outbound flow, suppliers and operations.",
+                    "features": ["Inventory management", "Purchasing and orders", "Suppliers", "Movements", "Operational reports"],
+                    "usageExamples": ["Receive goods and update inventory", "Create purchase order to supplier", "View movements by period"],
+                    "testimonials": [{"quote": "Inventory integrated with purchasing reduced stockouts and overstock.", "author": "Operations", "role": "Distributor"}]
+                },
+                "ia": {
+                    "description": "Chat, text generation and automation with language models. APIs ready to integrate AI into your product.",
+                    "features": ["Chat and completions", "Content generation", "Embeddings", "Response streaming", "Multiple providers"],
+                    "usageExamples": ["Send prompt and get streaming response", "Generate text or summaries via API", "Use embeddings for semantic search"],
+                    "testimonials": [{"quote": "We integrated the chat API into our product in a few days.", "author": "Product", "role": "Startup"}]
+                },
+                "rpg": {
+                    "description": "Narrative and games with AI: adventures, characters and interactive experiences. Ideal for storytelling and gamification.",
+                    "features": ["Narrative adventures", "Characters and settings", "Generative AI", "Sessions and progress", "Multiplayer"],
+                    "usageExamples": ["Create adventure and play with AI narrator", "Manage characters and sessions", "Explore settings and progress"],
+                    "testimonials": [{"quote": "Sessions with the AI narrator are immersive and fun.", "author": "Game masters", "role": "RPG community"}]
+                },
+                "finance": {
+                    "description": "Financial control with categories, entries and cash flow. Reports and consolidated view of the business.",
+                    "features": ["Cash flow", "Categories and entries", "Reports", "Multiple accounts", "Export"],
+                    "usageExamples": ["Record income and expense by category", "View projected cash flow", "Export report for analysis"],
+                    "testimonials": [{"quote": "Cash flow view helps us make decisions with confidence.", "author": "Controlling", "role": "SMB"}]
+                },
+                "pdv": {
+                    "description": "Point of sale for stores: quick sales, integrated inventory and daily cash operations.",
+                    "features": ["Sales and items", "Integrated inventory", "Register and closing", "Payment methods", "Printing"],
+                    "usageExamples": ["Register sale with items and payment method", "Open and close register per shift", "Check inventory after sales"],
+                    "testimonials": [{"quote": "Faster sales and inventory always up to date.", "author": "Store owner", "role": "Retail"}]
+                },
+                "omnichannel": {
+                    "description": "WhatsApp, unified channels, queues and AI-powered support. One inbox for all channels.",
+                    "features": ["WhatsApp and channels", "Queues and teams", "Agent assignment", "AI in support", "Metrics and SLA"],
+                    "usageExamples": ["Handle WhatsApp conversations from the queue", "Assign conversation to team or agent", "View SLA metrics by channel"],
+                    "testimonials": [{"quote": "We unified WhatsApp and email in one inbox. Support is much faster.", "author": "Customer support", "role": "E-commerce"}]
+                },
+                "saas": {
+                    "description": "Cost management, tenants and platform plans. View of usage and billing per customer.",
+                    "features": ["Multi-tenant", "Plans and costs", "Usage per app", "Consumption reports", "Billing integration"]
+                }
+            }
+        },
+        "social_proof": {
+            "title": "Companies already running on the platform",
+            "subline": "One platform, many integrated applications."
+        },
+        "cta": {
+            "title": "Ready to get started?",
+            "description": "View plans and pricing or get in touch for a custom solution.",
+            "cta_pricing": "View plans",
+            "cta_contact": "Get in touch"
+        },
+        "cta_banner": {
+            "title": "Explore solutions by product",
+            "description": "CRM, Omnichannel, Finance, POS and more. Choose what fits your business and get started in days.",
+            "cta_primary": "View plans",
+            "cta_secondary": "Talk to sales"
+        },
+        "cta_final": {
+            "title": "TL;DR: Don't wait for the future. Build it.",
+            "description": "gaqno offers the tools to connect digital experiences across any channel, access to your business data, and AI for efficient work. All in one platform with flexible pay-as-you-go pricing.",
+            "cta_pricing": "See pricing",
+            "cta_contact": "Start free"
+        },
+        "carousel": {
+            "title": "What they say about the platform",
+            "items": [
+                { "quote": "The visual pipeline helped us close more deals in less time.", "author": "Sales team", "role": "B2B company" },
+                { "quote": "We unified WhatsApp and email in one inbox. Support is much faster.", "author": "Customer support", "role": "E-commerce" },
+                { "quote": "Cash flow view helps us make decisions with confidence.", "author": "Controlling", "role": "SMB" },
+                { "quote": "We integrated the chat API into our product in a few days.", "author": "Product", "role": "Startup" },
+                { "quote": "Faster sales and inventory always up to date.", "author": "Store owner", "role": "Retail" }
+            ]
+        },
+        "contact": {
+            "tagline": "Next step",
+            "title": "Get in touch.",
+            "description": "Questions about the platform or want a quote? Contact us.",
+            "cta_email": "Send email",
+            "cta_whatsapp": "WhatsApp",
+            "footer_note": "Quick response. We'll find the best solution for you."
+        },
+        "footer": {
+            "tagline": "gaqno platform",
+            "title": "Solutions for your business",
+            "description": "CRM, ERP, AI, Finance, POS, Omnichannel and SaaS. One platform, many applications.",
+            "quick_links": {
+                "title": "Quick links",
+                "items": [
+                    { "label": "Home", "href": "/" },
+                    { "label": "Dev", "href": "/dev" },
+                    { "label": "Pricing", "href": "/custos" }
+                ]
+            },
+            "contact_info": {
+                "title": "Contact",
+                "email": "gabriel.aquino@outlook.com",
+                "phone": "+55 11 99161-0328"
+            },
+            "social": {
+                "title": "Social"
+            },
+            "copyright": "© 2024 gaqno development. All rights reserved."
+        }
+    },
+    "landing": {
+        "hero": {
+            "tagline": "Fullstack · Product · Motion",
+            "title": "Serene software for ambitious ideas.",
+            "description": "Digital experiences with precise aesthetics, lean copy, and secure delivery. From concept to production, without noise.",
+            "cta_work": "See work",
+            "cta_process": "My process",
+            "available": "Available for new projects",
+            "profile": {
+                "title": "Profile",
+                "name": "Gabriel Aquino",
+                "role": "Fullstack Developer",
+                "experience": "5+ years delivering products that delight and scale",
+                "stack": "React, Next.js, Vue, Node, NestJS, OpenAI, GraphQL",
+                "skills": "Motion, micro-interactions, and brand-aligned copy"
+            }
+        },
+        "about": {
+            "tagline": "About",
+            "title": "Who I am",
+            "description": "Fullstack developer passionate about creating digital products that combine technical excellence with thoughtful design.",
+            "background": {
+                "title": "My journey",
+                "content": "With over 5 years of experience, I transform ideas into functional and elegant digital products. I work with international teams, leading projects from conception to delivery, always prioritizing quality, performance, and user experience."
+            },
+            "presentation": {
+                "title": "Presentation",
+                "description": "A bit more about my journey and how I work.",
+                "date": "Created on April 23, 2023"
+            },
+            "education": {
+                "title": "Education",
+                "items": [
+                    {
+                        "institution": "Universidade Cruzeiro do Sul",
+                        "degree": "Technology in Artificial Intelligence",
+                        "period": "Mar 2024 - Dec 2026"
+                    },
+                    {
+                        "institution": "Centro Universitário FAM",
+                        "degree": "Information Systems",
+                        "period": "In progress"
+                    }
+                ]
+            },
+            "achievements": {
+                "title": "Achievements",
+                "items": [
+                    {
+                        "title": "EF SET C1 Advanced",
+                        "description": "English proficiency certification (advanced level)"
+                    },
+                    {
+                        "title": "International projects",
+                        "description": "Experience working with global teams and clients from multiple countries"
+                    },
+                    {
+                        "title": "Products in production",
+                        "description": "Multiple digital products running in production, serving thousands of users"
+                    }
+                ]
+            }
+        },
+        "experience": {
+            "tagline": "Experience",
+            "title": "Professional journey",
+            "description": "Years of experience building digital products in companies of different sizes and sectors.",
+            "labels": {
+                "responsibilities": "Responsibilities:",
+                "technologies": "Technologies:"
+            },
+            "items": [
+                {
+                    "company": "Rede ANCORA",
+                    "role": "Mid-level Front-end Developer",
+                    "period": "Aug 2023 - Oct 2025 · 2 yrs 3 mos",
+                    "location": "São Paulo, Brazil · Remote",
+                    "description": "Rede ANCORA has over 20 years of experience in the auto parts market and is currently known as one of the only distribution networks for franchisees in Brazil, also being one of the largest distributors in the country, with partnerships among the world's largest auto parts replacement manufacturers.",
+                    "responsibilities": [
+                        "Maintenance of legacy HandlebarsJS systems",
+                        "Creation of company Design System",
+                        "Porting systems to React environment",
+                        "Porting to micro-frontends structure using Federation",
+                        "Creation of back-office modules using these implemented technologies"
+                    ],
+                    "technologies": [
+                        "React",
+                        "HandlebarsJS",
+                        "Module Federation",
+                        "Design System",
+                        "Micro-frontends"
+                    ]
+                },
+                {
+                    "company": "FFID - Inteligência Digital",
+                    "role": "Mid-level Front-end Developer",
+                    "period": "Nov 2022 - Aug 2023 · 10 mos",
+                    "location": "São Paulo, Brazil · Remote",
+                    "description": "FFID is a platform that offers message sending services and other tools to help companies communicate with their customers.",
+                    "responsibilities": [
+                        "Development of fixes and features across all company platforms",
+                        "Work on portal migration to a new version",
+                        "Use of modern technologies such as AWS, TailwindCSS, Vue, Nuxt 3, TypeScript and Node"
+                    ],
+                    "technologies": [
+                        "Vue",
+                        "Nuxt 3",
+                        "TypeScript",
+                        "Node.js",
+                        "AWS",
+                        "TailwindCSS"
+                    ]
+                },
+                {
+                    "company": "NEWCORE",
+                    "role": "Mid-level Fullstack Developer",
+                    "period": "Dec 2021 - Nov 2022 · 1 yr",
+                    "location": "São Paulo, Brazil",
+                    "description": "Startup that develops an application to help brokers close sales and capture leads.",
+                    "responsibilities": [
+                        "Development of new tools and fixes in CRM and backoffice",
+                        "Use of technologies such as React, React Native, TypeScript, Node, Angular, NestJS, Docker, DataDog and Google Cloud"
+                    ],
+                    "technologies": [
+                        "React",
+                        "React Native",
+                        "TypeScript",
+                        "Node.js",
+                        "Angular",
+                        "NestJS",
+                        "Docker",
+                        "DataDog",
+                        "Google Cloud"
+                    ]
+                },
+                {
+                    "company": "ATECH",
+                    "role": "Front-end Developer",
+                    "period": "Previous period",
+                    "location": "São Paulo, Brazil",
+                    "description": "Dashboard for mission management developed in Angular.",
+                    "responsibilities": [
+                        "Creation of pages consuming backend APIs",
+                        "Development of interfaces for mission management"
+                    ],
+                    "technologies": ["Angular", "TypeScript", "RESTful API"]
+                }
+            ]
+        },
+        "expertise": {
+            "tagline": "Expertise",
+            "title": "Technical precision with brand aesthetics.",
+            "description": "Modern stack, data-driven decisions, and intentional motion for a smooth user journey.",
+            "capabilities": [
+                {
+                    "title": "Interfaces",
+                    "description": "React, Next.js, and smooth animations for premium experiences."
+                },
+                {
+                    "title": "Platforms",
+                    "description": "Solid APIs with Node, NestJS, and tuned databases."
+                },
+                {
+                    "title": "Database",
+                    "description": "SQL and NoSQL to store and retrieve data efficiently."
+                },
+                {
+                    "title": "API",
+                    "description": "Solid APIs with Node, NestJS, and tuned databases."
+                },
+                {
+                    "title": "Cloud",
+                    "description": "Scalable infra on Vercel, AWS, and well-maintained containers."
+                },
+                {
+                    "title": "AI & Automation",
+                    "description": "Flows with OpenAI and pipelines that reduce human steps."
+                },
+                {
+                    "title": "Delivery",
+                    "description": "Clean repos, predictable CI/CD, and impeccable versioning."
+                },
+                {
+                    "title": "Motion",
+                    "description": "Transitions, parallax, and micro-interactions that tell a story."
+                }
+            ]
+        },
+        "approach": {
+            "title": "A story guided by scrolling.",
+            "items": [
+                {
+                    "title": "Tailored Architecture",
+                    "description": "I map domains, define clear boundaries, and choose the right stack to avoid coupling and rework.",
+                    "highlight": "Structures that sustain the product for years"
+                },
+                {
+                    "title": "Continuous Delivery",
+                    "description": "Predictable CI/CD, feature flags, and active monitoring to launch without noise, even on long journeys.",
+                    "highlight": "Launches that preserve the team's calm"
+                },
+                {
+                    "title": "Performance & Real UX",
+                    "description": "Core Web Vitals, accessibility, and lean journeys for higher conversions and less support.",
+                    "highlight": "Fast pace without sacrificing clarity"
+                },
+                {
+                    "title": "Purposeful Motion",
+                    "description": "Fine interactions, parallax, and micro-animations that guide attention and reinforce the brand without distraction.",
+                    "highlight": "Movement in service of the narrative"
+                }
+            ]
+        },
+        "work": {
+            "title": "Purposeful Projects",
+            "description": "Digital experiences that blend clarity, motion, and solid execution.",
+            "details_title": "Details that build trust.",
+            "items": {
+                "lenin": {
+                    "description": "Own Large Language Model (LLM) trained on lots of books using graphs and Neo4j. Chatbot tuned with personality and natural flow, delivering clear answers without stuttering."
+                },
+                "atech": {
+                    "description": "Project tracking and team management platform."
+                },
+                "newcore": {
+                    "description": "Application for brokers with CRM and backoffice developed in React, React Native and NestJS, with monitoring via DataDog and deployment on Google Cloud."
+                },
+                "ffid": {
+                    "description": "Message sending platform migrated to Vue 3 and Nuxt 3, with AWS infrastructure and modern interface with TailwindCSS."
+                },
+                "rede_ancora": {
+                    "description": "Legacy systems modernized to React, Design System implemented and micro-frontends architecture with Module Federation for auto parts distribution."
+                },
+                "ambev": {
+                    "description": "Corporate site with CMS and integrations for live catalog and fast checkouts."
+                }
+            }
+        },
+        "credentials": {
+            "tagline": "Reach",
+            "title": "Advanced English",
+            "description": "I can communicate in English fluently, both in writing and speaking, which allows me to work with people from different parts of the world.",
+            "cta_efset": "See EF SET C1 Advanced certificate"
+        },
+        "contact": {
+            "tagline": "Next Step",
+            "title": "Let's build something remarkable.",
+            "description": "Products that sound modern, smooth, and reliable. Tell me the vision, and I'll orchestrate the delivery.",
+            "cta_email": "Write now",
+            "cta_whatsapp": "Chat on WhatsApp",
+            "footer_note": "Tight deadline? No problem. Let's focus on what matters and deliver with quality."
+        },
+        "footer": {
+            "tagline": "Let's talk",
+            "title": "Ready to start your next project?",
+            "description": "I'm available for new challenges. Get in touch and let's turn your ideas into reality.",
+            "quick_links": {
+                "title": "Quick links",
+                "items": [
+                    { "label": "Home", "href": "#" },
+                    { "label": "About", "href": "#sobre" },
+                    { "label": "Experience", "href": "#caminho" },
+                    { "label": "Projects", "href": "#work" },
+                    { "label": "Contact", "href": "#contact" }
+                ]
+            },
+            "contact_info": {
+                "title": "Contact",
+                "email": "gabriel.aquino@outlook.com",
+                "phone": "+55 11 99161-0328"
+            },
+            "social": {
+                "title": "Social media"
+            },
+            "copyright": "© 2024 Gabriel Aquino. All rights reserved."
+        }
     }
-  },
-  "landing": {
-    "hero": {
-      "tagline": "Fullstack · Product · Motion",
-      "title": "Serene software for ambitious ideas.",
-      "description": "Digital experiences with precise aesthetics, lean copy, and secure delivery. From concept to production, without noise.",
-      "cta_work": "See work",
-      "cta_process": "My process",
-      "available": "Available for new projects",
-      "profile": {
-        "title": "Profile",
-        "name": "Gabriel Aquino",
-        "role": "Fullstack Developer",
-        "experience": "5+ years delivering products that delight and scale",
-        "stack": "React, Next.js, Vue, Node, NestJS, OpenAI, GraphQL",
-        "skills": "Motion, micro-interactions, and brand-aligned copy"
-      }
-    },
-    "about": {
-      "tagline": "About",
-      "title": "Who I am",
-      "description": "Fullstack developer passionate about creating digital products that combine technical excellence with thoughtful design.",
-      "background": {
-        "title": "My journey",
-        "content": "With over 5 years of experience, I transform ideas into functional and elegant digital products. I work with international teams, leading projects from conception to delivery, always prioritizing quality, performance, and user experience."
-      },
-      "presentation": {
-        "title": "Presentation",
-        "description": "A bit more about my journey and how I work.",
-        "date": "Created on April 23, 2023"
-      },
-      "education": {
-        "title": "Education",
-        "items": [
-          {
-            "institution": "Universidade Cruzeiro do Sul",
-            "degree": "Technology in Artificial Intelligence",
-            "period": "Mar 2024 - Dec 2026"
-          },
-          {
-            "institution": "Centro Universitário FAM",
-            "degree": "Information Systems",
-            "period": "In progress"
-          }
-        ]
-      },
-      "achievements": {
-        "title": "Achievements",
-        "items": [
-          {
-            "title": "EF SET C1 Advanced",
-            "description": "English proficiency certification (advanced level)"
-          },
-          {
-            "title": "International projects",
-            "description": "Experience working with global teams and clients from multiple countries"
-          },
-          {
-            "title": "Products in production",
-            "description": "Multiple digital products running in production, serving thousands of users"
-          }
-        ]
-      }
-    },
-    "experience": {
-      "tagline": "Experience",
-      "title": "Professional journey",
-      "description": "Years of experience building digital products in companies of different sizes and sectors.",
-      "labels": {
-        "responsibilities": "Responsibilities:",
-        "technologies": "Technologies:"
-      },
-      "items": [
-        {
-          "company": "Rede ANCORA",
-          "role": "Mid-level Front-end Developer",
-          "period": "Aug 2023 - Oct 2025 · 2 yrs 3 mos",
-          "location": "São Paulo, Brazil · Remote",
-          "description": "Rede ANCORA has over 20 years of experience in the auto parts market and is currently known as one of the only distribution networks for franchisees in Brazil, also being one of the largest distributors in the country, with partnerships among the world's largest auto parts replacement manufacturers.",
-          "responsibilities": [
-            "Maintenance of legacy HandlebarsJS systems",
-            "Creation of company Design System",
-            "Porting systems to React environment",
-            "Porting to micro-frontends structure using Federation",
-            "Creation of back-office modules using these implemented technologies"
-          ],
-          "technologies": ["React", "HandlebarsJS", "Module Federation", "Design System", "Micro-frontends"]
-        },
-        {
-          "company": "FFID - Inteligência Digital",
-          "role": "Mid-level Front-end Developer",
-          "period": "Nov 2022 - Aug 2023 · 10 mos",
-          "location": "São Paulo, Brazil · Remote",
-          "description": "FFID is a platform that offers message sending services and other tools to help companies communicate with their customers.",
-          "responsibilities": [
-            "Development of fixes and features across all company platforms",
-            "Work on portal migration to a new version",
-            "Use of modern technologies such as AWS, TailwindCSS, Vue, Nuxt 3, TypeScript and Node"
-          ],
-          "technologies": ["Vue", "Nuxt 3", "TypeScript", "Node.js", "AWS", "TailwindCSS"]
-        },
-        {
-          "company": "NEWCORE",
-          "role": "Mid-level Fullstack Developer",
-          "period": "Dec 2021 - Nov 2022 · 1 yr",
-          "location": "São Paulo, Brazil",
-          "description": "Startup that develops an application to help brokers close sales and capture leads.",
-          "responsibilities": [
-            "Development of new tools and fixes in CRM and backoffice",
-            "Use of technologies such as React, React Native, TypeScript, Node, Angular, NestJS, Docker, DataDog and Google Cloud"
-          ],
-          "technologies": ["React", "React Native", "TypeScript", "Node.js", "Angular", "NestJS", "Docker", "DataDog", "Google Cloud"]
-        },
-        {
-          "company": "ATECH",
-          "role": "Front-end Developer",
-          "period": "Previous period",
-          "location": "São Paulo, Brazil",
-          "description": "Dashboard for mission management developed in Angular.",
-          "responsibilities": [
-            "Creation of pages consuming backend APIs",
-            "Development of interfaces for mission management"
-          ],
-          "technologies": ["Angular", "TypeScript", "RESTful API"]
-        }
-      ]
-    },
-    "expertise": {
-      "tagline": "Expertise",
-      "title": "Technical precision with brand aesthetics.",
-      "description": "Modern stack, data-driven decisions, and intentional motion for a smooth user journey.",
-      "capabilities": [
-        {
-          "title": "Interfaces",
-          "description": "React, Next.js, and smooth animations for premium experiences."
-        },
-        {
-          "title": "Platforms",
-          "description": "Solid APIs with Node, NestJS, and tuned databases."
-        },
-        {
-          "title": "Database",
-          "description": "SQL and NoSQL to store and retrieve data efficiently."
-        },
-        {
-          "title": "API",
-          "description": "Solid APIs with Node, NestJS, and tuned databases."
-        },
-        {
-          "title": "Cloud",
-          "description": "Scalable infra on Vercel, AWS, and well-maintained containers."
-        },
-        {
-          "title": "AI & Automation",
-          "description": "Flows with OpenAI and pipelines that reduce human steps."
-        },
-        {
-          "title": "Delivery",
-          "description": "Clean repos, predictable CI/CD, and impeccable versioning."
-        },
-        {
-          "title": "Motion",
-          "description": "Transitions, parallax, and micro-interactions that tell a story."
-        }
-      ]
-    },
-    "approach": {
-      "title": "A story guided by scrolling.",
-      "items": [
-        {
-          "title": "Tailored Architecture",
-          "description": "I map domains, define clear boundaries, and choose the right stack to avoid coupling and rework.",
-          "highlight": "Structures that sustain the product for years"
-        },
-        {
-          "title": "Continuous Delivery",
-          "description": "Predictable CI/CD, feature flags, and active monitoring to launch without noise, even on long journeys.",
-          "highlight": "Launches that preserve the team's calm"
-        },
-        {
-          "title": "Performance & Real UX",
-          "description": "Core Web Vitals, accessibility, and lean journeys for higher conversions and less support.",
-          "highlight": "Fast pace without sacrificing clarity"
-        },
-        {
-          "title": "Purposeful Motion",
-          "description": "Fine interactions, parallax, and micro-animations that guide attention and reinforce the brand without distraction.",
-          "highlight": "Movement in service of the narrative"
-        }
-      ]
-    },
-    "work": {
-      "title": "Purposeful Projects",
-      "description": "Digital experiences that blend clarity, motion, and solid execution.",
-      "details_title": "Details that build trust.",
-      "items": {
-        "lenin": {
-          "description": "Own Large Language Model (LLM) trained on lots of books using graphs and Neo4j. Chatbot tuned with personality and natural flow, delivering clear answers without stuttering."
-        },
-        "atech": {
-          "description": "Project tracking and team management platform."
-        },
-        "newcore": {
-          "description": "Application for brokers with CRM and backoffice developed in React, React Native and NestJS, with monitoring via DataDog and deployment on Google Cloud."
-        },
-        "ffid": {
-          "description": "Message sending platform migrated to Vue 3 and Nuxt 3, with AWS infrastructure and modern interface with TailwindCSS."
-        },
-        "rede_ancora": {
-          "description": "Legacy systems modernized to React, Design System implemented and micro-frontends architecture with Module Federation for auto parts distribution."
-        },
-        "ambev": {
-          "description": "Corporate site with CMS and integrations for live catalog and fast checkouts."
-        }
-      }
-    },
-    "credentials": {
-      "tagline": "Reach",
-      "title": "Advanced English",
-      "description": "I can communicate in English fluently, both in writing and speaking, which allows me to work with people from different parts of the world.",
-      "cta_efset": "See EF SET C1 Advanced certificate"
-    },
-    "contact": {
-      "tagline": "Next Step",
-      "title": "Let's build something remarkable.",
-      "description": "Products that sound modern, smooth, and reliable. Tell me the vision, and I'll orchestrate the delivery.",
-      "cta_email": "Write now",
-      "cta_whatsapp": "Chat on WhatsApp",
-      "footer_note": "Tight deadline? No problem. Let's focus on what matters and deliver with quality."
-    },
-    "footer": {
-      "tagline": "Let's talk",
-      "title": "Ready to start your next project?",
-      "description": "I'm available for new challenges. Get in touch and let's turn your ideas into reality.",
-      "quick_links": {
-        "title": "Quick links",
-        "items": [
-          { "label": "Home", "href": "#" },
-          { "label": "About", "href": "#sobre" },
-          { "label": "Experience", "href": "#caminho" },
-          { "label": "Projects", "href": "#work" },
-          { "label": "Contact", "href": "#contact" }
-        ]
-      },
-      "contact_info": {
-        "title": "Contact",
-        "email": "gabriel.aquino@outlook.com",
-        "phone": "+55 11 99161-0328"
-      },
-      "social": {
-        "title": "Social media"
-      },
-      "copyright": "© 2024 Gabriel Aquino. All rights reserved."
-    }
-  }
 }
-

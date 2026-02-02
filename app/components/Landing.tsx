@@ -272,7 +272,7 @@ export default function Landing({ dict }: { dict: Dictionary['landing'] }) {
                 </div>
               </div>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-6 p-6">
               <div className="flex items-center gap-3">
                 <span className="h-3 w-3 rounded-full bg-emerald-400" />
                 <span className="text-white/80">

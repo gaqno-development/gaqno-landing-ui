@@ -1,5 +1,7 @@
 'use client'
+
 import React, { useState } from 'react'
+import Link from 'next/link'
 import {
   HoveredLink,
   Menu,
@@ -14,13 +16,19 @@ import type { Dictionary } from '../types/dictionary'
 
 type NavbarProps = {
   className?: string
+  lang: string
   dict: Dictionary['navbar'] & {
     work?: Dictionary['landing']['work']
+    platform?: Dictionary['platform']
   }
 }
 
-export default function Navbar({ className, dict }: NavbarProps) {
+export default function Navbar({ className, lang, dict }: NavbarProps) {
   const [active, setActive] = useState<string | null>(null)
+  const platformNav = dict.platform?.navbar
+  const platformBanner = dict.platform?.banner
+  const showPlatformNavbar =
+    !!platformNav?.main?.length && !!platformBanner
 
   const getProjectDescription = (projectId: string): string => {
     const descriptions: Record<string, string> = {
@@ -32,6 +40,53 @@ export default function Navbar({ className, dict }: NavbarProps) {
       ambev: dict.work?.items?.ambev?.description || '',
     }
     return descriptions[projectId] || ''
+  }
+
+  if (showPlatformNavbar) {
+    return (
+      <header
+        className={cn(
+          'fixed top-0 inset-x-0 z-50 border-b border-foreground/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80',
+          className,
+        )}
+      >
+        <nav className="max-w-6xl mx-auto px-4 py-3 flex flex-row items-center justify-between gap-4">
+          <div className="flex flex-row items-center gap-6">
+            <Link
+              href={`/${lang}`}
+              className="text-sm font-semibold text-foreground hover:opacity-80 transition"
+            >
+              gaqno
+            </Link>
+            {platformNav.main.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href.startsWith('/') ? `/${lang}${item.href}` : item.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className="flex flex-row items-center gap-4">
+            <a
+              href="https://wa.me/5511991610328"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition"
+            >
+              {platformBanner.cta_talk}
+            </a>
+            <Link
+              href={`/${lang}/custos`}
+              className="rounded-full bg-foreground text-background px-4 py-2 text-sm font-medium hover:-translate-y-0.5 transition"
+            >
+              {platformBanner.cta_start}
+            </Link>
+            <LanguageToggle />
+            <DarkModeToggle />
+          </div>
+        </nav>
+      </header>
+    )
   }
 
   return (
@@ -49,21 +104,15 @@ export default function Navbar({ className, dict }: NavbarProps) {
             item={dict.items.start.label}
           >
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href={`#`}>{dict.items.start.home}</HoveredLink>
-              <HoveredLink href={`#sobre`}>
-                {dict.items.start.who_am_i}
+              <HoveredLink href={`/${lang}`}>{dict.items.start.home}</HoveredLink>
+              <HoveredLink href={`/${lang}#produtos`}>
+                {dict.items.start.products}
               </HoveredLink>
-              <HoveredLink href={`#techs`}>
-                {dict.items.start.techs}
+              <HoveredLink href={`/${lang}/custos`}>
+                {dict.items.start.custos}
               </HoveredLink>
-              <HoveredLink href={`#projetos`}>
-                {dict.items.start.projects}
-              </HoveredLink>
-              <HoveredLink href={`#caminho`}>
-                {dict.items.start.path}
-              </HoveredLink>
-              <HoveredLink href={`#contact`}>
-                {dict.items.start.contact}
+              <HoveredLink href={`/${lang}/dev`}>
+                {dict.items.start.dev}
               </HoveredLink>
             </div>
           </MenuItem>
@@ -77,7 +126,7 @@ export default function Navbar({ className, dict }: NavbarProps) {
                 <ProductItem
                   key={project.id}
                   title={project.title}
-                  href={`#projetos/${project.href}`}
+                  href={`/${lang}/dev#work`}
                   src={PROJECT_THUMBNAILS[project.id] || project.thumbnail}
                   description={getProjectDescription(project.id)}
                 />
