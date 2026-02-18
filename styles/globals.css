@@ -1,72 +1,121 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
+@source "../components/**/*.{ts,tsx}";
+@source "../app/**/*.{ts,tsx}";
+@source "../src/**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-aurora: aurora 60s linear infinite;
+  --animate-radar-spin: radar-spin 10s linear infinite;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+:root {
+  --background: hsl(0 0% 98%);
+  --foreground: hsl(225 15% 10%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(225 15% 10%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(225 15% 10%);
+  --primary: hsl(225 20% 12%);
+  --primary-foreground: hsl(0 0% 98%);
+  --secondary: hsl(0 0% 95%);
+  --secondary-foreground: hsl(225 15% 10%);
+  --muted: hsl(220 12% 92%);
+  --muted-foreground: hsl(225 10% 45%);
+  --accent: hsl(213 85% 55%);
+  --accent-foreground: hsl(0 0% 98%);
+  --destructive: hsl(0 84% 55%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(220 12% 88%);
+  --input: hsl(220 12% 88%);
+  --ring: hsl(225 20% 20%);
+  --radius: 0.5rem;
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 98%;
-    --foreground: 225 15% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 225 15% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 225 15% 10%;
-    --primary: 225 20% 12%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 225 15% 10%;
-    --muted: 220 12% 92%;
-    --muted-foreground: 225 10% 45%;
-    --accent: 213 85% 55%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84% 55%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 12% 88%;
-    --input: 220 12% 88%;
-    --ring: 225 20% 20%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 225 20% 6%;
-    --foreground: 0 0% 96%;
-    --card: 225 22% 8%;
-    --card-foreground: 0 0% 96%;
-    --popover: 225 22% 8%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 0 0% 96%;
-    --primary-foreground: 225 20% 6%;
-    --secondary: 225 18% 12%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 225 18% 12%;
-    --muted-foreground: 0 0% 75%;
-    --accent: 213 85% 60%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62% 40%;
-    --destructive-foreground: 0 0% 96%;
-    --border: 225 18% 18%;
-    --input: 225 18% 18%;
-    --ring: 213 85% 60%;
-  }
+.dark {
+  --background: hsl(225 20% 6%);
+  --foreground: hsl(0 0% 96%);
+  --card: hsl(225 22% 8%);
+  --card-foreground: hsl(0 0% 96%);
+  --popover: hsl(225 22% 8%);
+  --popover-foreground: hsl(0 0% 96%);
+  --primary: hsl(0 0% 96%);
+  --primary-foreground: hsl(225 20% 6%);
+  --secondary: hsl(225 18% 12%);
+  --secondary-foreground: hsl(0 0% 96%);
+  --muted: hsl(225 18% 12%);
+  --muted-foreground: hsl(0 0% 75%);
+  --accent: hsl(213 85% 60%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 62% 40%);
+  --destructive-foreground: hsl(0 0% 96%);
+  --border: hsl(225 18% 18%);
+  --input: hsl(225 18% 18%);
+  --ring: hsl(213 85% 60%);
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes aurora {
+  from { background-position: 50% 50%, 50% 50%; }
+  to { background-position: 350% 50%, 350% 50%; }
+}
+
+@keyframes radar-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(190deg); }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .no-visible-scrollbar {

@@ -21,11 +21,11 @@ export const stickyScrollConfig: StickyScrollConfig = {
   paddingClass: 'p-10 md:p-16',
   usePageScroll: false,
   offset: ['start start', 'end end'] as const,
-  backgroundColors: ['var(--slate-900)', 'var(--black)', 'var(--slate-900)'],
+  backgroundColors: ['var(--color-slate-900)', 'var(--color-black)', 'var(--color-slate-900)'],
   linearGradients: [
-    'linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))',
-    'linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))',
-    'linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))',
+    'linear-gradient(to bottom right, var(--color-cyan-500), var(--color-emerald-500))',
+    'linear-gradient(to bottom right, var(--color-pink-500), var(--color-indigo-500))',
+    'linear-gradient(to bottom right, var(--color-orange-500), var(--color-yellow-500))',
   ],
 }
 
