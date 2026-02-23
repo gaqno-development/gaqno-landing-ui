@@ -76,7 +76,7 @@ export function Carousel({
                 'h-2 rounded-full transition-all',
                 i === index
                   ? 'w-6 bg-primary'
-                  : 'w-2 bg-foreground/20 hover:bg-foreground/40'
+                  : 'w-2 bg-foreground/20 hover:bg-foreground/40',
               )}
             />
           ))}

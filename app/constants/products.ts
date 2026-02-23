@@ -12,7 +12,8 @@ export const PLATFORM_PRODUCTS: PlatformProduct[] = [
   {
     id: 'crm',
     name: 'CRM',
-    shortDescription: 'Gestão de relacionamento com clientes, pipelines e vendas.',
+    shortDescription:
+      'Gestão de relacionamento com clientes, pipelines e vendas.',
     icon: 'mdi:account-group',
     href: '#produto-crm',
     image: '/img/products/crm.png',
@@ -20,7 +21,8 @@ export const PLATFORM_PRODUCTS: PlatformProduct[] = [
   {
     id: 'erp',
     name: 'ERP',
-    shortDescription: 'Recursos empresariais integrados: estoque, compras e operações.',
+    shortDescription:
+      'Recursos empresariais integrados: estoque, compras e operações.',
     icon: 'mdi:package-variant',
     href: '#produto-erp',
     image: '/img/products/erp.png',
@@ -28,7 +30,8 @@ export const PLATFORM_PRODUCTS: PlatformProduct[] = [
   {
     id: 'ia',
     name: 'IA',
-    shortDescription: 'Inteligência artificial: chat, geração de conteúdo e automação.',
+    shortDescription:
+      'Inteligência artificial: chat, geração de conteúdo e automação.',
     icon: 'mdi:robot-outline',
     href: '#produto-ia',
     image: '/img/products/ia.png',
@@ -36,7 +39,8 @@ export const PLATFORM_PRODUCTS: PlatformProduct[] = [
   {
     id: 'rpg',
     name: 'RPG',
-    shortDescription: 'Narrativa e jogos com IA: aventuras e experiências interativas.',
+    shortDescription:
+      'Narrativa e jogos com IA: aventuras e experiências interativas.',
     icon: 'mdi:sword-cross',
     href: '#produto-rpg',
     image: '/img/products/rpg.png',
@@ -44,7 +48,8 @@ export const PLATFORM_PRODUCTS: PlatformProduct[] = [
   {
     id: 'finance',
     name: 'Finance',
-    shortDescription: 'Controle financeiro, categorias, relatórios e fluxo de caixa.',
+    shortDescription:
+      'Controle financeiro, categorias, relatórios e fluxo de caixa.',
     icon: 'mdi:chart-line',
     href: '#produto-finance',
     image: '/img/products/finance.png',
@@ -60,7 +65,8 @@ export const PLATFORM_PRODUCTS: PlatformProduct[] = [
   {
     id: 'omnichannel',
     name: 'Omnichannel',
-    shortDescription: 'WhatsApp, canais unificados, filas e atendimento com IA.',
+    shortDescription:
+      'WhatsApp, canais unificados, filas e atendimento com IA.',
     icon: 'mdi:message-text-multiple',
     href: '#produto-omnichannel',
     image: '/img/products/omnichannel.png',

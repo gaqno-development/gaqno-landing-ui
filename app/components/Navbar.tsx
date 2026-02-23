@@ -27,8 +27,7 @@ export default function Navbar({ className, lang, dict }: NavbarProps) {
   const [active, setActive] = useState<string | null>(null)
   const platformNav = dict.platform?.navbar
   const platformBanner = dict.platform?.banner
-  const showPlatformNavbar =
-    !!platformNav?.main?.length && !!platformBanner
+  const showPlatformNavbar = !!platformNav?.main?.length && !!platformBanner
 
   const getProjectDescription = (projectId: string): string => {
     const descriptions: Record<string, string> = {
@@ -61,7 +60,9 @@ export default function Navbar({ className, lang, dict }: NavbarProps) {
             {platformNav.main.map((item) => (
               <Link
                 key={item.label}
-                href={item.href.startsWith('/') ? `/${lang}${item.href}` : item.href}
+                href={
+                  item.href.startsWith('/') ? `/${lang}${item.href}` : item.href
+                }
                 className="text-sm text-muted-foreground hover:text-foreground transition"
               >
                 {item.label}
@@ -104,7 +105,9 @@ export default function Navbar({ className, lang, dict }: NavbarProps) {
             item={dict.items.start.label}
           >
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href={`/${lang}`}>{dict.items.start.home}</HoveredLink>
+              <HoveredLink href={`/${lang}`}>
+                {dict.items.start.home}
+              </HoveredLink>
               <HoveredLink href={`/${lang}#produtos`}>
                 {dict.items.start.products}
               </HoveredLink>

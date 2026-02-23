@@ -7,7 +7,9 @@ let locales = ['en', 'pt']
 export let defaultLocale = 'pt'
 
 function getLocale(request: NextRequest): string {
-  const headers = { 'accept-language': request.headers.get('accept-language') || '' }
+  const headers = {
+    'accept-language': request.headers.get('accept-language') || '',
+  }
   const languages = new Negotiator({ headers }).languages()
   return match(languages, locales, defaultLocale)
 }
@@ -16,7 +18,7 @@ export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl
   const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   )
 
   if (pathnameHasLocale) return
@@ -35,4 +37,3 @@ export const config = {
     '/((?!_next|img|favicon.ico|robots.txt|sitemap.xml).*)',
   ],
 }
-

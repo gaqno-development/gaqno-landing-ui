@@ -1,7 +1,12 @@
 'use client'
 
 import { cn } from '@/utils/cn'
-import { PLANS, COMPARISON_ROWS, type Plan, type ComparisonRow } from '../constants/pricing'
+import {
+  PLANS,
+  COMPARISON_ROWS,
+  type Plan,
+  type ComparisonRow,
+} from '../constants/pricing'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
@@ -14,10 +19,14 @@ function PlanCard({ plan }: { plan: Plan }) {
       )}
     >
       {plan.highlighted && (
-        <Badge className="absolute -top-2 left-1/2 -translate-x-1/2">Mais Vendido</Badge>
+        <Badge className="absolute -top-2 left-1/2 -translate-x-1/2">
+          Mais Vendido
+        </Badge>
       )}
       <div className="mb-4">
-        <h3 className="text-lg font-semibold uppercase tracking-wide text-foreground">{plan.name}</h3>
+        <h3 className="text-lg font-semibold uppercase tracking-wide text-foreground">
+          {plan.name}
+        </h3>
         <p className="text-sm text-muted-foreground">{plan.tagline}</p>
       </div>
       <p className="mb-1 text-2xl font-bold text-foreground">{plan.price}</p>
@@ -25,24 +34,50 @@ function PlanCard({ plan }: { plan: Plan }) {
         <li>{plan.users}</li>
         <li>{plan.interactionz}</li>
       </ul>
-      <p className="mb-1 text-sm font-medium text-foreground">Pacote de canais:</p>
-      <p className="mb-1 text-sm text-muted-foreground">{plan.channelPackPrice}</p>
-      <p className="mb-4 text-xs text-muted-foreground">{plan.channelPackNote}</p>
+      <p className="mb-1 text-sm font-medium text-foreground">
+        Pacote de canais:
+      </p>
+      <p className="mb-1 text-sm text-muted-foreground">
+        {plan.channelPackPrice}
+      </p>
+      <p className="mb-4 text-xs text-muted-foreground">
+        {plan.channelPackNote}
+      </p>
       <p className="mb-4 font-semibold text-foreground">
         Total: <span className="text-primary">{plan.total}</span>
       </p>
-      {plan.totalNote && <p className="mb-4 text-xs text-muted-foreground">{plan.totalNote}</p>}
-      <Button className="mt-auto w-full" variant={plan.highlighted ? 'default' : 'outline'} asChild>
+      {plan.totalNote && (
+        <p className="mb-4 text-xs text-muted-foreground">{plan.totalNote}</p>
+      )}
+      <Button
+        className="mt-auto w-full"
+        variant={plan.highlighted ? 'default' : 'outline'}
+        asChild
+      >
         <a href="#comparativo">{plan.cta}</a>
       </Button>
-      <p className="mt-4 text-center text-xs text-muted-foreground">{plan.description}</p>
+      <p className="mt-4 text-center text-xs text-muted-foreground">
+        {plan.description}
+      </p>
     </div>
   )
 }
 
 function ComparisonTable() {
-  const planIds = ['starter', 'specialist', 'expert', 'professional', 'enterprise'] as const
-  const headers = ['STARTER', 'SPECIALIST', 'EXPERT', 'PROFESSIONAL', 'ENTERPRISE']
+  const planIds = [
+    'starter',
+    'specialist',
+    'expert',
+    'professional',
+    'enterprise',
+  ] as const
+  const headers = [
+    'STARTER',
+    'SPECIALIST',
+    'EXPERT',
+    'PROFESSIONAL',
+    'ENTERPRISE',
+  ]
 
   const getCell = (row: ComparisonRow, planId: (typeof planIds)[number]) => {
     switch (planId) {
@@ -125,8 +160,8 @@ export default function CustosPage() {
             Custos WhatsApp & Omnichannel
           </h1>
           <p className="text-lg text-muted-foreground">
-            Planos com mensagens em massa, IA generativa e canais integrados. Escolha o que cabe no
-            seu negócio.
+            Planos com mensagens em massa, IA generativa e canais integrados.
+            Escolha o que cabe no seu negócio.
           </p>
         </div>
       </section>
@@ -148,7 +183,8 @@ export default function CustosPage() {
 
       <section className="container mx-auto px-4 py-12 text-center">
         <p className="text-sm text-muted-foreground">
-          Setup: R$ 649 no primeiro mês caso necessite habilitar os canais WhatsApp e/ou RCS.
+          Setup: R$ 649 no primeiro mês caso necessite habilitar os canais
+          WhatsApp e/ou RCS.
         </p>
         <Button size="lg" className="mt-6" asChild>
           <a href="#planos">Ver planos</a>

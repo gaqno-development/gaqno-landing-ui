@@ -50,11 +50,7 @@ function StaggerItem({
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 32, x }}
-      animate={
-        isInView
-          ? { opacity: 1, y: 0, x: 0 }
-          : { opacity: 0, y: 32, x }
-      }
+      animate={isInView ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 32, x }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={className}
     >
@@ -79,7 +75,6 @@ export default function PlatformLanding({ dict, lang }: PlatformLandingProps) {
 
   const basePath = `/${lang}`
   const linkHome = basePath
-  const linkDev = `${basePath}/dev`
   const linkCustos = `${basePath}/custos`
 
   return (
@@ -151,7 +146,10 @@ export default function PlatformLanding({ dict, lang }: PlatformLandingProps) {
         </SectionAnimation>
         {dict.social_proof && (
           <SectionAnimation>
-            <div id="por-que" className="mt-16 py-8 border-y border-foreground/10 text-center scroll-mt-24">
+            <div
+              id="por-que"
+              className="mt-16 py-8 border-y border-foreground/10 text-center scroll-mt-24"
+            >
               <p className="text-sm font-medium text-foreground">
                 {dict.social_proof.title}
               </p>
@@ -189,11 +187,12 @@ export default function PlatformLanding({ dict, lang }: PlatformLandingProps) {
             className="relative max-w-6xl mx-auto px-4 py-16 scroll-mt-24"
           >
             <SectionAnimation>
-              <div
-                className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
-              >
+              <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                 <div className={isEven ? '' : 'md:order-2'}>
-                  <StaggerItem direction={textDir} className="flex items-center gap-3 mb-4">
+                  <StaggerItem
+                    direction={textDir}
+                    className="flex items-center gap-3 mb-4"
+                  >
                     <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary">
                       <Icon icon={product.icon} className="h-6 w-6" />
                     </span>
@@ -224,7 +223,8 @@ export default function PlatformLanding({ dict, lang }: PlatformLandingProps) {
                   {detail?.usageExamples && detail.usageExamples.length > 0 && (
                     <StaggerItem direction={textDir} className="mt-6">
                       <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                        {dict.products.usage_examples_label ?? 'Exemplos de uso'}
+                        {dict.products.usage_examples_label ??
+                          'Exemplos de uso'}
                       </p>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
                         {detail.usageExamples.map((ex, i) => (
@@ -247,7 +247,8 @@ export default function PlatformLanding({ dict, lang }: PlatformLandingProps) {
                             key={i}
                             className="border-l-2 border-primary/30 pl-3 py-1 text-sm text-muted-foreground italic"
                           >
-                            &ldquo;{t.quote}&rdquo;
+                            &ldquo;{t.quote}
+                            &rdquo;
                             <footer className="mt-1 not-italic text-xs text-foreground">
                               — {t.author}
                               {t.role ? `, ${t.role}` : ''}

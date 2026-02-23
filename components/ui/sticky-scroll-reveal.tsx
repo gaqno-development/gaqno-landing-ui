@@ -21,7 +21,11 @@ export const stickyScrollConfig: StickyScrollConfig = {
   paddingClass: 'p-10 md:p-16',
   usePageScroll: false,
   offset: ['start start', 'end end'] as const,
-  backgroundColors: ['var(--color-slate-900)', 'var(--color-black)', 'var(--color-slate-900)'],
+  backgroundColors: [
+    'var(--color-slate-900)',
+    'var(--color-black)',
+    'var(--color-slate-900)',
+  ],
   linearGradients: [
     'linear-gradient(to bottom right, var(--color-cyan-500), var(--color-emerald-500))',
     'linear-gradient(to bottom right, var(--color-pink-500), var(--color-indigo-500))',
@@ -115,7 +119,9 @@ export const StickyScroll = ({
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                animate={{
+                  opacity: activeCard === index ? 1 : 0.3,
+                }}
                 className="text-kg text-slate-300 max-w-sm mt-10"
               >
                 {item.description}
@@ -124,7 +130,9 @@ export const StickyScroll = ({
                 <motion.span
                   key={index}
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
                   className="text-kg text-slate-300 pt-10 w-fit flex flex-row flex-wrap gap-2"
                 >
                   {item.techs.map((tech, index) => (
