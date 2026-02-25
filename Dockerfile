@@ -7,7 +7,7 @@ FROM base AS deps
 COPY package.json package-lock.json* ./
 RUN rm -rf ~/.npmrc /root/.npmrc .npmrc && \
     npm config set registry https://registry.npmjs.org/ && \
-    npm ci --legacy-peer-deps --no-audit
+    npm install --legacy-peer-deps --no-audit
 
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
@@ -37,4 +37,3 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
 CMD ["npm", "start"]
-
