@@ -1,0 +1,6 @@
+npm warn Unknown user config "//pkgs.dev.azure.com/ab-inbev/GHQ_B". This will stop working in the next major version of npm.
+
+> gaqno_landing@0.1.0 test
+> echo "No tests"
+
+No tests
