@@ -428,5 +428,22 @@
             },
             "copyright": "© 2024 Gabriel Aquino. Todos os direitos reservados."
         }
+    },
+    "admin": {
+        "organization": "Organização",
+        "users": "Usuários",
+        "integrations": "Integrações",
+        "audit": "Auditoria",
+        "settings": "Configurações"
+    },
+    "ai": {
+        "social": "Social",
+        "studio": "Studio"
+    },
+    "intelligence": {
+        "analytics": "Análises",
+        "forecasts": "Previsões",
+        "insights": "Insights",
+        "automation": "Automação"
     }
 }
