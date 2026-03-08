@@ -18,7 +18,7 @@
     "platform": {
         "navbar": {
             "main": [
-                { "label": "Produtos", "href": "#produtos" },
+                { "label": "Produtos", "href": "/#produtos" },
                 { "label": "CRM", "href": "/crm" },
                 { "label": "Omnichannel", "href": "/omnichannel" },
                 { "label": "Matriz", "href": "/price-matrix" },
