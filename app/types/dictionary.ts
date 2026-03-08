@@ -27,6 +27,8 @@ export type Dictionary = {
                 products: string;
                 custos: string;
                 dev: string;
+                crm?: string;
+                omnichannel?: string;
             };
             projects: string;
             dev: string;

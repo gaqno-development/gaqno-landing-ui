@@ -108,6 +108,16 @@ export default function Navbar({ className, lang, dict }: NavbarProps) {
               <HoveredLink href={`/${lang}#produtos`}>
                 {dict.items.start.products}
               </HoveredLink>
+              {dict.items.start.crm && (
+                <HoveredLink href={`/${lang}/crm`}>
+                  {dict.items.start.crm}
+                </HoveredLink>
+              )}
+              {dict.items.start.omnichannel && (
+                <HoveredLink href={`/${lang}/omnichannel`}>
+                  {dict.items.start.omnichannel}
+                </HoveredLink>
+              )}
               <HoveredLink href={`/${lang}/custos`}>
                 {dict.items.start.custos}
               </HoveredLink>

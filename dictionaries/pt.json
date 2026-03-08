@@ -6,7 +6,9 @@
                 "home": "Início",
                 "products": "Produtos",
                 "custos": "Custos WhatsApp",
-                "dev": "Conheça o dev"
+                "dev": "Conheça o dev",
+                "crm": "CRM",
+                "omnichannel": "Omnichannel"
             },
             "projects": "Projetos",
             "dev": "Dev"
@@ -16,9 +18,9 @@
         "navbar": {
             "main": [
                 { "label": "Produtos", "href": "#produtos" },
-                { "label": "Soluções", "href": "#produtos" },
+                { "label": "CRM", "href": "/crm" },
+                { "label": "Omnichannel", "href": "/omnichannel" },
                 { "label": "Por que a gaqno?", "href": "#por-que" },
-                { "label": "Recursos", "href": "#recursos" },
                 { "label": "Preços", "href": "/custos" },
                 { "label": "Conheça o desenvolvedor", "href": "/dev" }
             ]
