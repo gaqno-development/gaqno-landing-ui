@@ -429,6 +429,138 @@
             "copyright": "© 2024 Gabriel Aquino. Todos os direitos reservados."
         }
     },
+    "omnichannel": {
+        "hero": {
+            "tagline": "WhatsApp · Instagram · Email · SMS · Webchat",
+            "title": "Atenda seus clientes onde eles estiverem.",
+            "description": "Unifique todos os canais de atendimento em uma única plataforma. Chatbots com IA, filas inteligentes, disparos em massa e relatórios em tempo real — tudo integrado.",
+            "trial_badge": "Teste grátis por 7 dias. Sem cartão de crédito.",
+            "cta_primary": "Começar agora",
+            "cta_secondary": "Falar com especialista"
+        },
+        "form": {
+            "coupon_label": "Tenho um cupom",
+            "coupon_placeholder": "gaqno_omni",
+            "name_label": "Nome",
+            "name_placeholder": "como gostaria de ser chamado",
+            "email_label": "E-mail corporativo",
+            "email_placeholder": "nome@minhaempresa.com.br",
+            "phone_label": "Número de celular",
+            "phone_placeholder": "Número com DDD",
+            "company_label": "Empresa",
+            "company_placeholder": "Nome da empresa",
+            "password_label": "Senha",
+            "password_placeholder": "************",
+            "submit": "Criar conta grátis",
+            "email_optin": "receber novidades por e-mail",
+            "whatsapp_optin": "receber dicas por WhatsApp",
+            "consent": "Ao prosseguir você concorda com os termos de uso e a política de privacidade da Gaqno."
+        },
+        "channels": {
+            "title": "Todos os canais, uma única plataforma",
+            "subtitle": "Conecte e gerencie as conversas dos seus clientes em qualquer canal de forma centralizada.",
+            "items": [
+                { "icon": "mdi:whatsapp", "label": "WhatsApp Business" },
+                { "icon": "mdi:instagram", "label": "Instagram" },
+                { "icon": "mdi:facebook", "label": "Facebook Messenger" },
+                { "icon": "mdi:email-outline", "label": "E-mail" },
+                { "icon": "mdi:message-text-outline", "label": "SMS" },
+                { "icon": "mdi:chat-outline", "label": "Webchat" },
+                { "icon": "mdi:robot-outline", "label": "RCS" },
+                { "icon": "mdi:api", "label": "API Aberta" }
+            ]
+        },
+        "features": {
+            "title": "Tudo que você precisa para encantar clientes em escala",
+            "subtitle": "Recursos poderosos para vendas, suporte e marketing omnichannel.",
+            "cta": "ver todos os recursos",
+            "items": [
+                {
+                    "icon": "mdi:robot-happy-outline",
+                    "title": "Chatbots com IA Generativa",
+                    "description": "Crie bots inteligentes que respondem com linguagem natural, usam documentos como base de conhecimento e transferem para humanos quando necessário."
+                },
+                {
+                    "icon": "mdi:send-circle-outline",
+                    "title": "Disparos em Massa",
+                    "description": "Envie campanhas segmentadas para milhares de contatos via WhatsApp, SMS ou e-mail com rastreamento de entrega e abertura."
+                },
+                {
+                    "icon": "mdi:inbox-multiple-outline",
+                    "title": "Caixa de Entrada Unificada",
+                    "description": "Todos os canais em um único painel. Seus agentes atendem WhatsApp, e-mail e chat sem trocar de tela."
+                },
+                {
+                    "icon": "mdi:chart-line",
+                    "title": "Relatórios e Dashboards",
+                    "description": "Acompanhe SLA, tempo de resposta, taxa de resolução e performance dos agentes em tempo real."
+                },
+                {
+                    "icon": "mdi:lightning-bolt-circle",
+                    "title": "Automações e Réguas",
+                    "description": "Configure gatilhos automáticos para reengajamento, follow-up, triagem e distribuição de atendimentos."
+                },
+                {
+                    "icon": "mdi:account-multiple-outline",
+                    "title": "Gestão de Equipes",
+                    "description": "Organize agentes em times, defina filas por habilidade e monitore a produtividade individual e coletiva."
+                }
+            ]
+        },
+        "how_it_works": {
+            "title": "Do zero ao atendimento omnichannel em 3 passos",
+            "subtitle": "Configuração simples, resultado imediato.",
+            "steps": [
+                {
+                    "number": "01",
+                    "title": "Conecte seus canais",
+                    "description": "Integre WhatsApp Business, Instagram, e-mail e outros canais em minutos. Sem código, sem complicação."
+                },
+                {
+                    "number": "02",
+                    "title": "Configure automações e bots",
+                    "description": "Monte chatbots com IA, regras de triagem e fluxos de atendimento usando nosso editor visual drag-and-drop."
+                },
+                {
+                    "number": "03",
+                    "title": "Engaje e converta",
+                    "description": "Dispare campanhas, atenda em tempo real e analise métricas para escalar continuamente sua operação."
+                }
+            ]
+        },
+        "pricing": {
+            "title": "Planos para cada tamanho de operação",
+            "subtitle": "Comece grátis e escale conforme seu negócio cresce.",
+            "plan_cta": "Começar agora",
+            "enterprise_cta": "Falar com especialista"
+        },
+        "testimonials": {
+            "title": "Quem usa, aprova",
+            "cta": "começar agora",
+            "items": [
+                {
+                    "quote": "Antes perdíamos clientes por demora no atendimento. Com a Gaqno Omnichannel, unificamos WhatsApp e e-mail e reduzimos o tempo de resposta em 70%.",
+                    "author": "Marina Oliveira",
+                    "role": "Head de CX, E-commerce de Moda"
+                },
+                {
+                    "quote": "Os chatbots com IA atendem 80% das dúvidas sozinhos. Nossa equipe agora foca nos atendimentos que realmente precisam de um humano.",
+                    "author": "Carlos Mendes",
+                    "role": "Diretor de Operações, Fintech"
+                },
+                {
+                    "quote": "Os disparos em massa no WhatsApp têm taxa de abertura 5x maior que o e-mail. Nosso ROI nas campanhas disparou.",
+                    "author": "Patricia Sousa",
+                    "role": "Gerente de Marketing, Varejo"
+                }
+            ]
+        },
+        "footer": {
+            "privacy_policy": "Política de privacidade",
+            "terms_of_use": "Termos de Uso",
+            "copyright": "© 2024 Gaqno. Todos os direitos reservados."
+        }
+    },
     "crm": {
         "hero": {
             "tagline": "CRM · ERP · PDV · Omnichannel",

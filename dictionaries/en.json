@@ -429,6 +429,138 @@
             "copyright": "© 2024 Gabriel Aquino. All rights reserved."
         }
     },
+    "omnichannel": {
+        "hero": {
+            "tagline": "WhatsApp · Instagram · Email · SMS · Webchat",
+            "title": "Serve your customers wherever they are.",
+            "description": "Unify all support channels in a single platform. AI chatbots, smart queues, bulk messaging and real-time reports — all integrated.",
+            "trial_badge": "Free trial for 7 days. No credit card required.",
+            "cta_primary": "Get started",
+            "cta_secondary": "Talk to a specialist"
+        },
+        "form": {
+            "coupon_label": "I have a coupon",
+            "coupon_placeholder": "gaqno_omni",
+            "name_label": "Name",
+            "name_placeholder": "what you'd like to be called",
+            "email_label": "Work email",
+            "email_placeholder": "name@mycompany.com",
+            "phone_label": "Mobile number",
+            "phone_placeholder": "Number with area code",
+            "company_label": "Company",
+            "company_placeholder": "Company name",
+            "password_label": "Password",
+            "password_placeholder": "************",
+            "submit": "Create free account",
+            "email_optin": "receive updates by email",
+            "whatsapp_optin": "receive tips by WhatsApp",
+            "consent": "By proceeding you agree to Gaqno's terms of use and privacy policy."
+        },
+        "channels": {
+            "title": "All channels, one platform",
+            "subtitle": "Connect and manage your customer conversations across every channel in one centralized place.",
+            "items": [
+                { "icon": "mdi:whatsapp", "label": "WhatsApp Business" },
+                { "icon": "mdi:instagram", "label": "Instagram" },
+                { "icon": "mdi:facebook", "label": "Facebook Messenger" },
+                { "icon": "mdi:email-outline", "label": "Email" },
+                { "icon": "mdi:message-text-outline", "label": "SMS" },
+                { "icon": "mdi:chat-outline", "label": "Webchat" },
+                { "icon": "mdi:robot-outline", "label": "RCS" },
+                { "icon": "mdi:api", "label": "Open API" }
+            ]
+        },
+        "features": {
+            "title": "Everything you need to delight customers at scale",
+            "subtitle": "Powerful features for omnichannel sales, support and marketing.",
+            "cta": "see all features",
+            "items": [
+                {
+                    "icon": "mdi:robot-happy-outline",
+                    "title": "Generative AI Chatbots",
+                    "description": "Build smart bots that respond in natural language, use documents as a knowledge base and hand off to humans when needed."
+                },
+                {
+                    "icon": "mdi:send-circle-outline",
+                    "title": "Bulk Messaging",
+                    "description": "Send segmented campaigns to thousands of contacts via WhatsApp, SMS or email with delivery and open tracking."
+                },
+                {
+                    "icon": "mdi:inbox-multiple-outline",
+                    "title": "Unified Inbox",
+                    "description": "All channels in one dashboard. Your agents handle WhatsApp, email and chat without switching screens."
+                },
+                {
+                    "icon": "mdi:chart-line",
+                    "title": "Reports & Dashboards",
+                    "description": "Track SLA, response time, resolution rate and agent performance in real time."
+                },
+                {
+                    "icon": "mdi:lightning-bolt-circle",
+                    "title": "Automations & Rules",
+                    "description": "Set up automatic triggers for re-engagement, follow-up, triage and ticket routing."
+                },
+                {
+                    "icon": "mdi:account-multiple-outline",
+                    "title": "Team Management",
+                    "description": "Organize agents into teams, set skill-based queues and monitor individual and collective productivity."
+                }
+            ]
+        },
+        "how_it_works": {
+            "title": "From zero to omnichannel in 3 steps",
+            "subtitle": "Simple setup, immediate results.",
+            "steps": [
+                {
+                    "number": "01",
+                    "title": "Connect your channels",
+                    "description": "Integrate WhatsApp Business, Instagram, email and other channels in minutes. No code, no hassle."
+                },
+                {
+                    "number": "02",
+                    "title": "Set up automations and bots",
+                    "description": "Build AI chatbots, triage rules and service flows using our drag-and-drop visual editor."
+                },
+                {
+                    "number": "03",
+                    "title": "Engage and convert",
+                    "description": "Send campaigns, attend in real time and analyze metrics to continuously scale your operation."
+                }
+            ]
+        },
+        "pricing": {
+            "title": "Plans for every operation size",
+            "subtitle": "Start free and scale as your business grows.",
+            "plan_cta": "Get started",
+            "enterprise_cta": "Talk to specialist"
+        },
+        "testimonials": {
+            "title": "Those who use it, love it",
+            "cta": "get started",
+            "items": [
+                {
+                    "quote": "We used to lose customers due to slow response times. With Gaqno Omnichannel, we unified WhatsApp and email and cut response time by 70%.",
+                    "author": "Marina Oliveira",
+                    "role": "Head of CX, Fashion E-commerce"
+                },
+                {
+                    "quote": "The AI chatbots handle 80% of inquiries on their own. Our team now focuses on conversations that truly need a human touch.",
+                    "author": "Carlos Mendes",
+                    "role": "Operations Director, Fintech"
+                },
+                {
+                    "quote": "WhatsApp bulk messages have a 5x higher open rate than email. Our campaign ROI has skyrocketed.",
+                    "author": "Patricia Sousa",
+                    "role": "Marketing Manager, Retail"
+                }
+            ]
+        },
+        "footer": {
+            "privacy_policy": "Privacy Policy",
+            "terms_of_use": "Terms of Use",
+            "copyright": "© 2024 Gaqno. All rights reserved."
+        }
+    },
     "crm": {
         "hero": {
             "tagline": "CRM · ERP · PDV · Omnichannel",

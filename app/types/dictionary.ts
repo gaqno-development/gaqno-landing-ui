@@ -122,6 +122,66 @@ export type Dictionary = {
             copyright: string;
         };
     };
+    omnichannel?: {
+        hero: {
+            tagline: string;
+            title: string;
+            description: string;
+            trial_badge: string;
+            cta_primary: string;
+            cta_secondary: string;
+        };
+        form: {
+            coupon_label: string;
+            coupon_placeholder: string;
+            name_label: string;
+            name_placeholder: string;
+            email_label: string;
+            email_placeholder: string;
+            phone_label: string;
+            phone_placeholder: string;
+            company_label: string;
+            company_placeholder: string;
+            password_label: string;
+            password_placeholder: string;
+            submit: string;
+            email_optin: string;
+            whatsapp_optin: string;
+            consent: string;
+        };
+        channels: {
+            title: string;
+            subtitle: string;
+            items: Array<{ icon: string; label: string; color?: string }>;
+        };
+        features: {
+            title: string;
+            subtitle: string;
+            cta: string;
+            items: Array<{ icon: string; title: string; description: string }>;
+        };
+        how_it_works: {
+            title: string;
+            subtitle: string;
+            steps: Array<{ number: string; title: string; description: string }>;
+        };
+        pricing: {
+            title: string;
+            subtitle: string;
+            plan_cta: string;
+            enterprise_cta: string;
+        };
+        testimonials: {
+            title: string;
+            cta: string;
+            items: Array<{ quote: string; author: string; role: string }>;
+        };
+        footer: {
+            privacy_policy: string;
+            terms_of_use: string;
+            copyright: string;
+        };
+    };
     crm?: {
         hero: {
             tagline: string;
