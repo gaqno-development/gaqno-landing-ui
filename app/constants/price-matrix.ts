@@ -361,6 +361,42 @@ export const CALCULATOR_PRODUCTS: CalculatorProduct[] = [
   },
 ]
 
+export type LLMTier = 'premium' | 'mid' | 'low' | 'ultra'
+
+export interface LLMProvider {
+  provider: string
+  model: string
+  inputPer1M: number
+  outputPer1M: number
+  tier: LLMTier
+  context: string
+}
+
+export const LLM_PROVIDERS: LLMProvider[] = [
+  { provider: 'OpenAI', model: 'GPT-5.2', inputPer1M: 1.75, outputPer1M: 14.00, tier: 'premium', context: '128K' },
+  { provider: 'Google', model: 'Gemini 3.1 Pro', inputPer1M: 2.00, outputPer1M: 12.00, tier: 'premium', context: '2M' },
+  { provider: 'Google', model: 'Gemini 2.5 Pro', inputPer1M: 1.25, outputPer1M: 10.00, tier: 'mid', context: '2M' },
+  { provider: 'Anthropic', model: 'Claude Sonnet 4.6', inputPer1M: 3.00, outputPer1M: 15.00, tier: 'mid', context: '200K' },
+  { provider: 'Anthropic', model: 'Claude Haiku 4.5', inputPer1M: 1.00, outputPer1M: 5.00, tier: 'low', context: '200K' },
+  { provider: 'xAI', model: 'Grok 4 Fast', inputPer1M: 0.20, outputPer1M: 0.50, tier: 'low', context: '131K' },
+  { provider: 'DeepSeek', model: 'V3.2-Exp', inputPer1M: 0.28, outputPer1M: 0.42, tier: 'ultra', context: '128K' },
+]
+
+export interface NexAIPointPack {
+  points: number
+  images: number
+  videos: number
+  priceUsd: number
+  highlighted?: boolean
+}
+
+export const NEXAI_POINT_PACKS: NexAIPointPack[] = [
+  { points: 2_000, images: 1_000, videos: 200, priceUsd: 2.99 },
+  { points: 7_000, images: 3_500, videos: 700, priceUsd: 9.99 },
+  { points: 15_000, images: 7_500, videos: 1_500, priceUsd: 19.99, highlighted: true },
+  { points: 75_000, images: 37_500, videos: 7_500, priceUsd: 99.99 },
+]
+
 export const ROI_CONFIG = {
   ANALYST_HOURLY_RATE_BRL: 50,
   HOURS_SAVED_PER_PRODUCT: {

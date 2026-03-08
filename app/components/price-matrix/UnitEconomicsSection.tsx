@@ -14,6 +14,9 @@ import {
   OMNICHANNEL_CATEGORIES,
   AI_MODELS,
   CALCULATOR,
+  LLM_PROVIDERS,
+  NEXAI_POINT_PACKS,
+  type LLMTier,
 } from '@/app/constants/price-matrix'
 import { cn } from '@/utils/cn'
 
@@ -45,6 +48,12 @@ const REFERENCES = [
   { label: 'Modelos Gemini', source: 'Google AI Studio — Pricing page', year: '2026' },
   { label: 'Benchmarks CAC/LTV SaaS', source: 'OpenView — SaaS Benchmarks Report', year: '2025' },
   { label: 'Taxa de churn', source: 'ChartMogul — SaaS Metrics Report', year: '2025' },
+  { label: 'LLM API Pricing Comparison (2026)', source: 'IntuitionLabs.ai · Adrien Laurent — llm-api-pricing-comparison-2025-openai-gemini-claude.pdf', year: 'Fev 2026', url: 'https://intuitionlabs.ai/pdfs/llm-api-pricing-comparison-2025-openai-gemini-claude.pdf' },
+  { label: 'OpenAI API Pricing', source: 'openai.com/api/pricing', year: '2026', url: 'https://openai.com/api/pricing' },
+  { label: 'Anthropic Claude Pricing', source: 'docs.anthropic.com/en/docs/about-claude/pricing', year: '2026', url: 'https://docs.anthropic.com/en/docs/about-claude/pricing' },
+  { label: 'Google Vertex AI Pricing', source: 'cloud.google.com/vertex-ai/generative-ai/pricing', year: '2026', url: 'https://cloud.google.com/vertex-ai/generative-ai/pricing' },
+  { label: 'DeepSeek API Docs', source: 'api-docs.deepseek.com/quick_start/pricing', year: '2026', url: 'https://api-docs.deepseek.com/quick_start/pricing' },
+  { label: 'xAI Grok API Launch', source: 'TechCrunch — Elon Musk\'s xAI launches an API for Grok', year: 'Abr 2025', url: 'https://techcrunch.com/2025/04/09/elon-musks-ai-company-xai-launches-an-api-for-grok-3/' },
 ]
 
 const CAC_VALUE = 2000
@@ -58,6 +67,13 @@ const LTV_CAC_DATA = [
 
 function formatBRL(v: number) {
   return v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+}
+
+const TIER_STYLES: Record<LLMTier, { badge: string; label: string }> = {
+  premium: { badge: 'bg-slate-700 text-slate-300', label: 'Premium' },
+  mid:     { badge: 'bg-blue-900/60 text-blue-300', label: 'Mid-tier' },
+  low:     { badge: 'bg-green-900/60 text-green-300', label: 'Low-cost' },
+  ultra:   { badge: 'bg-emerald-900/60 text-emerald-300', label: 'Ultra-low' },
 }
 
 type LtvEntry = { payload: typeof LTV_CAC_DATA[number] }
@@ -240,6 +256,82 @@ export default function UnitEconomicsSection() {
           <p className="mt-4 text-center text-[10px] text-slate-600">
             Câmbio referência: USD {CALCULATOR.CAMBIO.toFixed(2)} BRL · Custo/ponto: R$ {CALCULATOR.COST_PER_POINT}
           </p>
+
+          <div className="mt-8 border-t border-white/5 pt-6">
+            <h4 className="mb-4 text-sm font-black uppercase tracking-widest text-pink-400">
+              NexAI — Pacotes de Pontos
+            </h4>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+              {NEXAI_POINT_PACKS.map((pack) => (
+                <div
+                  key={pack.points}
+                  className={cn(
+                    'relative rounded-2xl border p-4 text-center transition-colors',
+                    pack.highlighted
+                      ? 'border-pink-500/50 bg-pink-950/30 shadow-[0_0_24px_-8px_rgba(236,72,153,0.3)]'
+                      : 'border-white/5 bg-white/5 hover:border-white/10',
+                  )}
+                >
+                  {pack.highlighted && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-pink-500 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-white whitespace-nowrap">
+                      Mais popular
+                    </div>
+                  )}
+                  <p className="text-2xl font-black text-white">
+                    {pack.points.toLocaleString('pt-BR')}
+                  </p>
+                  <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-pink-400">pontos</p>
+                  <div className="mb-3 space-y-1 text-xs text-slate-400">
+                    <p>🖼️ {pack.images.toLocaleString('pt-BR')} imagens</p>
+                    <p>🎬 {pack.videos.toLocaleString('pt-BR')} vídeos</p>
+                  </div>
+                  <p className="text-lg font-black text-white">
+                    ${pack.priceUsd.toFixed(2)}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-center text-[10px] text-slate-600">
+              1 imagem = 2 pts · 1 segundo de vídeo = 10 pts · Pontos não expiram
+            </p>
+          </div>
+
+          <div className="mt-8 border-t border-white/5 pt-6">
+            <h4 className="mb-1 text-sm font-black uppercase tracking-widest text-slate-500">
+              Mercado LLM — Preços API por Provedor
+            </h4>
+            <p className="mb-4 text-[10px] text-slate-600">
+              Preços verificados fev/2026 · Fonte: IntuitionLabs.ai LLM API Pricing Comparison
+            </p>
+            <div className="overflow-x-auto rounded-xl border border-white/5">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b border-white/5 bg-white/[0.02]">
+                    <th className="py-2.5 pl-4 text-left font-black uppercase tracking-widest text-slate-600">Provedor</th>
+                    <th className="py-2.5 text-left font-black uppercase tracking-widest text-slate-600">Modelo</th>
+                    <th className="py-2.5 text-right font-black uppercase tracking-widest text-slate-600">Input / 1M</th>
+                    <th className="py-2.5 pr-4 text-right font-black uppercase tracking-widest text-slate-600">Output / 1M</th>
+                    <th className="py-2.5 pr-4 text-center font-black uppercase tracking-widest text-slate-600">Tier</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {LLM_PROVIDERS.map((p) => (
+                    <tr key={`${p.provider}-${p.model}`} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                      <td className="py-2.5 pl-4 font-semibold text-slate-300">{p.provider}</td>
+                      <td className="py-2.5 font-mono text-slate-400">{p.model}</td>
+                      <td className="py-2.5 text-right font-mono text-slate-300">${p.inputPer1M.toFixed(2)}</td>
+                      <td className="py-2.5 pr-4 text-right font-mono text-slate-300">${p.outputPer1M.toFixed(2)}</td>
+                      <td className="py-2.5 pr-4 text-center">
+                        <span className={cn('rounded-md px-2 py-0.5 text-[9px] font-black uppercase tracking-wide', TIER_STYLES[p.tier].badge)}>
+                          {TIER_STYLES[p.tier].label}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
         <div className="rounded-2xl border border-white/5 bg-slate-900/60 p-6">
@@ -272,7 +364,18 @@ export default function UnitEconomicsSection() {
                 <li key={i} className="flex gap-2 text-[11px] text-slate-600">
                   <span className="shrink-0 font-mono text-slate-700">[{i + 1}]</span>
                   <span>
-                    <span className="font-semibold text-slate-500">{ref.label}</span>
+                    {'url' in ref && ref.url ? (
+                      <a
+                        href={(ref as { url: string }).url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-slate-500 hover:text-blue-400 transition-colors"
+                      >
+                        {ref.label}
+                      </a>
+                    ) : (
+                      <span className="font-semibold text-slate-500">{ref.label}</span>
+                    )}
                     {' — '}
                     {ref.source}
                     {ref.year ? ` · ${ref.year}` : ''}
