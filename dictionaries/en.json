@@ -8,7 +8,8 @@
                 "custos": "WhatsApp Pricing",
                 "dev": "Meet the dev",
                 "crm": "CRM",
-                "omnichannel": "Omnichannel"
+                "omnichannel": "Omnichannel",
+                "price_matrix": "Price Matrix"
             },
             "projects": "Projects",
             "dev": "Dev"
@@ -20,7 +21,7 @@
                 { "label": "Products", "href": "#produtos" },
                 { "label": "CRM", "href": "/crm" },
                 { "label": "Omnichannel", "href": "/omnichannel" },
-                { "label": "Why gaqno?", "href": "#por-que" },
+                { "label": "Matrix", "href": "/price-matrix" },
                 { "label": "Pricing", "href": "/custos" },
                 { "label": "Meet the developer", "href": "/dev" }
             ]

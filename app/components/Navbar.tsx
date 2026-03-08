@@ -118,6 +118,11 @@ export default function Navbar({ className, lang, dict }: NavbarProps) {
                   {dict.items.start.omnichannel}
                 </HoveredLink>
               )}
+              {dict.items.start.price_matrix && (
+                <HoveredLink href={`/${lang}/price-matrix`}>
+                  {dict.items.start.price_matrix}
+                </HoveredLink>
+              )}
               <HoveredLink href={`/${lang}/custos`}>
                 {dict.items.start.custos}
               </HoveredLink>

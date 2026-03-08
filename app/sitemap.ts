@@ -47,6 +47,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: `${baseUrl}/pt/crm`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/en/crm`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/pt/omnichannel`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/en/omnichannel`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
             url: `${baseUrl}/pt/price-matrix`,
             lastModified: new Date(),
             changeFrequency: "monthly",

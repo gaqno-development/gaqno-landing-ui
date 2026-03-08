@@ -29,6 +29,7 @@ export type Dictionary = {
                 dev: string;
                 crm?: string;
                 omnichannel?: string;
+                price_matrix?: string;
             };
             projects: string;
             dev: string;
