@@ -4,31 +4,53 @@ export interface MacroIndicator {
   note: string
   highlighted?: boolean
   highlightColor?: string
+  barValue: number
 }
 
 export const MACRO_INDICATORS: MacroIndicator[] = [
-  { label: 'IPCA (Inflação)', value: '3,91%', note: 'Base para reajustes anuais' },
-  { label: 'Taxa Selic', value: '12,00%', note: 'Favorece OPEX vs CAPEX' },
+  { label: 'IPCA (Inflação)', value: '3,91%', note: 'Base para reajustes anuais', barValue: 3.91 },
+  { label: 'Taxa Selic', value: '12,00%', note: 'Favorece OPEX vs CAPEX', barValue: 12 },
   {
     label: 'Câmbio (USD/BRL)',
     value: 'R$ 5,42',
     note: 'Custo de APIs (IA e Meta)',
     highlighted: true,
     highlightColor: 'blue',
+    barValue: 54.2,
   },
-  { label: 'PIB', value: '1,82%', note: 'Foco em produtividade' },
+  { label: 'PIB', value: '1,82%', note: 'Foco em produtividade', barValue: 1.82 },
 ]
 
 export interface AIModel {
   icon: string
   name: string
   cost: string
+  bigTechUsd: number
+  nexaiPoints: number
 }
 
 export const AI_MODELS: AIModel[] = [
-  { icon: '📝', name: 'Gemini 3 Pro (Texto)', cost: '12.000 pts / 1M tokens' },
-  { icon: '🖼️', name: 'Imagen 4 Standard', cost: '40 pts / img' },
-  { icon: '🎬', name: 'Veo 2 (Vídeo)', cost: '350 pts / seg' },
+  {
+    icon: '📝',
+    name: 'Gemini 3 Pro (Texto)',
+    cost: '12.000 pts / 1M tokens',
+    bigTechUsd: 1.25,
+    nexaiPoints: 12000,
+  },
+  {
+    icon: '🖼️',
+    name: 'Imagen 4 Standard',
+    cost: '40 pts / img',
+    bigTechUsd: 0.17,
+    nexaiPoints: 40,
+  },
+  {
+    icon: '🎬',
+    name: 'Veo 2 (Vídeo)',
+    cost: '350 pts / seg',
+    bigTechUsd: 0.35,
+    nexaiPoints: 350,
+  },
 ]
 
 export interface OmnichannelCategory {
@@ -118,10 +140,263 @@ export interface UnitEconomicMetric {
   label: string
   value: string
   color?: string
+  numericValue?: number
 }
 
 export const UNIT_ECONOMICS: UnitEconomicMetric[] = [
-  { label: 'CAC Estimado', value: 'R$ 1.5K - 2.5K' },
-  { label: 'Payback', value: '5 a 6 meses' },
-  { label: 'Churn Rate', value: '< 2% a.m.', color: 'green' },
+  { label: 'CAC Estimado', value: 'R$ 1.5K - 2.5K', numericValue: 2000 },
+  { label: 'Payback', value: '5 a 6 meses', numericValue: 5.5 },
+  { label: 'Churn Rate', value: '< 2% a.m.', color: 'green', numericValue: 2 },
+]
+
+export type ProductId = 'crm' | 'erp' | 'omnichannel' | 'pdv' | 'ai'
+
+export interface ProductMetric {
+  label: string
+  value: string
+  color: string
+}
+
+export interface ProductSection {
+  id: ProductId
+  title: string
+  description: string
+  accentColor: string
+  metrics: ProductMetric[]
+  chartType: 'bar' | 'pie' | 'radial' | 'area'
+  chartData: Array<Record<string, string | number>>
+  chartKeys: Array<{ key: string; color: string; label: string }>
+  xAxisKey?: string
+}
+
+export const PRODUCT_SECTIONS: ProductSection[] = [
+  {
+    id: 'crm',
+    title: 'CRM',
+    description:
+      'Pipeline de vendas visual com conversão por etapa. Gerencie leads, oportunidades e histórico do cliente em um único painel.',
+    accentColor: '#3b82f6',
+    metrics: [
+      { label: 'Taxa de Conversão Média', value: '24%', color: '#3b82f6' },
+      { label: 'Ciclo de Vendas', value: '14 dias', color: '#60a5fa' },
+      { label: 'Pipeline Médio', value: 'R$ 180K', color: '#93c5fd' },
+    ],
+    chartType: 'bar',
+    chartData: [
+      { stage: 'Leads', value: 1000, fill: '#1e3a5f' },
+      { stage: 'Qualificados', value: 620, fill: '#1d4ed8' },
+      { stage: 'Proposta', value: 310, fill: '#2563eb' },
+      { stage: 'Negociação', value: 180, fill: '#3b82f6' },
+      { stage: 'Fechado', value: 90, fill: '#60a5fa' },
+    ],
+    chartKeys: [{ key: 'value', color: '#3b82f6', label: 'Contatos' }],
+    xAxisKey: 'stage',
+  },
+  {
+    id: 'erp',
+    title: 'ERP',
+    description:
+      'Estoque, fiscal, compras e financeiro integrados. Automatize NF-e, controle entradas/saídas e tome decisões baseadas em dados.',
+    accentColor: '#10b981',
+    metrics: [
+      { label: 'Docs Fiscais / Mês', value: '4.200', color: '#10b981' },
+      { label: 'Redução de Rupturas', value: '67%', color: '#34d399' },
+      { label: 'Tempo em Compras', value: '−4h/dia', color: '#6ee7b7' },
+    ],
+    chartType: 'pie',
+    chartData: [
+      { name: 'Gestão de Estoque', value: 35, fill: '#065f46' },
+      { name: 'Emissão Fiscal', value: 28, fill: '#059669' },
+      { name: 'Compras', value: 20, fill: '#10b981' },
+      { name: 'Financeiro', value: 17, fill: '#34d399' },
+    ],
+    chartKeys: [{ key: 'value', color: '#10b981', label: '% do tempo salvo' }],
+    xAxisKey: 'name',
+  },
+  {
+    id: 'omnichannel',
+    title: 'Omnichannel',
+    description:
+      'Caixa de entrada unificada para WhatsApp, Instagram, E-mail, SMS e Webchat. Chatbots com IA e métricas de SLA em tempo real.',
+    accentColor: '#8b5cf6',
+    metrics: [
+      { label: 'Tempo Médio Resposta', value: '< 2 min', color: '#8b5cf6' },
+      { label: 'Resolução por Bot', value: '73%', color: '#a78bfa' },
+      { label: 'NPS Médio', value: '78', color: '#c4b5fd' },
+    ],
+    chartType: 'bar',
+    chartData: [
+      { channel: 'WhatsApp', gaqno: 182, market: 320, fill: '#7c3aed' },
+      { channel: 'E-mail', gaqno: 45, market: 80, fill: '#8b5cf6' },
+      { channel: 'Instagram', gaqno: 38, market: 70, fill: '#a78bfa' },
+      { channel: 'SMS', gaqno: 24, market: 48, fill: '#c4b5fd' },
+      { channel: 'Webchat', gaqno: 15, market: 30, fill: '#ddd6fe' },
+    ],
+    chartKeys: [
+      { key: 'gaqno', color: '#8b5cf6', label: 'Gaqno (R$/1k)' },
+      { key: 'market', color: '#374151', label: 'Mercado (R$/1k)' },
+    ],
+    xAxisKey: 'channel',
+  },
+  {
+    id: 'pdv',
+    title: 'PDV',
+    description:
+      'Ponto de venda integrado ao ERP. Controle de caixa, estoque em tempo real, impressão de cupons e múltiplas formas de pagamento.',
+    accentColor: '#f59e0b',
+    metrics: [
+      { label: 'Tempo por Venda', value: '38s', color: '#f59e0b' },
+      { label: 'Acerto de Caixa', value: '99.2%', color: '#fbbf24' },
+      { label: 'Vendas / Hora', value: '+22%', color: '#fcd34d' },
+    ],
+    chartType: 'radial',
+    chartData: [
+      { name: 'Pix', value: 48, fill: '#78350f' },
+      { name: 'Cartão Débito', value: 22, fill: '#b45309' },
+      { name: 'Cartão Crédito', value: 19, fill: '#d97706' },
+      { name: 'Dinheiro', value: 8, fill: '#f59e0b' },
+      { name: 'Link', value: 3, fill: '#fcd34d' },
+    ],
+    chartKeys: [{ key: 'value', color: '#f59e0b', label: '% das vendas' }],
+    xAxisKey: 'name',
+  },
+  {
+    id: 'ai',
+    title: 'AI Studio',
+    description:
+      'Geração de texto, imagens e vídeo com modelos de última geração. Sistema de Pontos que abstrai câmbio e protege margens.',
+    accentColor: '#ec4899',
+    metrics: [
+      { label: 'Custo vs Big Tech', value: '−65%', color: '#ec4899' },
+      { label: 'Modelos Disponíveis', value: '12+', color: '#f472b6' },
+      { label: 'Latência Média', value: '420ms', color: '#f9a8d4' },
+    ],
+    chartType: 'bar',
+    chartData: [
+      { model: 'Texto (1M tok)', bigtech: 6.78, gaqno: 0.86, unit: 'R$' },
+      { model: 'Imagem (100x)', bigtech: 5.21, gaqno: 2.88, unit: 'R$' },
+      { model: 'Vídeo (10seg)', bigtech: 18.97, gaqno: 7.56, unit: 'R$' },
+    ],
+    chartKeys: [
+      { key: 'bigtech', color: '#374151', label: 'Big Tech (R$)' },
+      { key: 'gaqno', color: '#ec4899', label: 'Gaqno NexAI (R$)' },
+    ],
+    xAxisKey: 'model',
+  },
+]
+
+export interface CalculatorProduct {
+  id: ProductId
+  label: string
+  unit: string
+  min: number
+  max: number
+  step: number
+  defaultValue: number
+  gaqnoCostPer: number
+  marketCostPer: number
+  description: string
+}
+
+export const CALCULATOR_PRODUCTS: CalculatorProduct[] = [
+  {
+    id: 'crm',
+    label: 'CRM',
+    unit: 'usuários',
+    min: 1,
+    max: 100,
+    step: 1,
+    defaultValue: 10,
+    gaqnoCostPer: 29,
+    marketCostPer: 85,
+    description: 'por usuário/mês',
+  },
+  {
+    id: 'erp',
+    label: 'ERP',
+    unit: 'NF-e/mês',
+    min: 100,
+    max: 10000,
+    step: 100,
+    defaultValue: 1000,
+    gaqnoCostPer: 0.04,
+    marketCostPer: 0.12,
+    description: 'por documento emitido',
+  },
+  {
+    id: 'omnichannel',
+    label: 'Omnichannel',
+    unit: 'mensagens/mês',
+    min: 500,
+    max: 50000,
+    step: 500,
+    defaultValue: 5000,
+    gaqnoCostPer: 0.182,
+    marketCostPer: 0.32,
+    description: 'por mensagem entregue (WhatsApp)',
+  },
+  {
+    id: 'pdv',
+    label: 'PDV',
+    unit: 'vendas/mês',
+    min: 100,
+    max: 20000,
+    step: 100,
+    defaultValue: 2000,
+    gaqnoCostPer: 0.015,
+    marketCostPer: 0.05,
+    description: 'por transação processada',
+  },
+  {
+    id: 'ai',
+    label: 'AI Studio',
+    unit: 'pontos/mês',
+    min: 1000,
+    max: 100000,
+    step: 1000,
+    defaultValue: 10000,
+    gaqnoCostPer: 0.0072,
+    marketCostPer: 0.02,
+    description: 'por ponto consumido',
+  },
+]
+
+export const ROI_CONFIG = {
+  ANALYST_HOURLY_RATE_BRL: 50,
+  HOURS_SAVED_PER_PRODUCT: {
+    crm: 8,
+    erp: 12,
+    omnichannel: 10,
+    pdv: 6,
+    ai: 15,
+  } as Record<ProductId, number>,
+  WORKING_HOURS_MONTH: 160,
+} as const
+
+export interface PlanFeatureRow {
+  category?: string
+  feature: string
+  professional: boolean | string
+  enterprise: boolean | string
+}
+
+export const PLAN_FEATURE_MATRIX: PlanFeatureRow[] = [
+  { category: 'Infraestrutura', feature: 'Servidor', professional: 'VPS Partilhada', enterprise: 'VPS Solo Dedicada' },
+  { feature: 'vCPU / RAM', professional: '2 vCPU / 8GB', enterprise: '8 vCPU / 32GB' },
+  { feature: 'Usuários', professional: 'Até 5', enterprise: 'Ilimitados' },
+  { feature: 'Isolamento de dados', professional: false, enterprise: true },
+  { category: 'Omnichannel', feature: 'Canais WhatsApp', professional: '1 canal', enterprise: 'Múltiplos canais' },
+  { feature: 'Chatbots ativos', professional: 'Até 5', enterprise: 'Ilimitados' },
+  { feature: 'Interactionz incluídas', professional: '1.000', enterprise: '5.000+' },
+  { feature: 'IA Generativa', professional: true, enterprise: true },
+  { category: 'AI Studio', feature: 'Pontos inclusos', professional: '1.000 pts', enterprise: '5.000 pts' },
+  { feature: 'Modelos disponíveis', professional: 'Texto + Imagem', enterprise: 'Todos (incl. Vídeo)' },
+  { feature: 'API de IA', professional: true, enterprise: true },
+  { category: 'Suporte', feature: 'SLA 1ª resposta', professional: 'Até 2h', enterprise: 'Até 30min' },
+  { feature: 'Account manager', professional: false, enterprise: true },
+  { feature: 'Onboarding dedicado', professional: false, enterprise: true },
+  { feature: 'Central de Ajuda', professional: true, enterprise: true },
+  { category: 'Financeiro', feature: 'Mensalidade', professional: 'R$ 349/mês', enterprise: 'R$ 899/mês' },
+  { feature: 'Pix automático', professional: '1,19%', enterprise: '0,99%' },
+  { feature: 'Cartão de crédito', professional: '3,99%', enterprise: '3,49%' },
 ]
