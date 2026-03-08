@@ -1,3 +1,23 @@
+export type CrmPlan = {
+    id: string;
+    name: string;
+    subtitle: string;
+    price_monthly: number;
+    price_annual: number;
+    annual_savings: number;
+    revenue_limit: string;
+    features: string[];
+    highlight_features: string[];
+    ads_limit: string;
+    data_history: string;
+    pix_transfer: string;
+    envios_credit: string;
+    link_payment_rate: string;
+    mobile_payment_rate: string;
+    boleto_fee: string;
+    pix_fee: string;
+};
+
 export type Dictionary = {
     navbar: {
         items: {
@@ -99,6 +119,69 @@ export type Dictionary = {
             social: {
                 title: string;
             };
+            copyright: string;
+        };
+    };
+    crm?: {
+        hero: {
+            tagline: string;
+            title: string;
+            description: string;
+            trial_badge: string;
+            cta_primary: string;
+        };
+        form: {
+            coupon_label: string;
+            coupon_placeholder: string;
+            name_label: string;
+            name_placeholder: string;
+            email_label: string;
+            email_placeholder: string;
+            phone_label: string;
+            phone_placeholder: string;
+            cnpj_label: string;
+            cnpj_placeholder: string;
+            password_label: string;
+            password_placeholder: string;
+            submit: string;
+            email_optin: string;
+            whatsapp_optin: string;
+            consent: string;
+        };
+        features: {
+            title: string;
+            cta: string;
+            items: Array<{ icon: string; label: string }>;
+        };
+        channels: {
+            title: string;
+            cta: string;
+            items: Array<{ icon: string; title: string; description: string }>;
+        };
+        ecosystem: {
+            tagline: string;
+            title: string;
+            description: string;
+            cta: string;
+            items: Array<{ icon: string; title: string; description: string }>;
+        };
+        pricing: {
+            title: string;
+            subtitle: string;
+            toggle_monthly: string;
+            toggle_annual: string;
+            annual_badge: string;
+            plan_cta: string;
+            plans: CrmPlan[];
+        };
+        testimonials: {
+            title: string;
+            cta: string;
+            items: Array<{ quote: string; author: string; role: string }>;
+        };
+        footer: {
+            privacy_policy: string;
+            terms_of_use: string;
             copyright: string;
         };
     };

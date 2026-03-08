@@ -429,6 +429,214 @@
             "copyright": "© 2024 Gabriel Aquino. Todos os direitos reservados."
         }
     },
+    "crm": {
+        "hero": {
+            "tagline": "CRM · ERP · PDV · Omnichannel",
+            "title": "Gaqno integra seu negócio de ponta a ponta.",
+            "description": "Conecte sua operação de vendas ao sistema da Gaqno e tenha total controle do seu faturamento, estoque e vendas, seja na loja virtual, física ou nos marketplaces.",
+            "trial_badge": "E você pode testar por 30 dias grátis.",
+            "cta_primary": "Começar teste"
+        },
+        "form": {
+            "coupon_label": "Tenho um cupom",
+            "coupon_placeholder": "gaqno_30dias",
+            "name_label": "Nome",
+            "name_placeholder": "como gostaria de ser chamado",
+            "email_label": "E-mail",
+            "email_placeholder": "nome@minhaempresa.com.br",
+            "phone_label": "Número de celular",
+            "phone_placeholder": "Número com DDD",
+            "cnpj_label": "CNPJ",
+            "cnpj_placeholder": "00.000.000/0000-00",
+            "password_label": "Senha",
+            "password_placeholder": "************",
+            "submit": "Começar teste",
+            "email_optin": "receber por e-mail",
+            "whatsapp_optin": "receber por WhatsApp",
+            "consent": "Ao prosseguir você concorda com os termos de uso do produto que está aderindo e a política de proteção de dados da Gaqno."
+        },
+        "features": {
+            "title": "Automatize processos ao integrar todas as áreas da sua empresa",
+            "cta": "comece grátis",
+            "items": [
+                { "icon": "mdi:file-document-outline", "label": "Emissão de NFe e documentos fiscais" },
+                { "icon": "mdi:store-outline", "label": "Integração com mais de 100 marketplaces e plataformas de e-commerce" },
+                { "icon": "mdi:package-variant-closed", "label": "Gestão automatizada de estoque e compras" },
+                { "icon": "mdi:chart-bar", "label": "Relatórios financeiros e de vendas, para decisões estratégicas" },
+                { "icon": "mdi:point-of-sale", "label": "Sistema PDV completo e integrado ao ERP" },
+                { "icon": "mdi:lightning-bolt-outline", "label": "Automatização de tarefas e processos" },
+                { "icon": "mdi:account-group-outline", "label": "CRM para gestão e fidelização de clientes" },
+                { "icon": "mdi:bank-outline", "label": "Conciliação automática com a Conta digital" },
+                { "icon": "mdi:qrcode-scan", "label": "Pagamentos via Pix, TED, boleto e links de pagamento" }
+            ]
+        },
+        "channels": {
+            "title": "A Gaqno tem tudo que você precisa para vender nos principais canais de venda do mercado:",
+            "cta": "teste agora mesmo",
+            "items": [
+                {
+                    "icon": "mdi:shopping-outline",
+                    "title": "Marketplaces",
+                    "description": "Com Gaqno você conecta suas vendas a mais de 100 marketplaces, gerencia tudo em um só lugar e transforma oportunidades em faturamento."
+                },
+                {
+                    "icon": "mdi:laptop",
+                    "title": "Loja virtual",
+                    "description": "Conecte sua loja ao Sistema ERP da Gaqno de forma simples, acompanhe seus pedidos em tempo real e tenha tudo integrado — do pedido à entrega para o seu cliente."
+                },
+                {
+                    "icon": "mdi:store",
+                    "title": "Loja física",
+                    "description": "Conte com uma solução completa de PDV que integra suas vendas, estoque e financeiro de maneira simples e eficiente."
+                }
+            ]
+        },
+        "ecosystem": {
+            "tagline": "Ecossistema",
+            "title": "Muito mais do que um CRM: um ecossistema para o seu crescimento",
+            "description": "Expanda suas vendas com a Gaqno e junte-se a mais de 45 mil lojistas que vendem mais.",
+            "cta": "teste grátis por 30 dias",
+            "items": [
+                {
+                    "icon": "mdi:cog-outline",
+                    "title": "Sistema ERP",
+                    "description": "Automatize processos, integre todas as áreas do seu negócio e experimente uma operação mais centralizada, ágil e eficiente."
+                },
+                {
+                    "icon": "mdi:bank-outline",
+                    "title": "Conta Digital",
+                    "description": "Receba pagamentos com link ou maquininha no celular, automatize impostos com GNRE e tenha todas as ferramentas para vender e gerenciar finanças com facilidade."
+                },
+                {
+                    "icon": "mdi:connection",
+                    "title": "Hub de integração",
+                    "description": "Gerencie seus pedidos nos maiores marketplaces em um único lugar, de forma simples e sincronizada, sem perder nenhum detalhe."
+                },
+                {
+                    "icon": "mdi:point-of-sale",
+                    "title": "Sistema PDV",
+                    "description": "Sistema de ponto de venda integrado para gerenciar cada venda, automatizar estoque e gerar relatórios em tempo real dos pedidos em loja física e virtual."
+                },
+                {
+                    "icon": "mdi:truck-fast-outline",
+                    "title": "Envios",
+                    "description": "Economize até 80% no valor do frete com a solução logística da Gaqno. Coleta gratuita, conexão com as principais transportadoras e integração inteligente com o Sistema ERP."
+                }
+            ]
+        },
+        "pricing": {
+            "title": "O plano perfeito para o momento do seu negócio",
+            "subtitle": "Até 3 meses de economia no plano anual",
+            "toggle_monthly": "Mensal",
+            "toggle_annual": "Anual",
+            "annual_badge": "Economize até 3 meses",
+            "plan_cta": "teste 30 dias grátis",
+            "plans": [
+                {
+                    "id": "avance",
+                    "name": "Avance",
+                    "subtitle": "Para faturamento até R$ 81 mil ao ano",
+                    "price_monthly": 59,
+                    "price_annual": 49,
+                    "annual_savings": 120,
+                    "revenue_limit": "R$ 81 mil/ano",
+                    "ads_limit": "2.000",
+                    "data_history": "12 meses",
+                    "pix_transfer": "Grátis",
+                    "envios_credit": "R$ 60",
+                    "link_payment_rate": "2,97%",
+                    "mobile_payment_rate": "2,49%",
+                    "boleto_fee": "R$ 2,50",
+                    "pix_fee": "R$ 1,20",
+                    "features": ["Vendas e pedidos ilimitado", "Usuários ilimitados", "Armazenamento ilimitado", "OMS ilimitado"],
+                    "highlight_features": ["Emissão de NF-e, NFC-e e NFS-e", "Gestão de estoque", "Cotação de frete", "Controle de expedição"]
+                },
+                {
+                    "id": "construa",
+                    "name": "Construa",
+                    "subtitle": "Ideal para faturamento até R$ 360 mil ao ano",
+                    "price_monthly": 159,
+                    "price_annual": 119,
+                    "annual_savings": 480,
+                    "revenue_limit": "R$ 360 mil/ano",
+                    "ads_limit": "5.000",
+                    "data_history": "24 meses",
+                    "pix_transfer": "Grátis",
+                    "envios_credit": "R$ 170",
+                    "link_payment_rate": "2,87%",
+                    "mobile_payment_rate": "2,39%",
+                    "boleto_fee": "R$ 1,95",
+                    "pix_fee": "R$ 0,79",
+                    "features": ["Vendas e pedidos ilimitado", "Usuários ilimitados", "Armazenamento ilimitado", "OMS ilimitado"],
+                    "highlight_features": ["Consultoria de ativação", "Multiempresa", "Emissão de boletos e cobranças", "Conciliação bancária"]
+                },
+                {
+                    "id": "impulsione",
+                    "name": "Impulsione",
+                    "subtitle": "Ideal para faturamento até R$ 4,8 milhões ao ano",
+                    "price_monthly": 349,
+                    "price_annual": 259,
+                    "annual_savings": 1080,
+                    "revenue_limit": "R$ 4,8 milhões/ano",
+                    "ads_limit": "10.000",
+                    "data_history": "24 meses",
+                    "pix_transfer": "Grátis",
+                    "envios_credit": "R$ 360",
+                    "link_payment_rate": "2,77%",
+                    "mobile_payment_rate": "2,29%",
+                    "boleto_fee": "R$ 1,79",
+                    "pix_fee": "R$ 0,50",
+                    "features": ["Vendas e pedidos ilimitado", "Usuários ilimitados", "Armazenamento ilimitado", "OMS ilimitado"],
+                    "highlight_features": ["Calculadora de preços", "Planejamento de compras", "Relatório margem de contribuição", "Relatório performance de vendas"]
+                },
+                {
+                    "id": "domine",
+                    "name": "Domine",
+                    "subtitle": "Ideal para faturamento até R$ 78 milhões ao ano",
+                    "price_monthly": 849,
+                    "price_annual": 639,
+                    "annual_savings": 2520,
+                    "revenue_limit": "R$ 78 milhões/ano",
+                    "ads_limit": "20.000",
+                    "data_history": "36 meses",
+                    "pix_transfer": "Grátis",
+                    "envios_credit": "R$ 500",
+                    "link_payment_rate": "2,47%",
+                    "mobile_payment_rate": "1,99%",
+                    "boleto_fee": "R$ 1,59",
+                    "pix_fee": "R$ 0,35",
+                    "features": ["Vendas e pedidos ilimitado", "Usuários ilimitados", "Armazenamento ilimitado", "OMS ilimitado"],
+                    "highlight_features": ["Implementação personalizada", "Suporte em até 5 min", "Linha telefônica exclusiva", "Gerente de contas"]
+                }
+            ]
+        },
+        "testimonials": {
+            "title": "Histórias de quem faz acontecer com a Gaqno",
+            "cta": "comece já",
+            "items": [
+                {
+                    "quote": "A nossa principal dor da empresa era ter processos mais eficientes. Com a implantação do ERP Gaqno a gente conseguiu ter essa eficiência, com uma maior organização do nosso fluxo e com tudo integrado.",
+                    "author": "Felipe Bernardini",
+                    "role": "Proprietário da Birden Clothing"
+                },
+                {
+                    "quote": "Antes da Gaqno eu tinha que controlar tudo na mão e perdia muito tempo. Hoje, eu faço uma cobrança ou recebo uma conta para pagar com tudo muito prático. É bem diferente porque é tudo automatizado.",
+                    "author": "Flávio & Juliana Agapito",
+                    "role": "Proprietários da Juff Sportswear"
+                },
+                {
+                    "quote": "No passado a gente não tinha isso, era tudo manual. Pra mim era insano. Hoje, temos um controle muito maior de estoque, validade, finanças e toda essa parte que a gente não tinha à risca, hoje o sistema nos ajuda nisso.",
+                    "author": "Alexandre Sarti & Fabiola Soares",
+                    "role": "Sócios da Sunset Cosméticos"
+                }
+            ]
+        },
+        "footer": {
+            "privacy_policy": "Política de privacidade",
+            "terms_of_use": "Termos de Uso",
+            "copyright": "© 2024 Gaqno. Todos os direitos reservados."
+        }
+    },
     "admin": {
         "organization": "Organização",
         "users": "Usuários",

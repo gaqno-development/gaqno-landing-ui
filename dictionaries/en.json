@@ -429,6 +429,214 @@
             "copyright": "© 2024 Gabriel Aquino. All rights reserved."
         }
     },
+    "crm": {
+        "hero": {
+            "tagline": "CRM · ERP · PDV · Omnichannel",
+            "title": "Gaqno connects your business end to end.",
+            "description": "Connect your sales operation to the Gaqno system and have full control of your billing, inventory and sales — whether in your online store, physical store or marketplaces.",
+            "trial_badge": "And you can try it free for 30 days.",
+            "cta_primary": "Start trial"
+        },
+        "form": {
+            "coupon_label": "I have a coupon",
+            "coupon_placeholder": "gaqno_30days",
+            "name_label": "Name",
+            "name_placeholder": "what you'd like to be called",
+            "email_label": "Email",
+            "email_placeholder": "name@mycompany.com",
+            "phone_label": "Mobile number",
+            "phone_placeholder": "Number with area code",
+            "cnpj_label": "Tax ID",
+            "cnpj_placeholder": "00.000.000/0000-00",
+            "password_label": "Password",
+            "password_placeholder": "************",
+            "submit": "Start trial",
+            "email_optin": "receive by email",
+            "whatsapp_optin": "receive by WhatsApp",
+            "consent": "By proceeding you agree to the terms of use of the product you are subscribing to and the data protection policy of Gaqno."
+        },
+        "features": {
+            "title": "Automate processes by integrating all areas of your business",
+            "cta": "start free",
+            "items": [
+                { "icon": "mdi:file-document-outline", "label": "Invoice and fiscal document issuance" },
+                { "icon": "mdi:store-outline", "label": "Integration with 100+ marketplaces and e-commerce platforms" },
+                { "icon": "mdi:package-variant-closed", "label": "Automated inventory and purchasing management" },
+                { "icon": "mdi:chart-bar", "label": "Financial and sales reports for strategic decisions" },
+                { "icon": "mdi:point-of-sale", "label": "Complete POS system integrated with ERP" },
+                { "icon": "mdi:lightning-bolt-outline", "label": "Task and process automation" },
+                { "icon": "mdi:account-group-outline", "label": "CRM for customer management and loyalty" },
+                { "icon": "mdi:bank-outline", "label": "Automatic reconciliation with Digital Account" },
+                { "icon": "mdi:qrcode-scan", "label": "Payments via Pix, wire transfer, boleto and payment links" }
+            ]
+        },
+        "channels": {
+            "title": "Gaqno has everything you need to sell on the main sales channels in the market:",
+            "cta": "try it now",
+            "items": [
+                {
+                    "icon": "mdi:shopping-outline",
+                    "title": "Marketplaces",
+                    "description": "With Gaqno you connect your sales to 100+ marketplaces, manage everything in one place and turn opportunities into revenue."
+                },
+                {
+                    "icon": "mdi:laptop",
+                    "title": "Online store",
+                    "description": "Connect your store to the Gaqno ERP System easily, track your orders in real time and have everything integrated — from order to delivery."
+                },
+                {
+                    "icon": "mdi:store",
+                    "title": "Physical store",
+                    "description": "Count on a complete POS solution that integrates your sales, inventory and finances in a simple and efficient way."
+                }
+            ]
+        },
+        "ecosystem": {
+            "tagline": "Ecosystem",
+            "title": "Much more than a CRM: an ecosystem for your growth",
+            "description": "Expand your sales with Gaqno and join over 45,000 retailers who sell more.",
+            "cta": "try free for 30 days",
+            "items": [
+                {
+                    "icon": "mdi:cog-outline",
+                    "title": "ERP System",
+                    "description": "Automate processes, integrate all areas of your business and experience a more centralized, agile and efficient operation."
+                },
+                {
+                    "icon": "mdi:bank-outline",
+                    "title": "Digital Account",
+                    "description": "Receive payments with a link or card reader on your phone, automate taxes and have all the tools to sell and manage finances with ease."
+                },
+                {
+                    "icon": "mdi:connection",
+                    "title": "Integration Hub",
+                    "description": "Manage your orders on the biggest marketplaces in one place, simply and synchronized, without missing any detail."
+                },
+                {
+                    "icon": "mdi:point-of-sale",
+                    "title": "POS System",
+                    "description": "Integrated point-of-sale system to manage every sale, automate inventory and generate real-time reports for both physical and online store orders."
+                },
+                {
+                    "icon": "mdi:truck-fast-outline",
+                    "title": "Shipping",
+                    "description": "Save up to 80% on shipping costs with Gaqno's logistics solution. Free pickup, connection with top carriers and smart ERP integration."
+                }
+            ]
+        },
+        "pricing": {
+            "title": "The perfect plan for your business moment",
+            "subtitle": "Save up to 3 months on the annual plan",
+            "toggle_monthly": "Monthly",
+            "toggle_annual": "Annual",
+            "annual_badge": "Save up to 3 months",
+            "plan_cta": "try free for 30 days",
+            "plans": [
+                {
+                    "id": "avance",
+                    "name": "Advance",
+                    "subtitle": "For revenue up to R$ 81k/year",
+                    "price_monthly": 59,
+                    "price_annual": 49,
+                    "annual_savings": 120,
+                    "revenue_limit": "R$ 81k/year",
+                    "ads_limit": "2,000",
+                    "data_history": "12 months",
+                    "pix_transfer": "Free",
+                    "envios_credit": "R$ 60",
+                    "link_payment_rate": "2.97%",
+                    "mobile_payment_rate": "2.49%",
+                    "boleto_fee": "R$ 2.50",
+                    "pix_fee": "R$ 1.20",
+                    "features": ["Unlimited sales & orders", "Unlimited users", "Unlimited storage", "Unlimited OMS"],
+                    "highlight_features": ["NF-e, NFC-e and NFS-e issuance", "Inventory management", "Freight quotation", "Expedition control"]
+                },
+                {
+                    "id": "construa",
+                    "name": "Build",
+                    "subtitle": "Ideal for revenue up to R$ 360k/year",
+                    "price_monthly": 159,
+                    "price_annual": 119,
+                    "annual_savings": 480,
+                    "revenue_limit": "R$ 360k/year",
+                    "ads_limit": "5,000",
+                    "data_history": "24 months",
+                    "pix_transfer": "Free",
+                    "envios_credit": "R$ 170",
+                    "link_payment_rate": "2.87%",
+                    "mobile_payment_rate": "2.39%",
+                    "boleto_fee": "R$ 1.95",
+                    "pix_fee": "R$ 0.79",
+                    "features": ["Unlimited sales & orders", "Unlimited users", "Unlimited storage", "Unlimited OMS"],
+                    "highlight_features": ["Activation consulting", "Multi-company", "Boleto and billing issuance", "Bank reconciliation"]
+                },
+                {
+                    "id": "impulsione",
+                    "name": "Boost",
+                    "subtitle": "Ideal for revenue up to R$ 4.8M/year",
+                    "price_monthly": 349,
+                    "price_annual": 259,
+                    "annual_savings": 1080,
+                    "revenue_limit": "R$ 4.8M/year",
+                    "ads_limit": "10,000",
+                    "data_history": "24 months",
+                    "pix_transfer": "Free",
+                    "envios_credit": "R$ 360",
+                    "link_payment_rate": "2.77%",
+                    "mobile_payment_rate": "2.29%",
+                    "boleto_fee": "R$ 1.79",
+                    "pix_fee": "R$ 0.50",
+                    "features": ["Unlimited sales & orders", "Unlimited users", "Unlimited storage", "Unlimited OMS"],
+                    "highlight_features": ["Price calculator", "Purchase planning", "Contribution margin report", "Sales performance report"]
+                },
+                {
+                    "id": "domine",
+                    "name": "Dominate",
+                    "subtitle": "Ideal for revenue up to R$ 78M/year",
+                    "price_monthly": 849,
+                    "price_annual": 639,
+                    "annual_savings": 2520,
+                    "revenue_limit": "R$ 78M/year",
+                    "ads_limit": "20,000",
+                    "data_history": "36 months",
+                    "pix_transfer": "Free",
+                    "envios_credit": "R$ 500",
+                    "link_payment_rate": "2.47%",
+                    "mobile_payment_rate": "1.99%",
+                    "boleto_fee": "R$ 1.59",
+                    "pix_fee": "R$ 0.35",
+                    "features": ["Unlimited sales & orders", "Unlimited users", "Unlimited storage", "Unlimited OMS"],
+                    "highlight_features": ["Personalized implementation", "Support in up to 5 min", "Exclusive phone line", "Account manager"]
+                }
+            ]
+        },
+        "testimonials": {
+            "title": "Stories from those who make it happen with Gaqno",
+            "cta": "start now",
+            "items": [
+                {
+                    "quote": "Our company's main pain was having more efficient processes. With the Gaqno ERP implementation we achieved that efficiency, with better organization of our workflow and everything integrated.",
+                    "author": "Felipe Bernardini",
+                    "role": "Owner of Birden Clothing"
+                },
+                {
+                    "quote": "Before Gaqno I had to control everything manually and wasted so much time. Today, I create a charge or receive a bill to pay with everything very practical. It's very different because everything is automated.",
+                    "author": "Flávio & Juliana Agapito",
+                    "role": "Owners of Juff Sportswear"
+                },
+                {
+                    "quote": "In the past we didn't have this, everything was manual. For me it was insane. Today, we have much greater control of inventory, expiration, finances and all that part we didn't have tight, today the system helps us with that.",
+                    "author": "Alexandre Sarti & Fabiola Soares",
+                    "role": "Partners at Sunset Cosméticos"
+                }
+            ]
+        },
+        "footer": {
+            "privacy_policy": "Privacy Policy",
+            "terms_of_use": "Terms of Use",
+            "copyright": "© 2024 Gaqno. All rights reserved."
+        }
+    },
     "admin": {
         "organization": "Organization",
         "users": "Users",
