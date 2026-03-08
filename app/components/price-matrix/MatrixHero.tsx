@@ -22,11 +22,6 @@ export default function MatrixHero() {
             Precificação
           </span>
         </h1>
-        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-400">
-          Síntese estratégica e econômica para unificação de ERP, CRM, PDV e AI Studio. Foco em
-          empresas com lucro anual de{' '}
-          <span className="font-semibold text-white">R$ 700.000</span> e alta demanda por automação.
-        </p>
         <nav className="flex flex-wrap items-center justify-center gap-2">
           {NAV_LINKS.map((link) => (
             <a

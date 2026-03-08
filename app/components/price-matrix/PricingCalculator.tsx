@@ -21,6 +21,66 @@ function formatBRL(v: number) {
   return v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 }
 
+type AreaEntry = { name: string; value: number; color: string }
+
+function AreaTooltip({
+  active,
+  payload,
+  label,
+}: {
+  active?: boolean
+  payload?: AreaEntry[]
+  label?: string
+}) {
+  if (!active || !payload?.length) return null
+  const gaqno = payload.find((p) => p.name === 'Gaqno')
+  const market = payload.find((p) => p.name === 'Mercado')
+  const savings = market && gaqno ? market.value - gaqno.value : 0
+
+  return (
+    <div
+      style={{
+        background: '#0f172a',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderRadius: 10,
+        padding: '10px 14px',
+        fontSize: 12,
+        color: '#f1f5f9',
+        minWidth: 200,
+      }}
+    >
+      <p style={{ fontWeight: 700, marginBottom: 8, color: '#94a3b8' }}>{label} · acumulado</p>
+      {market && (
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, marginBottom: 4 }}>
+          <span style={{ color: '#6b7280' }}>Mercado</span>
+          <span style={{ fontWeight: 700, color: '#94a3b8' }}>R$ {formatBRL(market.value)}</span>
+        </div>
+      )}
+      {gaqno && (
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, marginBottom: 4 }}>
+          <span style={{ color: '#3b82f6' }}>Gaqno</span>
+          <span style={{ fontWeight: 700, color: '#3b82f6' }}>R$ {formatBRL(gaqno.value)}</span>
+        </div>
+      )}
+      {savings > 0 && (
+        <div
+          style={{
+            marginTop: 8,
+            paddingTop: 8,
+            borderTop: '1px solid rgba(255,255,255,0.07)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: 16,
+          }}
+        >
+          <span style={{ color: '#10b981' }}>Economia acumulada</span>
+          <span style={{ fontWeight: 900, color: '#10b981' }}>R$ {formatBRL(savings)}</span>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function buildProjectionData(
   selected: ProductId[],
   volumes: Record<ProductId, number>,
@@ -38,14 +98,6 @@ function buildProjectionData(
     }, 0)
     return { month: `Mês ${m}`, gaqno: Math.round(gaqno), market: Math.round(market) }
   })
-}
-
-const TOOLTIP_STYLE = {
-  background: '#0f172a',
-  border: '1px solid rgba(255,255,255,0.1)',
-  borderRadius: 8,
-  color: '#f1f5f9',
-  fontSize: 12,
 }
 
 export default function PricingCalculator() {
@@ -197,10 +249,7 @@ export default function PricingCalculator() {
                   </defs>
                   <XAxis dataKey="month" tick={{ fill: '#94a3b8', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <YAxis hide />
-                  <Tooltip
-                    contentStyle={TOOLTIP_STYLE}
-                    formatter={(v: number) => [`R$ ${formatBRL(v)}`, '']}
-                  />
+                  <Tooltip content={<AreaTooltip />} />
                   <Legend
                     formatter={(value) => (
                       <span style={{ color: '#94a3b8', fontSize: 11 }}>{value}</span>
