@@ -259,37 +259,50 @@ export default function UnitEconomicsSection() {
 
           <div className="mt-8 border-t border-white/5 pt-6">
             <h4 className="mb-4 text-sm font-black uppercase tracking-widest text-pink-400">
-              NexAI — Pacotes de Pontos
+              Pacotes de Pontos
             </h4>
             <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-              {NEXAI_POINT_PACKS.map((pack) => (
-                <div
-                  key={pack.points}
-                  className={cn(
-                    'relative rounded-2xl border p-4 text-center transition-colors',
-                    pack.highlighted
-                      ? 'border-pink-500/50 bg-pink-950/30 shadow-[0_0_24px_-8px_rgba(236,72,153,0.3)]'
-                      : 'border-white/5 bg-white/5 hover:border-white/10',
-                  )}
-                >
-                  {pack.highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-pink-500 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-white whitespace-nowrap">
-                      Mais popular
+              {NEXAI_POINT_PACKS.map((pack) => {
+                const apiCostUsd = pack.points * CALCULATOR.API_COST_PER_POINT_USD
+                const marginPct = ((pack.priceUsd - apiCostUsd) / pack.priceUsd) * 100
+                return (
+                  <div
+                    key={pack.points}
+                    className={cn(
+                      'relative rounded-2xl border p-4 text-center transition-colors',
+                      pack.highlighted
+                        ? 'border-pink-500/50 bg-pink-950/30 shadow-[0_0_24px_-8px_rgba(236,72,153,0.3)]'
+                        : 'border-white/5 bg-white/5 hover:border-white/10',
+                    )}
+                  >
+                    {pack.highlighted && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-pink-500 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-white whitespace-nowrap">
+                        Mais popular
+                      </div>
+                    )}
+                    <p className="text-2xl font-black text-white">
+                      {pack.points.toLocaleString('pt-BR')}
+                    </p>
+                    <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-pink-400">pontos</p>
+                    <div className="mb-3 space-y-1 text-xs text-slate-400">
+                      <p>🖼️ {pack.images.toLocaleString('pt-BR')} imagens</p>
+                      <p>🎬 {pack.videos.toLocaleString('pt-BR')} vídeos</p>
                     </div>
-                  )}
-                  <p className="text-2xl font-black text-white">
-                    {pack.points.toLocaleString('pt-BR')}
-                  </p>
-                  <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-pink-400">pontos</p>
-                  <div className="mb-3 space-y-1 text-xs text-slate-400">
-                    <p>🖼️ {pack.images.toLocaleString('pt-BR')} imagens</p>
-                    <p>🎬 {pack.videos.toLocaleString('pt-BR')} vídeos</p>
+                    <p className="text-lg font-black text-white">
+                      ${pack.priceUsd.toFixed(2)}
+                    </p>
+                    <div className="mt-2 border-t border-white/5 pt-2">
+                      <p className="text-[10px] text-slate-500">
+                        Custo API{' '}
+                        <span className="font-mono text-slate-600">${apiCostUsd.toFixed(2)}</span>
+                      </p>
+                      <p className="text-xs font-black text-green-400">
+                        Margem {marginPct.toFixed(1)}%
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-lg font-black text-white">
-                    ${pack.priceUsd.toFixed(2)}
-                  </p>
-                </div>
-              ))}
+                )
+              })}
             </div>
             <p className="mt-3 text-center text-[10px] text-slate-600">
               1 imagem = 2 pts · 1 segundo de vídeo = 10 pts · Pontos não expiram
