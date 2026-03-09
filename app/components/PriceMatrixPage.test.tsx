@@ -28,6 +28,8 @@ import PriceMatrixPage from './PriceMatrixPage'
 import MatrixHero from './price-matrix/MatrixHero'
 import MacroSection from './price-matrix/MacroSection'
 import PlanMatrix from './price-matrix/PlanMatrix'
+import OmnichannelPlanCards from './price-matrix/OmnichannelPlanCards'
+import OmnichannelComparisonTable from './price-matrix/OmnichannelComparisonTable'
 
 describe('PriceMatrixPage', () => {
   it('renders without crashing', () => {
@@ -48,6 +50,8 @@ describe('MatrixHero', () => {
     expect(screen.getByText('Produtos')).toBeInTheDocument()
     expect(screen.getByText('Calculadora')).toBeInTheDocument()
     expect(screen.getByText('Planos')).toBeInTheDocument()
+    expect(screen.getByText('Omnichannel')).toBeInTheDocument()
+    expect(screen.getByText('Comparativo')).toBeInTheDocument()
     expect(screen.getByText('Economics')).toBeInTheDocument()
   })
 
@@ -68,6 +72,55 @@ describe('MacroSection', () => {
     render(<MacroSection />)
     expect(screen.getByText('3,91%')).toBeInTheDocument()
     expect(screen.getByText('12,00%')).toBeInTheDocument()
+  })
+})
+
+describe('OmnichannelPlanCards', () => {
+  it('renders all 5 plan tiers', () => {
+    render(<OmnichannelPlanCards />)
+    expect(screen.getByText('STARTER')).toBeInTheDocument()
+    expect(screen.getByText('SPECIALIST')).toBeInTheDocument()
+    expect(screen.getByText('EXPERT')).toBeInTheDocument()
+    expect(screen.getByText('PROFESSIONAL')).toBeInTheDocument()
+    expect(screen.getByText('ENTERPRISE')).toBeInTheDocument()
+  })
+
+  it('renders Mais Vendido badge on highlighted plan', () => {
+    render(<OmnichannelPlanCards />)
+    expect(screen.getByText('Mais Vendido')).toBeInTheDocument()
+  })
+
+  it('renders plan prices', () => {
+    render(<OmnichannelPlanCards />)
+    expect(screen.getByText('R$ 600/mês')).toBeInTheDocument()
+    expect(screen.getByText('R$ 1.800/mês')).toBeInTheDocument()
+  })
+
+  it('renders section heading', () => {
+    render(<OmnichannelPlanCards />)
+    expect(screen.getByText('Planos Omnichannel')).toBeInTheDocument()
+  })
+})
+
+describe('OmnichannelComparisonTable', () => {
+  it('renders section heading', () => {
+    render(<OmnichannelComparisonTable />)
+    expect(screen.getByText('Comparativo de recursos Omnichannel')).toBeInTheDocument()
+  })
+
+  it('renders all plan column headers', () => {
+    render(<OmnichannelComparisonTable />)
+    expect(screen.getByText('Starter')).toBeInTheDocument()
+    expect(screen.getByText('Specialist')).toBeInTheDocument()
+    expect(screen.getByText('Expert')).toBeInTheDocument()
+    expect(screen.getAllByText('Professional').length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Enterprise/).length).toBeGreaterThan(0)
+  })
+
+  it('renders category headers in comparison table', () => {
+    render(<OmnichannelComparisonTable />)
+    expect(screen.getByText('Resumo')).toBeInTheDocument()
+    expect(screen.getByText('Chatbots')).toBeInTheDocument()
   })
 })
 

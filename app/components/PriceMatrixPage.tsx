@@ -4,6 +4,8 @@ import dynamic from 'next/dynamic'
 import MatrixHero from './price-matrix/MatrixHero'
 import MacroSection from './price-matrix/MacroSection'
 import PlanMatrix from './price-matrix/PlanMatrix'
+import OmnichannelPlanCards from './price-matrix/OmnichannelPlanCards'
+import OmnichannelComparisonTable from './price-matrix/OmnichannelComparisonTable'
 
 const ProductShowcase = dynamic(() => import('./price-matrix/ProductShowcase'), { ssr: false })
 const PricingCalculator = dynamic(() => import('./price-matrix/PricingCalculator'), { ssr: false })
@@ -17,6 +19,8 @@ export default function PriceMatrixPage() {
       <ProductShowcase />
       <PricingCalculator />
       <PlanMatrix />
+      <OmnichannelPlanCards />
+      <OmnichannelComparisonTable />
       <UnitEconomicsSection />
     </div>
   )
