@@ -1,5 +1,7 @@
 'use client'
 
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import {
   BarChart,
   Bar,
@@ -15,7 +17,7 @@ import {
   AI_MODELS,
   CALCULATOR,
   LLM_PROVIDERS,
-  NEXAI_POINT_PACKS,
+  EXTENDED_REFERENCES,
   type LLMTier,
 } from '@/app/constants/price-matrix'
 import { cn } from '@/utils/cn'
@@ -25,6 +27,7 @@ const GLOSSARY = [
   { abbr: 'CRM', meaning: 'Customer Relationship Management — gestão de relacionamento e pipeline de vendas com clientes.' },
   { abbr: 'PDV', meaning: 'Ponto de Venda — sistema de registro de transações no varejo integrado ao estoque.' },
   { abbr: 'SaaS', meaning: 'Software as a Service — software entregue como serviço recorrente na nuvem, sem instalação local.' },
+  { abbr: 'Interactionz', meaning: 'Moeda universal de IA da plataforma gaqno — 1 ponto = 1 interação de IA, compartilhada entre todos os módulos.' },
   { abbr: 'IPCA', meaning: 'Índice Nacional de Preços ao Consumidor Amplo — indicador oficial de inflação no Brasil (IBGE).' },
   { abbr: 'Selic', meaning: 'Sistema Especial de Liquidação e de Custódia — taxa básica de juros definida pelo COPOM/BCB.' },
   { abbr: 'PIB', meaning: 'Produto Interno Bruto — soma de todos os bens e serviços produzidos no país em determinado período.' },
@@ -37,23 +40,8 @@ const GLOSSARY = [
   { abbr: 'OPEX', meaning: 'Operational Expenditure — despesas operacionais recorrentes, como assinaturas SaaS.' },
   { abbr: 'CAPEX', meaning: 'Capital Expenditure — investimento em ativos físicos permanentes, como servidores próprios.' },
   { abbr: 'OTP', meaning: 'One-Time Password — senha de uso único para autenticação segura em dois fatores (2FA).' },
-]
-
-const REFERENCES = [
-  { label: 'IPCA 2026', source: 'Banco Central do Brasil — Relatório Focus', year: '2026' },
-  { label: 'Taxa Selic', source: 'Banco Central do Brasil — Ata COPOM', year: '2026' },
-  { label: 'Câmbio USD/BRL', source: 'B3 / Banco Central do Brasil', year: '2026' },
-  { label: 'PIB Brasil', source: 'IBGE / FGV — Projeção anual', year: '2026' },
-  { label: 'Custos WhatsApp', source: 'Meta for Developers — WhatsApp Business Pricing', year: '2026' },
-  { label: 'Modelos Gemini', source: 'Google AI Studio — Pricing page', year: '2026' },
-  { label: 'Benchmarks CAC/LTV SaaS', source: 'OpenView — SaaS Benchmarks Report', year: '2025' },
-  { label: 'Taxa de churn', source: 'ChartMogul — SaaS Metrics Report', year: '2025' },
-  { label: 'LLM API Pricing Comparison (2026)', source: 'IntuitionLabs.ai · Adrien Laurent — llm-api-pricing-comparison-2025-openai-gemini-claude.pdf', year: 'Fev 2026', url: 'https://intuitionlabs.ai/pdfs/llm-api-pricing-comparison-2025-openai-gemini-claude.pdf' },
-  { label: 'OpenAI API Pricing', source: 'openai.com/api/pricing', year: '2026', url: 'https://openai.com/api/pricing' },
-  { label: 'Anthropic Claude Pricing', source: 'docs.anthropic.com/en/docs/about-claude/pricing', year: '2026', url: 'https://docs.anthropic.com/en/docs/about-claude/pricing' },
-  { label: 'Google Vertex AI Pricing', source: 'cloud.google.com/vertex-ai/generative-ai/pricing', year: '2026', url: 'https://cloud.google.com/vertex-ai/generative-ai/pricing' },
-  { label: 'DeepSeek API Docs', source: 'api-docs.deepseek.com/quick_start/pricing', year: '2026', url: 'https://api-docs.deepseek.com/quick_start/pricing' },
-  { label: 'xAI Grok API Launch', source: 'TechCrunch — Elon Musk\'s xAI launches an API for Grok', year: 'Abr 2025', url: 'https://techcrunch.com/2025/04/09/elon-musks-ai-company-xai-launches-an-api-for-grok-3/' },
+  { abbr: 'RAG', meaning: 'Retrieval-Augmented Generation — técnica de IA que combina busca em documentos com geração de texto contextualizada.' },
+  { abbr: 'OCR', meaning: 'Optical Character Recognition — reconhecimento ótico de caracteres usado para digitalizar documentos físicos.' },
 ]
 
 const CAC_VALUE = 2000
@@ -111,12 +99,27 @@ function LtvCacTooltip({ active, payload }: { active?: boolean; payload?: LtvEnt
 }
 
 export default function UnitEconomicsSection() {
-  return (
-    <section id="economics" className="px-8 py-16 scroll-mt-20">
-      <div className="mx-auto max-w-7xl space-y-8">
-        <h2 className="text-center text-3xl font-bold text-white">Unit Economics & Gateways</h2>
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+  return (
+    <section id="economics" ref={ref} className="px-8 py-16 scroll-mt-20">
+      <div className="mx-auto max-w-7xl space-y-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-center text-3xl font-bold text-white"
+        >
+          Unit Economics & Gateways
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="grid grid-cols-1 gap-6 lg:grid-cols-3"
+        >
           <div className="rounded-2xl border border-white/5 bg-slate-900/60 p-6 lg:col-span-2">
             <h3 className="mb-4 text-sm font-black uppercase tracking-widest text-slate-500">
               LTV vs CAC — projeção de retorno
@@ -129,7 +132,7 @@ export default function UnitEconomicsSection() {
                   cursor={{ fill: 'rgba(255,255,255,0.03)' }}
                   content={<LtvCacTooltip />}
                 />
-                <Bar dataKey="value" radius={[6, 6, 0, 0]}>
+                <Bar dataKey="value" radius={[6, 6, 0, 0]} animationDuration={1200} animationBegin={300}>
                   {LTV_CAC_DATA.map((entry) => (
                     <Cell key={entry.name} fill={entry.fill} />
                   ))}
@@ -156,12 +159,12 @@ export default function UnitEconomicsSection() {
                   </div>
                   <div className="h-1 w-full rounded-full bg-slate-800">
                     {m.numericValue !== undefined && (
-                      <div
+                      <motion.div
                         className="h-1 rounded-full"
-                        style={{
-                          width: `${Math.min((m.numericValue / 15) * 100, 100)}%`,
-                          background: m.color === 'green' ? '#10b981' : '#3b82f6',
-                        }}
+                        initial={{ width: 0 }}
+                        animate={inView ? { width: `${Math.min((m.numericValue / 15) * 100, 100)}%` } : {}}
+                        transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
+                        style={{ background: m.color === 'green' ? '#10b981' : '#3b82f6' }}
                       />
                     )}
                   </div>
@@ -174,9 +177,14 @@ export default function UnitEconomicsSection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="grid grid-cols-1 gap-6 lg:grid-cols-2"
+        >
           <div className="rounded-2xl border border-white/5 bg-slate-900/60 p-6">
             <h3 className="mb-4 text-lg font-bold text-white">Gateways & Markup Tributário</h3>
             <p className="mb-4 text-sm leading-relaxed text-slate-400">
@@ -203,8 +211,9 @@ export default function UnitEconomicsSection() {
             <h3 className="mb-4 text-lg font-bold text-white">Omnichannel — Estratégia de Repasse</h3>
             <div className="space-y-3">
               {OMNICHANNEL_CATEGORIES.map((cat) => (
-                <div
+                <motion.div
                   key={cat.name}
+                  whileHover={{ x: 4 }}
                   className="flex items-center justify-between rounded-xl border border-transparent bg-white/5 px-4 py-3 transition-colors hover:border-white/10"
                 >
                   <div>
@@ -222,13 +231,18 @@ export default function UnitEconomicsSection() {
                   )}>
                     {cat.pricing}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="rounded-2xl border border-pink-500/10 bg-slate-900/60 p-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="rounded-2xl border border-pink-500/10 bg-slate-900/60 p-6"
+        >
           <h3 className="mb-4 text-lg font-bold text-white">AI Studio — Comparativo de Modelos</h3>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
             {AI_MODELS.map((model) => {
@@ -258,58 +272,6 @@ export default function UnitEconomicsSection() {
           </p>
 
           <div className="mt-8 border-t border-white/5 pt-6">
-            <h4 className="mb-4 text-sm font-black uppercase tracking-widest text-pink-400">
-              Pacotes de Pontos
-            </h4>
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-              {NEXAI_POINT_PACKS.map((pack) => {
-                const apiCostUsd = pack.points * CALCULATOR.API_COST_PER_POINT_USD
-                const marginPct = ((pack.priceUsd - apiCostUsd) / pack.priceUsd) * 100
-                return (
-                  <div
-                    key={pack.points}
-                    className={cn(
-                      'relative rounded-2xl border p-4 text-center transition-colors',
-                      pack.highlighted
-                        ? 'border-pink-500/50 bg-pink-950/30 shadow-[0_0_24px_-8px_rgba(236,72,153,0.3)]'
-                        : 'border-white/5 bg-white/5 hover:border-white/10',
-                    )}
-                  >
-                    {pack.highlighted && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-pink-500 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-white whitespace-nowrap">
-                        Mais popular
-                      </div>
-                    )}
-                    <p className="text-2xl font-black text-white">
-                      {pack.points.toLocaleString('pt-BR')}
-                    </p>
-                    <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-pink-400">pontos</p>
-                    <div className="mb-3 space-y-1 text-xs text-slate-400">
-                      <p>🖼️ {pack.images.toLocaleString('pt-BR')} imagens</p>
-                      <p>🎬 {pack.videos.toLocaleString('pt-BR')} vídeos</p>
-                    </div>
-                    <p className="text-lg font-black text-white">
-                      ${pack.priceUsd.toFixed(2)}
-                    </p>
-                    <div className="mt-2 border-t border-white/5 pt-2">
-                      <p className="text-[10px] text-slate-500">
-                        Custo API{' '}
-                        <span className="font-mono text-slate-600">${apiCostUsd.toFixed(2)}</span>
-                      </p>
-                      <p className="text-xs font-black text-green-400">
-                        Margem {marginPct.toFixed(1)}%
-                      </p>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-            <p className="mt-3 text-center text-[10px] text-slate-600">
-              1 imagem = 2 pts · 1 segundo de vídeo = 10 pts · Pontos não expiram
-            </p>
-          </div>
-
-          <div className="mt-8 border-t border-white/5 pt-6">
             <h4 className="mb-1 text-sm font-black uppercase tracking-widest text-slate-500">
               Mercado LLM — Preços API por Provedor
             </h4>
@@ -322,6 +284,7 @@ export default function UnitEconomicsSection() {
                   <tr className="border-b border-white/5 bg-white/[0.02]">
                     <th className="py-2.5 pl-4 text-left font-black uppercase tracking-widest text-slate-600">Provedor</th>
                     <th className="py-2.5 text-left font-black uppercase tracking-widest text-slate-600">Modelo</th>
+                    <th className="py-2.5 text-right font-black uppercase tracking-widest text-slate-600">Context</th>
                     <th className="py-2.5 text-right font-black uppercase tracking-widest text-slate-600">Input / 1M</th>
                     <th className="py-2.5 pr-4 text-right font-black uppercase tracking-widest text-slate-600">Output / 1M</th>
                     <th className="py-2.5 pr-4 text-center font-black uppercase tracking-widest text-slate-600">Tier</th>
@@ -332,6 +295,7 @@ export default function UnitEconomicsSection() {
                     <tr key={`${p.provider}-${p.model}`} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
                       <td className="py-2.5 pl-4 font-semibold text-slate-300">{p.provider}</td>
                       <td className="py-2.5 font-mono text-slate-400">{p.model}</td>
+                      <td className="py-2.5 text-right font-mono text-slate-500">{p.context}</td>
                       <td className="py-2.5 text-right font-mono text-slate-300">${p.inputPer1M.toFixed(2)}</td>
                       <td className="py-2.5 pr-4 text-right font-mono text-slate-300">${p.outputPer1M.toFixed(2)}</td>
                       <td className="py-2.5 pr-4 text-center">
@@ -345,9 +309,14 @@ export default function UnitEconomicsSection() {
               </table>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="rounded-2xl border border-white/5 bg-slate-900/60 p-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="rounded-2xl border border-white/5 bg-slate-900/60 p-6"
+        >
           <h3 className="mb-6 text-lg font-bold text-white">Glossário de Siglas</h3>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {GLOSSARY.map((item) => (
@@ -359,7 +328,7 @@ export default function UnitEconomicsSection() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         <footer className="border-t border-white/5 pb-4 pt-10">
           <p className="mx-auto max-w-2xl text-center text-xs italic text-slate-500">
@@ -373,7 +342,7 @@ export default function UnitEconomicsSection() {
               Fontes &amp; Referências
             </p>
             <ol className="mx-auto max-w-4xl grid grid-cols-1 gap-2 sm:grid-cols-2 list-none">
-              {REFERENCES.map((ref, i) => (
+              {EXTENDED_REFERENCES.map((ref, i) => (
                 <li key={i} className="flex gap-2 text-[11px] text-slate-600">
                   <span className="shrink-0 font-mono text-slate-700">[{i + 1}]</span>
                   <span>

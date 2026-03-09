@@ -362,6 +362,108 @@ export const CALCULATOR_PRODUCTS: CalculatorProduct[] = [
   },
 ]
 
+export interface ModuleConnection {
+  id: ProductId
+  title: string
+  icon: string
+  accentColor: string
+  aiFeatures: string[]
+  interactionzPerAction: number
+  actionUnit: string
+}
+
+export const MODULE_CONNECTIONS: ModuleConnection[] = [
+  {
+    id: 'crm',
+    title: 'CRM',
+    icon: '📊',
+    accentColor: '#3b82f6',
+    aiFeatures: ['Scoring de leads por IA', 'Resumo de oportunidades', 'Sugestão de próxima ação'],
+    interactionzPerAction: 8,
+    actionUnit: 'por análise de lead',
+  },
+  {
+    id: 'erp',
+    title: 'ERP',
+    icon: '⚙️',
+    accentColor: '#10b981',
+    aiFeatures: ['Reconhecimento de NF-e por OCR', 'Previsão de ruptura de estoque', 'Conciliação automática'],
+    interactionzPerAction: 12,
+    actionUnit: 'por documento processado',
+  },
+  {
+    id: 'pdv',
+    title: 'PDV',
+    icon: '🏪',
+    accentColor: '#f59e0b',
+    aiFeatures: ['Sugestão de venda cruzada', 'Detecção de anomalias no caixa', 'Relatório diário IA'],
+    interactionzPerAction: 4,
+    actionUnit: 'por sessão de venda',
+  },
+  {
+    id: 'omnichannel',
+    title: 'Omnichannel',
+    icon: '💬',
+    accentColor: '#8b5cf6',
+    aiFeatures: ['Resposta inteligente por IA generativa', 'Análise de ticket por IA', 'Bot com documento RAG'],
+    interactionzPerAction: 1,
+    actionUnit: 'por interação com bot',
+  },
+  {
+    id: 'ai',
+    title: 'AI Studio',
+    icon: '✨',
+    accentColor: '#ec4899',
+    aiFeatures: ['Geração de texto livre', 'Criação de imagens', 'Síntese de vídeo'],
+    interactionzPerAction: 12000,
+    actionUnit: 'por 1M tokens (texto)',
+  },
+]
+
+export interface InteractionzTier {
+  label: string
+  pointsPerMonth: number
+  examplesOmnichannel: number
+  examplesCrmLeads: number
+  examplesImages: number
+  color: string
+}
+
+export const INTERACTIONZ_TIERS: InteractionzTier[] = [
+  {
+    label: 'Starter',
+    pointsPerMonth: 100,
+    examplesOmnichannel: 100,
+    examplesCrmLeads: 12,
+    examplesImages: 50,
+    color: '#64748b',
+  },
+  {
+    label: 'Specialist',
+    pointsPerMonth: 500,
+    examplesOmnichannel: 500,
+    examplesCrmLeads: 62,
+    examplesImages: 250,
+    color: '#8b5cf6',
+  },
+  {
+    label: 'Expert',
+    pointsPerMonth: 2000,
+    examplesOmnichannel: 2000,
+    examplesCrmLeads: 250,
+    examplesImages: 1000,
+    color: '#3b82f6',
+  },
+  {
+    label: 'Professional',
+    pointsPerMonth: 5000,
+    examplesOmnichannel: 5000,
+    examplesCrmLeads: 625,
+    examplesImages: 2500,
+    color: '#ec4899',
+  },
+]
+
 export type LLMTier = 'premium' | 'mid' | 'low' | 'ultra'
 
 export interface LLMProvider {
@@ -527,4 +629,27 @@ export const PLAN_FEATURE_MATRIX: PlanFeatureRow[] = [
   { category: 'Financeiro', feature: 'Mensalidade', professional: 'R$ 349/mês', enterprise: 'R$ 899/mês' },
   { feature: 'Pix automático', professional: '1,19%', enterprise: '0,99%' },
   { feature: 'Cartão de crédito', professional: '3,99%', enterprise: '3,49%' },
+]
+
+export const EXTENDED_REFERENCES = [
+  { label: 'IPCA 2026', source: 'Banco Central do Brasil — Relatório Focus', year: '2026' },
+  { label: 'Taxa Selic', source: 'Banco Central do Brasil — Ata COPOM', year: '2026' },
+  { label: 'Câmbio USD/BRL', source: 'B3 / Banco Central do Brasil', year: '2026' },
+  { label: 'PIB Brasil', source: 'IBGE / FGV — Projeção anual', year: '2026' },
+  { label: 'Custos WhatsApp Business API', source: 'Meta for Developers — WhatsApp Business Pricing', year: '2026', url: 'https://developers.facebook.com/docs/whatsapp/pricing' },
+  { label: 'Modelos Gemini — Preços', source: 'Google AI Studio — Pricing page', year: '2026', url: 'https://ai.google.dev/pricing' },
+  { label: 'LLM API Pricing Comparison (2026)', source: 'IntuitionLabs.ai · Adrien Laurent', year: 'Fev 2026', url: 'https://intuitionlabs.ai/pdfs/llm-api-pricing-comparison-2025-openai-gemini-claude.pdf' },
+  { label: 'OpenAI API Pricing', source: 'openai.com/api/pricing', year: '2026', url: 'https://openai.com/api/pricing' },
+  { label: 'Anthropic Claude Pricing', source: 'docs.anthropic.com/en/docs/about-claude/pricing', year: '2026', url: 'https://docs.anthropic.com/en/docs/about-claude/pricing' },
+  { label: 'Google Vertex AI Pricing', source: 'cloud.google.com/vertex-ai/generative-ai/pricing', year: '2026', url: 'https://cloud.google.com/vertex-ai/generative-ai/pricing' },
+  { label: 'DeepSeek API Docs', source: 'api-docs.deepseek.com/quick_start/pricing', year: '2026', url: 'https://api-docs.deepseek.com/quick_start/pricing' },
+  { label: 'xAI Grok API Launch', source: "TechCrunch — Elon Musk's xAI launches an API for Grok", year: 'Abr 2025', url: 'https://techcrunch.com/2025/04/09/elon-musks-ai-company-xai-launches-an-api-for-grok-3/' },
+  { label: 'SaaS Benchmarks — CAC e LTV', source: 'OpenView Partners — SaaS Benchmarks Report', year: '2025', url: 'https://openviewpartners.com/saas-benchmarks-report/' },
+  { label: 'Taxa de churn SaaS B2B', source: 'ChartMogul — SaaS Metrics Report', year: '2025', url: 'https://chartmogul.com/reports/saas-benchmarks/' },
+  { label: 'Mercado Global de ERP', source: 'Gartner — ERP Market Share Analysis', year: '2025', url: 'https://www.gartner.com/en/information-technology/insights/erp' },
+  { label: 'CRM Market Share e Tendências', source: 'IDC — Worldwide CRM Applications Market Shares', year: '2025', url: 'https://www.idc.com/getdoc.jsp?containerId=US50389523' },
+  { label: 'Transações PDV no Brasil', source: 'ABECS — Associação Brasileira das Empresas de Cartões', year: '2025', url: 'https://www.abecs.org.br/estatisticas-de-meios-de-pagamento' },
+  { label: 'Adoção de Pix no varejo', source: 'Banco Central do Brasil — Relatório Pix', year: '2025', url: 'https://www.bcb.gov.br/estabilidadefinanceira/pix' },
+  { label: 'Crescimento SaaS B2B no Brasil', source: 'Distrito — Cubo SaaS Report', year: '2025' },
+  { label: 'ROI de Automação com IA Generativa', source: 'McKinsey Global Institute — The state of AI', year: '2025', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
 ]

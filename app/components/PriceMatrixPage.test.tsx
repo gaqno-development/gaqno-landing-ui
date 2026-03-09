@@ -41,7 +41,7 @@ describe('PriceMatrixPage', () => {
 describe('MatrixHero', () => {
   it('renders hero headline', () => {
     render(<MatrixHero />)
-    expect(screen.getByText(/Arquitetura de/)).toBeInTheDocument()
+    expect(screen.getByText(/Um Portal/)).toBeInTheDocument()
   })
 
   it('renders navigation pill anchors', () => {
@@ -51,13 +51,13 @@ describe('MatrixHero', () => {
     expect(screen.getByText('Calculadora')).toBeInTheDocument()
     expect(screen.getByText('Planos')).toBeInTheDocument()
     expect(screen.getByText('Omnichannel')).toBeInTheDocument()
-    expect(screen.getByText('Comparativo')).toBeInTheDocument()
+    expect(screen.getAllByText('Interactionz').length).toBeGreaterThan(0)
     expect(screen.getByText('Economics')).toBeInTheDocument()
   })
 
   it('renders tagline with year', () => {
     render(<MatrixHero />)
-    expect(screen.getByText(/Ecossistema SaaS/)).toBeInTheDocument()
+    expect(screen.getByText(/Portal SaaS/)).toBeInTheDocument()
   })
 })
 

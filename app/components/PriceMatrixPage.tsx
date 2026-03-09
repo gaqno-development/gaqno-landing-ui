@@ -3,21 +3,25 @@
 import dynamic from 'next/dynamic'
 import MatrixHero from './price-matrix/MatrixHero'
 import MacroSection from './price-matrix/MacroSection'
-import PlanMatrix from './price-matrix/PlanMatrix'
 import OmnichannelPlanCards from './price-matrix/OmnichannelPlanCards'
 import CrmPlanCards from './price-matrix/CrmPlanCards'
 import OmnichannelComparisonTable from './price-matrix/OmnichannelComparisonTable'
 
+const EcosystemHubSection = dynamic(() => import('./price-matrix/EcosystemHubSection'), { ssr: false })
 const ProductShowcase = dynamic(() => import('./price-matrix/ProductShowcase'), { ssr: false })
+const InteractionzSection = dynamic(() => import('./price-matrix/InteractionzSection'), { ssr: false })
 const PricingCalculator = dynamic(() => import('./price-matrix/PricingCalculator'), { ssr: false })
+const PlanMatrix = dynamic(() => import('./price-matrix/PlanMatrix'), { ssr: false })
 const UnitEconomicsSection = dynamic(() => import('./price-matrix/UnitEconomicsSection'), { ssr: false })
 
 export default function PriceMatrixPage() {
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-50 antialiased selection:bg-pink-500/30">
+    <div className="min-h-screen bg-[#020617] text-slate-50 antialiased selection:bg-purple-500/30">
       <MatrixHero />
       <MacroSection />
+      <EcosystemHubSection />
       <ProductShowcase />
+      <InteractionzSection />
       <PricingCalculator />
       <PlanMatrix />
       <CrmPlanCards />
