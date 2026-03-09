@@ -410,6 +410,97 @@ export const ROI_CONFIG = {
   WORKING_HOURS_MONTH: 160,
 } as const
 
+export interface CrmPlan {
+  id: string
+  name: string
+  priceMonthly: number
+  priceAnnual: number
+  annualSavings: number
+  features: string[]
+  highlightFeatures: string[]
+  highlighted?: boolean
+}
+
+export const CRM_PLANS: CrmPlan[] = [
+  {
+    id: 'avance',
+    name: 'Avance',
+    priceMonthly: 59,
+    priceAnnual: 49,
+    annualSavings: 120,
+    features: [
+      'Vendas e pedidos ilimitado',
+      'Usuários ilimitados',
+      'Armazenamento ilimitado',
+      'OMS ilimitado',
+    ],
+    highlightFeatures: [
+      'Emissão de NF-e, NFC-e e NFS-e',
+      'Gestão de estoque',
+      'Cotação de frete',
+      'Controle de expedição',
+    ],
+  },
+  {
+    id: 'construa',
+    name: 'Construa',
+    priceMonthly: 159,
+    priceAnnual: 119,
+    annualSavings: 480,
+    highlighted: true,
+    features: [
+      'Vendas e pedidos ilimitado',
+      'Usuários ilimitados',
+      'Armazenamento ilimitado',
+      'OMS ilimitado',
+    ],
+    highlightFeatures: [
+      'Consultoria de ativação',
+      'Multiempresa',
+      'Emissão de boletos e cobranças',
+      'Conciliação bancária',
+    ],
+  },
+  {
+    id: 'impulsione',
+    name: 'Impulsione',
+    priceMonthly: 349,
+    priceAnnual: 259,
+    annualSavings: 1080,
+    features: [
+      'Vendas e pedidos ilimitado',
+      'Usuários ilimitados',
+      'Armazenamento ilimitado',
+      'OMS ilimitado',
+    ],
+    highlightFeatures: [
+      'Gestor de conta dedicado',
+      'Integração com marketplaces',
+      'Relatórios avançados',
+      'API completa',
+    ],
+  },
+  {
+    id: 'domine',
+    name: 'Domine',
+    priceMonthly: 849,
+    priceAnnual: 639,
+    annualSavings: 2520,
+    features: [
+      'Vendas e pedidos ilimitado',
+      'Usuários ilimitados',
+      'Armazenamento ilimitado',
+      'OMS ilimitado',
+    ],
+    highlightFeatures: [
+      'Infraestrutura dedicada',
+      'SLA premium',
+      'Onboarding personalizado',
+      'Suporte prioritário 24/7',
+    ],
+  },
+]
+
 export interface PlanFeatureRow {
   category?: string
   feature: string
