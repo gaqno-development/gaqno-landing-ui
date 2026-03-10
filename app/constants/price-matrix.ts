@@ -33,9 +33,9 @@ export const AI_MODELS: AIModel[] = [
   {
     icon: '📝',
     name: 'Gemini 3 Pro (Texto)',
-    cost: '12.000 pts / 1M tokens',
-    bigTechUsd: 1.25,
-    interactionzPoints: 12000,
+    cost: '1.200 pts / 1M tokens',
+    bigTechUsd: 12.0,
+    interactionzPoints: 1200,
   },
   {
     icon: '🖼️',
@@ -134,7 +134,6 @@ export const CALCULATOR = {
   BIG_TECH_VID_USD: 0.35,
   AI_IMG_POINTS: 40,
   AI_VID_POINTS: 350,
-  WPP_AVG_COST_BRL: 0.24,
 } as const
 
 export interface UnitEconomicMetric {
@@ -274,9 +273,9 @@ export const PRODUCT_SECTIONS: ProductSection[] = [
     ],
     chartType: 'bar',
     chartData: [
-      { model: 'Texto (1M tok)', bigtech: 6.78, gaqno: 0.86, unit: 'R$' },
-      { model: 'Imagem (100x)', bigtech: 5.21, gaqno: 2.88, unit: 'R$' },
-      { model: 'Vídeo (10seg)', bigtech: 18.97, gaqno: 7.56, unit: 'R$' },
+      { model: 'Texto (1M tok)', bigtech: 65.04, gaqno: 8.64, unit: 'R$' },
+      { model: 'Imagem (100x)', bigtech: 92.14, gaqno: 28.80, unit: 'R$' },
+      { model: 'Vídeo (10seg)', bigtech: 18.97, gaqno: 25.20, unit: 'R$' },
     ],
     chartKeys: [
       { key: 'bigtech', color: '#374151', label: 'Big Tech (R$)' },
@@ -308,9 +307,9 @@ export const CALCULATOR_PRODUCTS: CalculatorProduct[] = [
     max: 100,
     step: 1,
     defaultValue: 10,
-    gaqnoCostPer: 29,
+    gaqnoCostPer: 16,
     marketCostPer: 85,
-    description: 'por usuário/mês',
+    description: 'efetivo/usuário (plano flat)',
   },
   {
     id: 'erp',
@@ -357,7 +356,7 @@ export const CALCULATOR_PRODUCTS: CalculatorProduct[] = [
     step: 1000,
     defaultValue: 10000,
     gaqnoCostPer: 0.0072,
-    marketCostPer: 0.02,
+    marketCostPer: 0.05,
     description: 'por Interactionz consumido',
   },
 ]
@@ -415,7 +414,7 @@ export const MODULE_CONNECTIONS: ModuleConnection[] = [
     icon: '✨',
     accentColor: '#ec4899',
     aiFeatures: ['Geração de texto livre', 'Criação de imagens', 'Síntese de vídeo'],
-    interactionzPerAction: 12000,
+    interactionzPerAction: 1200,
     actionUnit: 'por 1M tokens (texto)',
   },
 ]

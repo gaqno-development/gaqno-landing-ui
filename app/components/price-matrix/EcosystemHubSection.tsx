@@ -200,7 +200,7 @@ export default function EcosystemHubSection() {
                         style={{ background: `${mod.accentColor}22`, color: mod.accentColor }}
                       >
                         {mod.interactionzPerAction >= 1000
-                          ? `${(mod.interactionzPerAction / 1000).toFixed(0)}k pts`
+                          ? `${parseFloat((mod.interactionzPerAction / 1000).toFixed(1))}k pts`
                           : `${mod.interactionzPerAction} pts`}/{mod.actionUnit.split(' ')[0]}
                       </span>
                     </div>

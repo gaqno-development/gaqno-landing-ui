@@ -47,7 +47,6 @@ describe('price-matrix', () => {
   it('exports CALCULATOR with numeric constants', () => {
     expect(CALCULATOR.CAMBIO).toBe(5.42)
     expect(CALCULATOR.COST_PER_POINT).toBe(0.0072)
-    expect(CALCULATOR.WPP_AVG_COST_BRL).toBe(0.24)
   })
 
   it('exports UNIT_ECONOMICS', () => {

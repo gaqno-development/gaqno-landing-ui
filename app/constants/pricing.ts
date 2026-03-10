@@ -138,7 +138,7 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
         enterprise: "Sob consulta",
     },
     {
-        name: "Interactionz Adicionais",
+        name: "Interactionz Adicionais (IA + canal)",
         starter: "R$ 2,50",
         specialist: "R$ 1,32",
         expert: "R$ 0,99",

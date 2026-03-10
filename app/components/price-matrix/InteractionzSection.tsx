@@ -17,7 +17,7 @@ const CONSUMPTION_EXAMPLES = [
   { action: 'OCR de NF-e (ERP)', pts: 12, icon: '⚙️', color: '#10b981' },
   { action: 'Sugestão de venda cruzada (PDV)', pts: 4, icon: '🏪', color: '#f59e0b' },
   { action: 'Imagem gerada (AI Studio)', pts: 40, icon: '🖼️', color: '#ec4899' },
-  { action: '10k tokens de texto (AI Studio)', pts: 120, icon: '📝', color: '#f472b6' },
+  { action: '10k tokens de texto (AI Studio)', pts: 12, icon: '📝', color: '#f472b6' },
 ]
 
 const containerVariants = {
