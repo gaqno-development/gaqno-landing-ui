@@ -4,7 +4,7 @@ import PriceMatrixPage from '../../components/PriceMatrixPage'
 export const metadata: Metadata = {
   title: 'Portal SaaS — Planos e Interactionz 2026',
   description:
-    'CRM, ERP, PDV, Omnichannel e AI Studio integrados em um portal. IA precificada por Interactionz — moeda universal. Planos, comparativo de recursos, simulador de custos e unit economics.',
+    'CRM, ERP, PDV, Omnichannel e AI Studio integrados em um portal. IA precificada por Interactionz — moeda universal. Planos, segurança com AES-256 e LGPD, comparativo de recursos e unit economics.',
   openGraph: {
     title: 'Portal SaaS — Planos e Interactionz 2026 | gaqno development',
     description:

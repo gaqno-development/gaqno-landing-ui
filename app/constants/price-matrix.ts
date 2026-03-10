@@ -652,3 +652,74 @@ export const EXTENDED_REFERENCES = [
   { label: 'Crescimento SaaS B2B no Brasil', source: 'Distrito — Cubo SaaS Report', year: '2025' },
   { label: 'ROI de Automação com IA Generativa', source: 'McKinsey Global Institute — The state of AI', year: '2025', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
 ]
+
+export interface SecurityPillar {
+  icon: string
+  title: string
+  description: string
+  badges: string[]
+  accentColor: string
+}
+
+export const SECURITY_PILLARS: SecurityPillar[] = [
+  {
+    icon: '🔐',
+    title: 'Criptografia de Ponta',
+    description:
+      'AES-256-GCM com derivação de chaves por organização (HKDF-SHA256). Dados sensíveis — tokens OAuth, eventos de billing e payloads de IA — são cifrados em repouso com IV aleatório e auth tags.',
+    badges: ['AES-256-GCM', 'HKDF-SHA256', 'bcrypt', 'pgcrypto'],
+    accentColor: '#3b82f6',
+  },
+  {
+    icon: '🛡️',
+    title: 'Autenticação & Controle de Acesso',
+    description:
+      'JWT com tokens de acesso (1h) e refresh (7d) em cookies httpOnly + secure + sameSite. RBAC granular com guards de permissão, feature flags e isolamento multi-tenant por organização.',
+    badges: ['JWT httpOnly', 'RBAC', 'Multi-Tenant', 'Feature Flags'],
+    accentColor: '#8b5cf6',
+  },
+  {
+    icon: '📜',
+    title: 'LGPD & Privacidade',
+    description:
+      'Consentimento explícito antes de coleta de dados, política de proteção de dados acessível, retenção configurável por plano (3-6 meses) e audit logs completos com IP, user-agent e ator.',
+    badges: ['LGPD', 'Consentimento', 'Retenção', 'Audit Logs'],
+    accentColor: '#10b981',
+  },
+  {
+    icon: '🌐',
+    title: 'Infraestrutura Segura',
+    description:
+      'HTTPS forçado com Let\'s Encrypt e HSTS. Helmet.js para headers de segurança, CORS restrito por domínio, rate limiting global (60 req/min) e por organização para endpoints de IA.',
+    badges: ['HTTPS/TLS', 'Helmet.js', 'Rate Limiting', 'CORS'],
+    accentColor: '#f59e0b',
+  },
+  {
+    icon: '✅',
+    title: 'Validação & Proteção de API',
+    description:
+      'class-validator com whitelist e rejeição de campos desconhecidos em todos os DTOs. HMAC-SHA256 para webhooks do WhatsApp, API keys internas e guards service-to-service.',
+    badges: ['class-validator', 'HMAC-SHA256', 'API Keys', 'DTO Strict'],
+    accentColor: '#ec4899',
+  },
+  {
+    icon: '📊',
+    title: 'Auditoria & Compliance',
+    description:
+      'Registro de auditoria para toda ação sensível (criação, alteração, exclusão) com rastreio de ator, IP e contexto. Backups criptografados e variáveis de ambiente isoladas por serviço.',
+    badges: ['ISO 27001', 'Audit Trail', 'Backups Cifrados', 'Env Isolation'],
+    accentColor: '#06b6d4',
+  },
+]
+
+export interface SecurityStat {
+  value: string
+  label: string
+}
+
+export const SECURITY_STATS: SecurityStat[] = [
+  { value: 'AES-256', label: 'Criptografia em Repouso' },
+  { value: 'RBAC', label: 'Controle de Acesso Granular' },
+  { value: '< 2h', label: 'SLA 1ª Resposta de Segurança' },
+  { value: '100%', label: 'HTTPS com HSTS' },
+]

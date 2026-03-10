@@ -12,6 +12,7 @@ const ProductShowcase = dynamic(() => import('./price-matrix/ProductShowcase'), 
 const InteractionzSection = dynamic(() => import('./price-matrix/InteractionzSection'), { ssr: false })
 const PricingCalculator = dynamic(() => import('./price-matrix/PricingCalculator'), { ssr: false })
 const PlanMatrix = dynamic(() => import('./price-matrix/PlanMatrix'), { ssr: false })
+const SecuritySection = dynamic(() => import('./price-matrix/SecuritySection'), { ssr: false })
 const UnitEconomicsSection = dynamic(() => import('./price-matrix/UnitEconomicsSection'), { ssr: false })
 
 export default function PriceMatrixPage() {
@@ -27,6 +28,7 @@ export default function PriceMatrixPage() {
       <CrmPlanCards />
       <OmnichannelPlanCards />
       <OmnichannelComparisonTable />
+      <SecuritySection />
       <UnitEconomicsSection />
     </div>
   )
