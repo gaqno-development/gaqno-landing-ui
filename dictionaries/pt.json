@@ -661,7 +661,7 @@
         },
         "pricing": {
             "title": "O plano perfeito para o momento do seu negócio",
-            "subtitle": "Até 3 meses de economia no plano anual",
+            "subtitle": "Todos os módulos inclusos — CRM, ERP, PDV, Omnichannel e AI Studio",
             "toggle_monthly": "Mensal",
             "toggle_annual": "Anual",
             "annual_badge": "Economize até 3 meses",
@@ -670,10 +670,10 @@
                 {
                     "id": "avance",
                     "name": "Avance",
-                    "subtitle": "Para faturamento até R$ 81 mil ao ano",
-                    "price_monthly": 59,
-                    "price_annual": 49,
-                    "annual_savings": 120,
+                    "subtitle": "Para quem está começando a digitalizar",
+                    "price_monthly": 149,
+                    "price_annual": 109,
+                    "annual_savings": 480,
                     "revenue_limit": "R$ 81 mil/ano",
                     "ads_limit": "2.000",
                     "data_history": "12 meses",
@@ -683,16 +683,16 @@
                     "mobile_payment_rate": "2,49%",
                     "boleto_fee": "R$ 2,50",
                     "pix_fee": "R$ 1,20",
-                    "features": ["Vendas e pedidos ilimitado", "Usuários ilimitados", "Armazenamento ilimitado", "OMS ilimitado"],
-                    "highlight_features": ["Emissão de NF-e, NFC-e e NFS-e", "Gestão de estoque", "Cotação de frete", "Controle de expedição"]
+                    "features": ["Até 3 usuários", "500 Interactionz inclusos", "1 canal WhatsApp", "VPS Partilhada"],
+                    "highlight_features": ["Emissão de NF-e, NFC-e e NFS-e", "Gestão de estoque", "Chatbot com IA generativa", "Pipeline de vendas visual"]
                 },
                 {
                     "id": "construa",
                     "name": "Construa",
-                    "subtitle": "Ideal para faturamento até R$ 360 mil ao ano",
-                    "price_monthly": 159,
-                    "price_annual": 119,
-                    "annual_savings": 480,
+                    "subtitle": "Para empresas consolidando a operação",
+                    "price_monthly": 349,
+                    "price_annual": 259,
+                    "annual_savings": 1080,
                     "revenue_limit": "R$ 360 mil/ano",
                     "ads_limit": "5.000",
                     "data_history": "24 meses",
@@ -702,16 +702,16 @@
                     "mobile_payment_rate": "2,39%",
                     "boleto_fee": "R$ 1,95",
                     "pix_fee": "R$ 0,79",
-                    "features": ["Vendas e pedidos ilimitado", "Usuários ilimitados", "Armazenamento ilimitado", "OMS ilimitado"],
-                    "highlight_features": ["Consultoria de ativação", "Multiempresa", "Emissão de boletos e cobranças", "Conciliação bancária"]
+                    "features": ["Até 10 usuários", "2.000 Interactionz inclusos", "3 canais WhatsApp", "VPS Partilhada"],
+                    "highlight_features": ["Multiempresa", "Emissão de boletos e cobranças", "Conciliação bancária", "Relatórios avançados"]
                 },
                 {
                     "id": "impulsione",
                     "name": "Impulsione",
-                    "subtitle": "Ideal para faturamento até R$ 4,8 milhões ao ano",
-                    "price_monthly": 349,
-                    "price_annual": 259,
-                    "annual_savings": 1080,
+                    "subtitle": "Para operações em crescimento acelerado",
+                    "price_monthly": 649,
+                    "price_annual": 489,
+                    "annual_savings": 1920,
                     "revenue_limit": "R$ 4,8 milhões/ano",
                     "ads_limit": "10.000",
                     "data_history": "24 meses",
@@ -721,16 +721,16 @@
                     "mobile_payment_rate": "2,29%",
                     "boleto_fee": "R$ 1,79",
                     "pix_fee": "R$ 0,50",
-                    "features": ["Vendas e pedidos ilimitado", "Usuários ilimitados", "Armazenamento ilimitado", "OMS ilimitado"],
-                    "highlight_features": ["Calculadora de preços", "Planejamento de compras", "Relatório margem de contribuição", "Relatório performance de vendas"]
+                    "features": ["Até 25 usuários", "5.000 Interactionz inclusos", "5 canais WhatsApp", "VPS Dedicada"],
+                    "highlight_features": ["Gestor de conta dedicado", "Integração com marketplaces", "API completa", "Modelos IA premium (incl. Vídeo)"]
                 },
                 {
                     "id": "domine",
                     "name": "Domine",
-                    "subtitle": "Ideal para faturamento até R$ 78 milhões ao ano",
-                    "price_monthly": 849,
-                    "price_annual": 639,
-                    "annual_savings": 2520,
+                    "subtitle": "Isolamento de dados e volumes massivos",
+                    "price_monthly": 899,
+                    "price_annual": 679,
+                    "annual_savings": 2640,
                     "revenue_limit": "R$ 78 milhões/ano",
                     "ads_limit": "20.000",
                     "data_history": "36 meses",
@@ -740,8 +740,8 @@
                     "mobile_payment_rate": "1,99%",
                     "boleto_fee": "R$ 1,59",
                     "pix_fee": "R$ 0,35",
-                    "features": ["Vendas e pedidos ilimitado", "Usuários ilimitados", "Armazenamento ilimitado", "OMS ilimitado"],
-                    "highlight_features": ["Implementação personalizada", "Suporte em até 5 min", "Linha telefônica exclusiva", "Gerente de contas"]
+                    "features": ["Usuários ilimitados", "10.000 Interactionz inclusos", "Canais ilimitados", "VPS Dedicada"],
+                    "highlight_features": ["Infraestrutura dedicada isolada", "SLA premium (30 min)", "Onboarding personalizado", "Suporte prioritário 24/7"]
                 }
             ]
         },

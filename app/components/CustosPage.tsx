@@ -14,7 +14,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       )}
     >
       {plan.highlighted && (
-        <Badge className="absolute -top-2 left-1/2 -translate-x-1/2">Mais Vendido</Badge>
+        <Badge className="absolute -top-2 left-1/2 -translate-x-1/2">Mais Popular</Badge>
       )}
       <div className="mb-4">
         <h3 className="text-lg font-semibold uppercase tracking-wide text-foreground">{plan.name}</h3>
@@ -25,13 +25,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         <li>{plan.users}</li>
         <li>{plan.interactionz}</li>
       </ul>
-      <p className="mb-1 text-sm font-medium text-foreground">Pacote de canais:</p>
-      <p className="mb-1 text-sm text-muted-foreground">{plan.channelPackPrice}</p>
-      <p className="mb-4 text-xs text-muted-foreground">{plan.channelPackNote}</p>
-      <p className="mb-4 font-semibold text-foreground">
-        Total: <span className="text-primary">{plan.total}</span>
-      </p>
-      {plan.totalNote && <p className="mb-4 text-xs text-muted-foreground">{plan.totalNote}</p>}
+      <p className="mb-4 text-xs text-muted-foreground">{plan.totalNote}</p>
       <Button className="mt-auto w-full" variant={plan.highlighted ? 'default' : 'outline'} asChild>
         <a href="#comparativo">{plan.cta}</a>
       </Button>
@@ -40,37 +34,22 @@ function PlanCard({ plan }: { plan: Plan }) {
   )
 }
 
-function ComparisonTable() {
-  const planIds = ['starter', 'specialist', 'expert', 'professional', 'enterprise'] as const
-  const headers = ['STARTER', 'SPECIALIST', 'EXPERT', 'PROFESSIONAL', 'ENTERPRISE']
+const PLAN_IDS = ['avance', 'construa', 'impulsione', 'domine'] as const
+const HEADERS = ['AVANCE', 'CONSTRUA', 'IMPULSIONE', 'DOMINE']
 
-  const getCell = (row: ComparisonRow, planId: (typeof planIds)[number]) => {
-    switch (planId) {
-      case 'starter':
-        return row.starter
-      case 'specialist':
-        return row.specialist
-      case 'expert':
-        return row.expert
-      case 'professional':
-        return row.professional
-      case 'enterprise':
-        return row.enterprise
-      default:
-        return ''
-    }
-  }
+function ComparisonTableLocal() {
+  const getCell = (row: ComparisonRow, planId: (typeof PLAN_IDS)[number]) => row[planId]
 
   let lastCategory = ''
   return (
     <div className="overflow-x-auto rounded-xl border bg-card">
-      <table className="w-full min-w-[800px] border-collapse text-sm">
+      <table className="w-full min-w-[700px] border-collapse text-sm">
         <thead>
           <tr className="border-b bg-muted/50">
             <th className="sticky left-0 z-10 min-w-[220px] border-b border-r bg-muted/50 px-4 py-3 text-left font-semibold text-foreground">
               Recurso
             </th>
-            {headers.map((h) => (
+            {HEADERS.map((h) => (
               <th
                 key={h}
                 className="min-w-[120px] border-b px-4 py-3 text-center font-semibold text-foreground"
@@ -99,7 +78,7 @@ function ComparisonTable() {
                   )}
                   {row.name}
                 </td>
-                {planIds.map((planId) => (
+                {PLAN_IDS.map((planId) => (
                   <td
                     key={planId}
                     className="border-b px-4 py-2 text-center text-muted-foreground"
@@ -122,17 +101,17 @@ export default function CustosPage() {
       <section className="container mx-auto px-4 py-12">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Custos WhatsApp & Omnichannel
+            Planos do Portal
           </h1>
           <p className="text-lg text-muted-foreground">
-            Planos com mensagens em massa, IA generativa e canais integrados. Escolha o que cabe no
-            seu negócio.
+            CRM, ERP, PDV, Omnichannel e AI Studio em um único pacote.
+            Interactionz inclusos — compre pacotes extras sob demanda.
           </p>
         </div>
       </section>
 
       <section className="container mx-auto px-4 py-8" id="planos">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PLANS.map((plan) => (
             <PlanCard key={plan.id} plan={plan} />
           ))}
@@ -143,13 +122,10 @@ export default function CustosPage() {
         <h2 className="mb-8 text-center text-2xl font-bold text-foreground">
           Comparativo de recursos
         </h2>
-        <ComparisonTable />
+        <ComparisonTableLocal />
       </section>
 
       <section className="container mx-auto px-4 py-12 text-center">
-        <p className="text-sm text-muted-foreground">
-          Setup: R$ 649 no primeiro mês caso necessite habilitar os canais WhatsApp e/ou RCS.
-        </p>
         <Button size="lg" className="mt-6" asChild>
           <a href="#planos">Ver planos</a>
         </Button>

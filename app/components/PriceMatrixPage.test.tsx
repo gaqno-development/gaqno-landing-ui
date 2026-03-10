@@ -28,8 +28,7 @@ import PriceMatrixPage from './PriceMatrixPage'
 import MatrixHero from './price-matrix/MatrixHero'
 import MacroSection from './price-matrix/MacroSection'
 import PlanMatrix from './price-matrix/PlanMatrix'
-import OmnichannelPlanCards from './price-matrix/OmnichannelPlanCards'
-import OmnichannelComparisonTable from './price-matrix/OmnichannelComparisonTable'
+import ComparisonTable from './price-matrix/ComparisonTable'
 
 describe('PriceMatrixPage', () => {
   it('renders without crashing', () => {
@@ -50,7 +49,7 @@ describe('MatrixHero', () => {
     expect(screen.getByText('Produtos')).toBeInTheDocument()
     expect(screen.getByText('Calculadora')).toBeInTheDocument()
     expect(screen.getByText('Planos')).toBeInTheDocument()
-    expect(screen.getByText('Omnichannel')).toBeInTheDocument()
+    expect(screen.getByText('Comparativo')).toBeInTheDocument()
     expect(screen.getAllByText('Interactionz').length).toBeGreaterThan(0)
     expect(screen.getByText('Economics')).toBeInTheDocument()
   })
@@ -75,78 +74,51 @@ describe('MacroSection', () => {
   })
 })
 
-describe('OmnichannelPlanCards', () => {
-  it('renders all 5 plan tiers', () => {
-    render(<OmnichannelPlanCards />)
-    expect(screen.getByText('STARTER')).toBeInTheDocument()
-    expect(screen.getByText('SPECIALIST')).toBeInTheDocument()
-    expect(screen.getByText('EXPERT')).toBeInTheDocument()
-    expect(screen.getByText('PROFESSIONAL')).toBeInTheDocument()
-    expect(screen.getByText('ENTERPRISE')).toBeInTheDocument()
-  })
-
-  it('renders Mais Vendido badge on highlighted plan', () => {
-    render(<OmnichannelPlanCards />)
-    expect(screen.getByText('Mais Vendido')).toBeInTheDocument()
-  })
-
-  it('renders plan prices', () => {
-    render(<OmnichannelPlanCards />)
-    expect(screen.getByText('R$ 600/mês')).toBeInTheDocument()
-    expect(screen.getByText('R$ 1.800/mês')).toBeInTheDocument()
-  })
-
-  it('renders section heading', () => {
-    render(<OmnichannelPlanCards />)
-    expect(screen.getByText('Planos Omnichannel')).toBeInTheDocument()
-  })
-})
-
-describe('OmnichannelComparisonTable', () => {
-  it('renders section heading', () => {
-    render(<OmnichannelComparisonTable />)
-    expect(screen.getByText('Comparativo de recursos Omnichannel')).toBeInTheDocument()
-  })
-
-  it('renders all plan column headers', () => {
-    render(<OmnichannelComparisonTable />)
-    expect(screen.getByText('Starter')).toBeInTheDocument()
-    expect(screen.getByText('Specialist')).toBeInTheDocument()
-    expect(screen.getByText('Expert')).toBeInTheDocument()
-    expect(screen.getAllByText('Professional').length).toBeGreaterThan(0)
-    expect(screen.getAllByText(/Enterprise/).length).toBeGreaterThan(0)
-  })
-
-  it('renders category headers in comparison table', () => {
-    render(<OmnichannelComparisonTable />)
-    expect(screen.getByText('Resumo')).toBeInTheDocument()
-    expect(screen.getByText('Chatbots')).toBeInTheDocument()
-  })
-})
-
 describe('PlanMatrix', () => {
+  it('renders all 4 unified plan tiers', () => {
+    render(<PlanMatrix />)
+    expect(screen.getAllByText('Avance').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Construa').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Impulsione').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Domine').length).toBeGreaterThan(0)
+  })
+
+  it('renders Mais Popular badge on highlighted plan', () => {
+    render(<PlanMatrix />)
+    expect(screen.getByText('Mais Popular')).toBeInTheDocument()
+  })
+
   it('renders plan prices', () => {
     render(<PlanMatrix />)
-    expect(screen.getByText('R$ 349')).toBeInTheDocument()
-    expect(screen.getByText('R$ 899')).toBeInTheDocument()
+    expect(screen.getAllByText(/R\$ 349/).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/R\$ 899/).length).toBeGreaterThan(0)
   })
 
-  it('renders feature category headers in comparison table', () => {
+  it('renders feature category headers in table', () => {
     render(<PlanMatrix />)
     const infraRows = screen.getAllByText('Infraestrutura')
     expect(infraRows.length).toBeGreaterThan(0)
   })
+})
 
-  it('renders Alta Performance badge on highlighted plan', () => {
-    render(<PlanMatrix />)
-    expect(screen.getByText('Alta Performance')).toBeInTheDocument()
+describe('ComparisonTable', () => {
+  it('renders section heading', () => {
+    render(<ComparisonTable />)
+    expect(screen.getByText('Comparativo de recursos')).toBeInTheDocument()
   })
 
-  it('renders column headers in table', () => {
-    render(<PlanMatrix />)
-    const professionalCols = screen.getAllByText('Professional')
-    const enterpriseCols = screen.getAllByText(/Enterprise/)
-    expect(professionalCols.length).toBeGreaterThan(0)
-    expect(enterpriseCols.length).toBeGreaterThan(0)
+  it('renders all 4 plan column headers', () => {
+    render(<ComparisonTable />)
+    expect(screen.getAllByText('Avance').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Construa').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Impulsione').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Domine').length).toBeGreaterThan(0)
+  })
+
+  it('renders cross-module category headers', () => {
+    render(<ComparisonTable />)
+    expect(screen.getByText('Resumo')).toBeInTheDocument()
+    expect(screen.getByText('Chatbots')).toBeInTheDocument()
+    expect(screen.getByText('CRM')).toBeInTheDocument()
   })
 })

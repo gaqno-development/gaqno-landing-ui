@@ -6,6 +6,6 @@ describe('Custos page', () => {
   it('renders CustosPage', async () => {
     const result = await Custos()
     const { container } = render(result)
-    expect(screen.getByText(/Custos WhatsApp/)).toBeInTheDocument()
+    expect(screen.getByText(/Planos do Portal/)).toBeInTheDocument()
   })
 })

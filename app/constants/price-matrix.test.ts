@@ -3,7 +3,7 @@ import {
   MACRO_INDICATORS,
   AI_MODELS,
   OMNICHANNEL_CATEGORIES,
-  SAAS_PLANS,
+  UNIFIED_PLANS,
   CALCULATOR,
   UNIT_ECONOMICS,
 } from './price-matrix'
@@ -35,13 +35,19 @@ describe('price-matrix', () => {
     })
   })
 
-  it('exports SAAS_PLANS with cta and features', () => {
-    expect(SAAS_PLANS).toBeInstanceOf(Array)
-    SAAS_PLANS.forEach((p) => {
+  it('exports UNIFIED_PLANS with 4 tiers and all modules', () => {
+    expect(UNIFIED_PLANS).toHaveLength(4)
+    UNIFIED_PLANS.forEach((p) => {
+      expect(p).toHaveProperty('id')
       expect(p).toHaveProperty('name')
       expect(p).toHaveProperty('cta')
+      expect(p).toHaveProperty('priceMonthly')
+      expect(p).toHaveProperty('priceAnnual')
+      expect(p).toHaveProperty('interactionz')
       expect(p.features).toBeInstanceOf(Array)
+      expect(p.highlightFeatures).toBeInstanceOf(Array)
     })
+    expect(UNIFIED_PLANS.map((p) => p.id)).toEqual(['avance', 'construa', 'impulsione', 'domine'])
   })
 
   it('exports CALCULATOR with numeric constants', () => {

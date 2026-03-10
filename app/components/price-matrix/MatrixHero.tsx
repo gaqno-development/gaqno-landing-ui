@@ -9,9 +9,7 @@ const NAV_LINKS = [
   { label: 'Interactionz', href: '#interactionz' },
   { label: 'Calculadora', href: '#calculadora' },
   { label: 'Planos', href: '#planos' },
-  { label: 'CRM', href: '#planos-crm' },
-  { label: 'Omnichannel', href: '#planos-omnichannel' },
-  { label: 'Comparativo', href: '#comparativo-omnichannel' },
+  { label: 'Comparativo', href: '#comparativo' },
   { label: 'Segurança', href: '#seguranca' },
   { label: 'Economics', href: '#economics' },
 ]

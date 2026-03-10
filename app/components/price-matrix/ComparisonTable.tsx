@@ -3,15 +3,14 @@
 import React from 'react'
 import { COMPARISON_ROWS, type ComparisonRow } from '@/app/constants/pricing'
 
-const PLAN_KEYS: Array<keyof ComparisonRow & ('starter' | 'specialist' | 'expert' | 'professional' | 'enterprise')> =
-  ['starter', 'specialist', 'expert', 'professional', 'enterprise']
+const PLAN_KEYS: Array<keyof ComparisonRow & ('avance' | 'construa' | 'impulsione' | 'domine')> =
+  ['avance', 'construa', 'impulsione', 'domine']
 
 const PLAN_LABELS: Record<typeof PLAN_KEYS[number], string> = {
-  starter: 'Starter',
-  specialist: 'Specialist',
-  expert: 'Expert',
-  professional: 'Professional',
-  enterprise: 'Enterprise',
+  avance: 'Avance',
+  construa: 'Construa',
+  impulsione: 'Impulsione',
+  domine: 'Domine',
 }
 
 function CellValue({ value }: { value: string }) {
@@ -20,18 +19,18 @@ function CellValue({ value }: { value: string }) {
   return <span className="text-xs text-slate-300">{value}</span>
 }
 
-export default function OmnichannelComparisonTable() {
+export default function ComparisonTable() {
   return (
-    <section id="comparativo-omnichannel" className="px-8 py-20 scroll-mt-20">
+    <section id="comparativo" className="px-8 py-20 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.3em] text-blue-400">
           Comparativo
         </p>
         <h2 className="mb-3 text-center text-3xl font-bold text-white">
-          Comparativo de recursos Omnichannel
+          Comparativo de recursos
         </h2>
         <p className="mb-12 text-center text-slate-400">
-          Veja em detalhe o que cada plano inclui em recursos, canais e integrações.
+          Veja em detalhe o que cada plano inclui em módulos, IA, canais e integrações.
         </p>
 
         <div className="overflow-x-auto rounded-2xl border border-white/5 bg-slate-900/60">
@@ -57,7 +56,7 @@ export default function OmnichannelComparisonTable() {
                   {row.category && (
                     <tr className="border-t border-white/5">
                       <td
-                        colSpan={6}
+                        colSpan={5}
                         className="bg-white/[0.02] py-2 pl-6 text-[10px] font-black uppercase tracking-widest text-blue-400 sticky left-0"
                       >
                         {row.category}

@@ -89,39 +89,123 @@ export const OMNICHANNEL_CATEGORIES: OmnichannelCategory[] = [
   },
 ]
 
-export interface SaaSPlan {
+export interface UnifiedPlan {
+  id: string
   name: string
   description: string
-  price: string
+  priceMonthly: number
+  priceAnnual: number
+  annualSavings: number
+  users: string
+  interactionz: number
+  infra: string
+  channels: string
   features: string[]
+  highlightFeatures: string[]
   highlighted?: boolean
   cta: string
 }
 
-export const SAAS_PLANS: SaaSPlan[] = [
+export const UNIFIED_PLANS: UnifiedPlan[] = [
   {
-    name: 'Professional',
-    description: 'Para empresas consolidando a operação.',
-    price: 'R$ 349',
+    id: 'avance',
+    name: 'Avance',
+    description: 'Para quem está começando a digitalizar.',
+    priceMonthly: 149,
+    priceAnnual: 109,
+    annualSavings: 480,
+    users: 'Até 3',
+    interactionz: 500,
+    infra: 'VPS Partilhada (1 vCPU / 4GB)',
+    channels: '1 canal WhatsApp',
     features: [
-      'Infraestrutura: VPS Partilhada',
-      'Até 5 Utilizadores Inclusos',
-      '1 Canal Oficial WhatsApp',
-      '1.000 Interactionz Inclusos',
+      'CRM + ERP + PDV + Omnichannel + AI Studio',
+      'Até 3 usuários',
+      '500 Interactionz inclusos',
+      '1 canal WhatsApp',
+    ],
+    highlightFeatures: [
+      'Emissão de NF-e, NFC-e e NFS-e',
+      'Gestão de estoque',
+      'Chatbot com IA generativa',
+      'Pipeline de vendas visual',
+    ],
+    cta: 'Começar agora',
+  },
+  {
+    id: 'construa',
+    name: 'Construa',
+    description: 'Para empresas consolidando a operação.',
+    priceMonthly: 349,
+    priceAnnual: 259,
+    annualSavings: 1080,
+    users: 'Até 10',
+    interactionz: 2000,
+    infra: 'VPS Partilhada (2 vCPU / 8GB)',
+    channels: '3 canais WhatsApp',
+    highlighted: true,
+    features: [
+      'CRM + ERP + PDV + Omnichannel + AI Studio',
+      'Até 10 usuários',
+      '2.000 Interactionz inclusos',
+      '3 canais WhatsApp',
+    ],
+    highlightFeatures: [
+      'Multiempresa',
+      'Emissão de boletos e cobranças',
+      'Conciliação bancária',
+      'Relatórios avançados',
     ],
     cta: 'Pilar de Escala',
   },
   {
-    name: 'Enterprise / Solo',
-    description: 'Isolamento de dados e volumes massivos.',
-    price: 'R$ 899',
+    id: 'impulsione',
+    name: 'Impulsione',
+    description: 'Para operações em crescimento acelerado.',
+    priceMonthly: 649,
+    priceAnnual: 489,
+    annualSavings: 1920,
+    users: 'Até 25',
+    interactionz: 5000,
+    infra: 'VPS Dedicada (4 vCPU / 16GB)',
+    channels: '5 canais WhatsApp',
     features: [
-      'Infra: VPS Solo Dedicada (8 vCPU / 32GB)',
-      'Utilizadores Ilimitados',
-      'Múltiplos Canais Omnichannel',
-      '5.000 Interactionz Inclusos',
+      'CRM + ERP + PDV + Omnichannel + AI Studio',
+      'Até 25 usuários',
+      '5.000 Interactionz inclusos',
+      '5 canais WhatsApp',
     ],
-    highlighted: true,
+    highlightFeatures: [
+      'Gestor de conta dedicado',
+      'Integração com marketplaces',
+      'API completa',
+      'Modelos IA premium (incl. Vídeo)',
+    ],
+    cta: 'Escalar operação',
+  },
+  {
+    id: 'domine',
+    name: 'Domine',
+    description: 'Isolamento de dados e volumes massivos.',
+    priceMonthly: 899,
+    priceAnnual: 679,
+    annualSavings: 2640,
+    users: 'Ilimitados',
+    interactionz: 10000,
+    infra: 'VPS Dedicada (8 vCPU / 32GB)',
+    channels: 'Canais ilimitados',
+    features: [
+      'CRM + ERP + PDV + Omnichannel + AI Studio',
+      'Usuários ilimitados',
+      '10.000 Interactionz inclusos',
+      'Canais ilimitados',
+    ],
+    highlightFeatures: [
+      'Infraestrutura dedicada isolada',
+      'SLA premium (30 min)',
+      'Onboarding personalizado',
+      'Suporte prioritário 24/7',
+    ],
     cta: 'Margem e Retenção',
   },
 ]
@@ -430,23 +514,15 @@ export interface InteractionzTier {
 
 export const INTERACTIONZ_TIERS: InteractionzTier[] = [
   {
-    label: 'Starter',
-    pointsPerMonth: 100,
-    examplesOmnichannel: 100,
-    examplesCrmLeads: 12,
-    examplesImages: 2,
-    color: '#64748b',
-  },
-  {
-    label: 'Specialist',
+    label: 'Avance',
     pointsPerMonth: 500,
     examplesOmnichannel: 500,
     examplesCrmLeads: 62,
     examplesImages: 12,
-    color: '#8b5cf6',
+    color: '#64748b',
   },
   {
-    label: 'Expert',
+    label: 'Construa',
     pointsPerMonth: 2000,
     examplesOmnichannel: 2000,
     examplesCrmLeads: 250,
@@ -454,11 +530,19 @@ export const INTERACTIONZ_TIERS: InteractionzTier[] = [
     color: '#3b82f6',
   },
   {
-    label: 'Professional',
+    label: 'Impulsione',
     pointsPerMonth: 5000,
     examplesOmnichannel: 5000,
     examplesCrmLeads: 625,
     examplesImages: 125,
+    color: '#8b5cf6',
+  },
+  {
+    label: 'Domine',
+    pointsPerMonth: 10000,
+    examplesOmnichannel: 10000,
+    examplesCrmLeads: 1250,
+    examplesImages: 250,
     color: '#ec4899',
   },
 ]
@@ -511,122 +595,37 @@ export const ROI_CONFIG = {
   WORKING_HOURS_MONTH: 160,
 } as const
 
-export interface CrmPlan {
-  id: string
-  name: string
-  priceMonthly: number
-  priceAnnual: number
-  annualSavings: number
-  features: string[]
-  highlightFeatures: string[]
-  highlighted?: boolean
-}
-
-export const CRM_PLANS: CrmPlan[] = [
-  {
-    id: 'avance',
-    name: 'Avance',
-    priceMonthly: 59,
-    priceAnnual: 49,
-    annualSavings: 120,
-    features: [
-      'Vendas e pedidos ilimitado',
-      'Usuários ilimitados',
-      'Armazenamento ilimitado',
-      'OMS ilimitado',
-    ],
-    highlightFeatures: [
-      'Emissão de NF-e, NFC-e e NFS-e',
-      'Gestão de estoque',
-      'Cotação de frete',
-      'Controle de expedição',
-    ],
-  },
-  {
-    id: 'construa',
-    name: 'Construa',
-    priceMonthly: 159,
-    priceAnnual: 119,
-    annualSavings: 480,
-    highlighted: true,
-    features: [
-      'Vendas e pedidos ilimitado',
-      'Usuários ilimitados',
-      'Armazenamento ilimitado',
-      'OMS ilimitado',
-    ],
-    highlightFeatures: [
-      'Consultoria de ativação',
-      'Multiempresa',
-      'Emissão de boletos e cobranças',
-      'Conciliação bancária',
-    ],
-  },
-  {
-    id: 'impulsione',
-    name: 'Impulsione',
-    priceMonthly: 349,
-    priceAnnual: 259,
-    annualSavings: 1080,
-    features: [
-      'Vendas e pedidos ilimitado',
-      'Usuários ilimitados',
-      'Armazenamento ilimitado',
-      'OMS ilimitado',
-    ],
-    highlightFeatures: [
-      'Gestor de conta dedicado',
-      'Integração com marketplaces',
-      'Relatórios avançados',
-      'API completa',
-    ],
-  },
-  {
-    id: 'domine',
-    name: 'Domine',
-    priceMonthly: 849,
-    priceAnnual: 639,
-    annualSavings: 2520,
-    features: [
-      'Vendas e pedidos ilimitado',
-      'Usuários ilimitados',
-      'Armazenamento ilimitado',
-      'OMS ilimitado',
-    ],
-    highlightFeatures: [
-      'Infraestrutura dedicada',
-      'SLA premium',
-      'Onboarding personalizado',
-      'Suporte prioritário 24/7',
-    ],
-  },
-]
 
 export interface PlanFeatureRow {
   category?: string
   feature: string
-  professional: boolean | string
-  enterprise: boolean | string
+  avance: boolean | string
+  construa: boolean | string
+  impulsione: boolean | string
+  domine: boolean | string
 }
 
 export const PLAN_FEATURE_MATRIX: PlanFeatureRow[] = [
-  { category: 'Infraestrutura', feature: 'Servidor', professional: 'VPS Partilhada', enterprise: 'VPS Solo Dedicada' },
-  { feature: 'vCPU / RAM', professional: '2 vCPU / 8GB', enterprise: '8 vCPU / 32GB' },
-  { feature: 'Usuários', professional: 'Até 5', enterprise: 'Ilimitados' },
-  { feature: 'Isolamento de dados', professional: false, enterprise: true },
-  { category: 'Omnichannel', feature: 'Canais WhatsApp', professional: '1 canal', enterprise: 'Múltiplos canais' },
-  { feature: 'Chatbots ativos', professional: 'Até 5', enterprise: 'Ilimitados' },
-  { feature: 'Interactionz de IA (todos os módulos)', professional: '1.000', enterprise: '5.000+' },
-  { feature: 'IA Generativa', professional: true, enterprise: true },
-  { category: 'AI Studio', feature: 'Modelos disponíveis', professional: 'Texto + Imagem', enterprise: 'Todos (incl. Vídeo)' },
-  { feature: 'API de IA', professional: true, enterprise: true },
-  { category: 'Suporte', feature: 'SLA 1ª resposta', professional: 'Até 2h', enterprise: 'Até 30min' },
-  { feature: 'Account manager', professional: false, enterprise: true },
-  { feature: 'Onboarding dedicado', professional: false, enterprise: true },
-  { feature: 'Central de Ajuda', professional: true, enterprise: true },
-  { category: 'Financeiro', feature: 'Mensalidade', professional: 'R$ 349/mês', enterprise: 'R$ 899/mês' },
-  { feature: 'Pix automático', professional: '1,19%', enterprise: '0,99%' },
-  { feature: 'Cartão de crédito', professional: '3,99%', enterprise: '3,49%' },
+  { category: 'Infraestrutura', feature: 'Servidor', avance: 'VPS Partilhada', construa: 'VPS Partilhada', impulsione: 'VPS Dedicada', domine: 'VPS Dedicada' },
+  { feature: 'vCPU / RAM', avance: '1 vCPU / 4GB', construa: '2 vCPU / 8GB', impulsione: '4 vCPU / 16GB', domine: '8 vCPU / 32GB' },
+  { feature: 'Usuários', avance: 'Até 3', construa: 'Até 10', impulsione: 'Até 25', domine: 'Ilimitados' },
+  { feature: 'Isolamento de dados', avance: false, construa: false, impulsione: true, domine: true },
+  { category: 'Módulos', feature: 'CRM + ERP + PDV', avance: true, construa: true, impulsione: true, domine: true },
+  { feature: 'Omnichannel', avance: true, construa: true, impulsione: true, domine: true },
+  { feature: 'AI Studio', avance: true, construa: true, impulsione: true, domine: true },
+  { feature: 'Canais WhatsApp', avance: '1 canal', construa: '3 canais', impulsione: '5 canais', domine: 'Ilimitados' },
+  { category: 'IA & Interactionz', feature: 'Interactionz inclusos', avance: '500', construa: '2.000', impulsione: '5.000', domine: '10.000' },
+  { feature: 'IA Generativa', avance: true, construa: true, impulsione: true, domine: true },
+  { feature: 'Modelos disponíveis', avance: 'Texto + Imagem', construa: 'Texto + Imagem', impulsione: 'Todos (incl. Vídeo)', domine: 'Todos (incl. Vídeo)' },
+  { feature: 'Chatbots IA ativos', avance: 'Até 3', construa: 'Até 10', impulsione: 'Até 50', domine: 'Ilimitados' },
+  { feature: 'API de IA', avance: false, construa: true, impulsione: true, domine: true },
+  { category: 'Suporte', feature: 'SLA 1ª resposta', avance: 'Até 4h', construa: 'Até 2h', impulsione: 'Até 1h', domine: 'Até 30min' },
+  { feature: 'Account manager', avance: false, construa: false, impulsione: true, domine: true },
+  { feature: 'Onboarding dedicado', avance: false, construa: false, impulsione: true, domine: true },
+  { feature: 'Central de Ajuda', avance: true, construa: true, impulsione: true, domine: true },
+  { category: 'Financeiro', feature: 'Mensalidade', avance: 'R$ 149/mês', construa: 'R$ 349/mês', impulsione: 'R$ 649/mês', domine: 'R$ 899/mês' },
+  { feature: 'Pix automático', avance: '1,49%', construa: '1,19%', impulsione: '0,99%', domine: '0,99%' },
+  { feature: 'Cartão de crédito', avance: '4,49%', construa: '3,99%', impulsione: '3,49%', domine: '3,49%' },
 ]
 
 export const EXTENDED_REFERENCES = [

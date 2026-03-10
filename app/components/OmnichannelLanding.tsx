@@ -292,12 +292,11 @@ function OmniPricing({ dict }: { dict: OmniDict }) {
                   plan.highlighted ? 'bg-primary text-background' : 'bg-foreground text-background'
                 }`}
               >
-                {plan.id === 'enterprise' ? dict.pricing.enterprise_cta : dict.pricing.plan_cta}
+                {dict.pricing.plan_cta}
               </button>
               <div className="space-y-1 text-xs text-muted-foreground border-t border-foreground/10 pt-3">
                 <p>{plan.interactionz}</p>
-                <p>{plan.channelPackPrice} – {plan.channelPackNote}</p>
-                <p className="font-medium text-foreground">Total: {plan.total}</p>
+                <p className="font-medium text-foreground">{plan.total}</p>
                 {plan.totalNote && <p className="text-[11px]">{plan.totalNote}</p>}
               </div>
             </div>

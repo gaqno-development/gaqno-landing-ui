@@ -661,7 +661,7 @@
         },
         "pricing": {
             "title": "The perfect plan for your business moment",
-            "subtitle": "Save up to 3 months on the annual plan",
+            "subtitle": "All modules included — CRM, ERP, POS, Omnichannel and AI Studio",
             "toggle_monthly": "Monthly",
             "toggle_annual": "Annual",
             "annual_badge": "Save up to 3 months",
@@ -670,10 +670,10 @@
                 {
                     "id": "avance",
                     "name": "Advance",
-                    "subtitle": "For revenue up to R$ 81k/year",
-                    "price_monthly": 59,
-                    "price_annual": 49,
-                    "annual_savings": 120,
+                    "subtitle": "Getting started with digital",
+                    "price_monthly": 149,
+                    "price_annual": 109,
+                    "annual_savings": 480,
                     "revenue_limit": "R$ 81k/year",
                     "ads_limit": "2,000",
                     "data_history": "12 months",
@@ -683,16 +683,16 @@
                     "mobile_payment_rate": "2.49%",
                     "boleto_fee": "R$ 2.50",
                     "pix_fee": "R$ 1.20",
-                    "features": ["Unlimited sales & orders", "Unlimited users", "Unlimited storage", "Unlimited OMS"],
-                    "highlight_features": ["NF-e, NFC-e and NFS-e issuance", "Inventory management", "Freight quotation", "Expedition control"]
+                    "features": ["Up to 3 users", "500 Interactionz included", "1 WhatsApp channel", "Shared VPS"],
+                    "highlight_features": ["NF-e, NFC-e and NFS-e issuance", "Inventory management", "AI-powered chatbot", "Visual sales pipeline"]
                 },
                 {
                     "id": "construa",
                     "name": "Build",
-                    "subtitle": "Ideal for revenue up to R$ 360k/year",
-                    "price_monthly": 159,
-                    "price_annual": 119,
-                    "annual_savings": 480,
+                    "subtitle": "Consolidating operations",
+                    "price_monthly": 349,
+                    "price_annual": 259,
+                    "annual_savings": 1080,
                     "revenue_limit": "R$ 360k/year",
                     "ads_limit": "5,000",
                     "data_history": "24 months",
@@ -702,16 +702,16 @@
                     "mobile_payment_rate": "2.39%",
                     "boleto_fee": "R$ 1.95",
                     "pix_fee": "R$ 0.79",
-                    "features": ["Unlimited sales & orders", "Unlimited users", "Unlimited storage", "Unlimited OMS"],
-                    "highlight_features": ["Activation consulting", "Multi-company", "Boleto and billing issuance", "Bank reconciliation"]
+                    "features": ["Up to 10 users", "2,000 Interactionz included", "3 WhatsApp channels", "Shared VPS"],
+                    "highlight_features": ["Multi-company", "Boleto and billing issuance", "Bank reconciliation", "Advanced reports"]
                 },
                 {
                     "id": "impulsione",
                     "name": "Boost",
-                    "subtitle": "Ideal for revenue up to R$ 4.8M/year",
-                    "price_monthly": 349,
-                    "price_annual": 259,
-                    "annual_savings": 1080,
+                    "subtitle": "Fast-growing operations",
+                    "price_monthly": 649,
+                    "price_annual": 489,
+                    "annual_savings": 1920,
                     "revenue_limit": "R$ 4.8M/year",
                     "ads_limit": "10,000",
                     "data_history": "24 months",
@@ -721,16 +721,16 @@
                     "mobile_payment_rate": "2.29%",
                     "boleto_fee": "R$ 1.79",
                     "pix_fee": "R$ 0.50",
-                    "features": ["Unlimited sales & orders", "Unlimited users", "Unlimited storage", "Unlimited OMS"],
-                    "highlight_features": ["Price calculator", "Purchase planning", "Contribution margin report", "Sales performance report"]
+                    "features": ["Up to 25 users", "5,000 Interactionz included", "5 WhatsApp channels", "Dedicated VPS"],
+                    "highlight_features": ["Dedicated account manager", "Marketplace integration", "Full API access", "Premium AI models (incl. Video)"]
                 },
                 {
                     "id": "domine",
                     "name": "Dominate",
-                    "subtitle": "Ideal for revenue up to R$ 78M/year",
-                    "price_monthly": 849,
-                    "price_annual": 639,
-                    "annual_savings": 2520,
+                    "subtitle": "Data isolation and massive volumes",
+                    "price_monthly": 899,
+                    "price_annual": 679,
+                    "annual_savings": 2640,
                     "revenue_limit": "R$ 78M/year",
                     "ads_limit": "20,000",
                     "data_history": "36 months",
@@ -740,8 +740,8 @@
                     "mobile_payment_rate": "1.99%",
                     "boleto_fee": "R$ 1.59",
                     "pix_fee": "R$ 0.35",
-                    "features": ["Unlimited sales & orders", "Unlimited users", "Unlimited storage", "Unlimited OMS"],
-                    "highlight_features": ["Personalized implementation", "Support in up to 5 min", "Exclusive phone line", "Account manager"]
+                    "features": ["Unlimited users", "10,000 Interactionz included", "Unlimited channels", "Dedicated VPS"],
+                    "highlight_features": ["Isolated dedicated infrastructure", "Premium SLA (30 min)", "Personalized onboarding", "24/7 priority support"]
                 }
             ]
         },
