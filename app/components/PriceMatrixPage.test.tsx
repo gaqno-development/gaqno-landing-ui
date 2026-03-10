@@ -51,6 +51,7 @@ describe('MatrixHero', () => {
     expect(screen.getByText('Planos')).toBeInTheDocument()
     expect(screen.getByText('Comparativo')).toBeInTheDocument()
     expect(screen.getAllByText('Interactionz').length).toBeGreaterThan(0)
+    expect(screen.getByText('NEX AI')).toBeInTheDocument()
     expect(screen.getByText('Economics')).toBeInTheDocument()
   })
 

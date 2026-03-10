@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: 'Calculadora', href: '#calculadora' },
   { label: 'Planos', href: '#planos' },
   { label: 'Comparativo', href: '#comparativo' },
+  { label: 'NEX AI', href: '#nex-ai' },
   { label: 'Segurança', href: '#seguranca' },
   { label: 'Economics', href: '#economics' },
 ]

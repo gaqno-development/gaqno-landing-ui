@@ -576,17 +576,23 @@ export interface LLMProvider {
 
 export const LLM_PROVIDERS: LLMProvider[] = [
   { provider: 'OpenAI', model: 'GPT-5.2 Pro', inputPer1M: 21.00, outputPer1M: 168.00, tier: 'reasoning', context: '128K' },
+  { provider: 'DeepSeek', model: 'R1', inputPer1M: 0.55, outputPer1M: 2.19, tier: 'reasoning', context: '128K' },
   { provider: 'OpenAI', model: 'GPT-5.2', inputPer1M: 1.75, outputPer1M: 14.00, tier: 'premium', context: '128K' },
   { provider: 'Anthropic', model: 'Claude Opus 4.6', inputPer1M: 5.00, outputPer1M: 25.00, tier: 'premium', context: '200K' },
   { provider: 'Google', model: 'Gemini 3.1 Pro', inputPer1M: 2.00, outputPer1M: 12.00, tier: 'premium', context: '2M' },
+  { provider: 'Alibaba', model: 'Qwen 3 Max', inputPer1M: 0.86, outputPer1M: 3.44, tier: 'premium', context: '252K' },
   { provider: 'Google', model: 'Gemini 2.5 Pro', inputPer1M: 1.25, outputPer1M: 10.00, tier: 'mid', context: '2M' },
   { provider: 'Anthropic', model: 'Claude Sonnet 4.6', inputPer1M: 3.00, outputPer1M: 15.00, tier: 'mid', context: '200K' },
+  { provider: 'Moonshot', model: 'Kimi K2', inputPer1M: 0.60, outputPer1M: 2.50, tier: 'mid', context: '128K' },
+  { provider: 'Alibaba', model: 'Qwen 3.5 Plus', inputPer1M: 0.26, outputPer1M: 1.56, tier: 'mid', context: '128K' },
   { provider: 'Anthropic', model: 'Claude Haiku 4.5', inputPer1M: 1.00, outputPer1M: 5.00, tier: 'low', context: '200K' },
+  { provider: 'Zhipu', model: 'GLM-4-Plus', inputPer1M: 0.70, outputPer1M: 0.70, tier: 'low', context: '128K' },
   { provider: 'xAI', model: 'Grok 4.1 Fast', inputPer1M: 0.20, outputPer1M: 0.50, tier: 'low', context: '131K' },
   { provider: 'OpenAI', model: 'GPT-5 Mini', inputPer1M: 0.25, outputPer1M: 2.00, tier: 'low', context: '128K' },
   { provider: 'Google', model: 'Gemini 3.1 Flash-Lite', inputPer1M: 0.25, outputPer1M: 1.50, tier: 'low', context: '2M' },
   { provider: 'OpenAI', model: 'GPT-5 Nano', inputPer1M: 0.05, outputPer1M: 0.40, tier: 'ultra', context: '128K' },
   { provider: 'DeepSeek', model: 'V3.2-Exp', inputPer1M: 0.28, outputPer1M: 0.42, tier: 'ultra', context: '128K' },
+  { provider: 'Alibaba', model: 'Qwen 3.5 Flash', inputPer1M: 0.10, outputPer1M: 0.40, tier: 'ultra', context: '1M' },
 ]
 
 export interface InteractionzPointPack {
@@ -749,4 +755,74 @@ export const SECURITY_STATS: SecurityStat[] = [
   { value: 'Zero Trust', label: 'Cloudflare Tunnel' },
   { value: 'RBAC', label: 'Controle de Acesso Granular' },
   { value: '100%', label: 'HTTPS com HSTS' },
+]
+
+export type NexOrigin = 'openai' | 'google' | 'xai' | 'western' | 'chinese'
+export type NexMediaType = 'image' | 'video' | 'audio'
+
+export interface NexAiModel {
+  name: string
+  origin: NexOrigin
+  mediaType: NexMediaType
+  provider: string
+  baseCredits: number | null
+  pricingNote: string
+  exampleCost: string
+}
+
+export const NEX_AI_MODELS: NexAiModel[] = [
+  // ── OpenAI ──
+  { name: 'Sora 2 Pub', origin: 'openai', mediaType: 'video', provider: 'OpenAI', baseCredits: 20, pricingNote: 'Fixo 20 pts/vídeo', exampleCost: '20 pts' },
+  { name: 'Sora 2 Standard', origin: 'openai', mediaType: 'video', provider: 'OpenAI', baseCredits: 160, pricingNote: 'Por duração: 160 pts base (4s-12s)', exampleCost: '4s: 160 | 8s: 320 | 12s: 480' },
+  { name: 'Sora 2 Pro', origin: 'openai', mediaType: 'video', provider: 'OpenAI', baseCredits: 480, pricingNote: 'Pro quality, por duração', exampleCost: '4s: 480 | 8s: 960 | 12s: 1.440' },
+  { name: 'Sora 2 VIP', origin: 'openai', mediaType: 'video', provider: 'OpenAI', baseCredits: 100, pricingNote: 'Fixo 100 pts/vídeo', exampleCost: '100 pts' },
+
+  // ── Google ──
+  { name: 'Gemini 3 Pro Image', origin: 'google', mediaType: 'image', provider: 'Google', baseCredits: 25, pricingNote: 'Por resolução: 1K/2K: 25 | 4K: 30', exampleCost: '1K: 25 | 2K: 25 | 4K: 30' },
+  { name: 'Nano Banana 2', origin: 'google', mediaType: 'image', provider: 'Google', baseCredits: 32, pricingNote: 'Por resolução: 0.5K-4K', exampleCost: '0.5K: 24 | 1K: 32 | 2K: 48 | 4K: 64' },
+  { name: 'Nano Banana Pro', origin: 'google', mediaType: 'image', provider: 'Google', baseCredits: 60, pricingNote: 'Por resolução: 0.5K-4K', exampleCost: '0.5K: 45 | 1K: 60 | 2K: 90 | 4K: 120' },
+  { name: 'Veo 3.1 Standard', origin: 'google', mediaType: 'video', provider: 'Google', baseCredits: 640, pricingNote: 't2v / i2v / extend / ref', exampleCost: '5s: 640 | 10s: 1.280 | 15s: 1.920' },
+  { name: 'Veo 3.1 Fast', origin: 'google', mediaType: 'video', provider: 'Google', baseCredits: 320, pricingNote: 't2v / i2v / extend / first-last', exampleCost: '5s: 320 | 7s: 480 | 15s: 1.120' },
+
+  // ── xAI ──
+  { name: 'Grok Imagine Video', origin: 'xai', mediaType: 'video', provider: 'xAI', baseCredits: null, pricingNote: 't2v / i2v / edit — por segundo', exampleCost: '5s: 100 | 10s: 200 | 15s: 300' },
+
+  // ── Western ──
+  { name: 'Flux 2 Flash', origin: 'western', mediaType: 'image', provider: 'Black Forest Labs', baseCredits: 2, pricingNote: '2 pts/imagem', exampleCost: '1 img: 2 | 4 imgs: 8' },
+  { name: 'ElevenLabs Scribe V2', origin: 'western', mediaType: 'audio', provider: 'ElevenLabs', baseCredits: null, pricingNote: '4 pts/min (máx 120 min)', exampleCost: '1min: 4 | 5min: 20 | 30min: 120' },
+
+  // ── Chinese: ByteDance (Jimeng / Seedance / Seedream) ──
+  { name: 'Jimeng 5.0 Flagship', origin: 'chinese', mediaType: 'image', provider: 'ByteDance', baseCredits: 2, pricingNote: '2 pts/imagem', exampleCost: '1 img: 2 | 4 imgs: 8' },
+  { name: 'Jimeng 4.5 / 4.6', origin: 'chinese', mediaType: 'image', provider: 'ByteDance', baseCredits: 2, pricingNote: '2 pts/imagem', exampleCost: '1 img: 2 | 4 imgs: 8' },
+  { name: 'Jimeng Agent', origin: 'chinese', mediaType: 'image', provider: 'ByteDance', baseCredits: 3, pricingNote: 'Criação inteligente', exampleCost: '3 pts base' },
+  { name: 'Seedream 5.0 Lite', origin: 'chinese', mediaType: 'image', provider: 'ByteDance', baseCredits: 14, pricingNote: 't2i + edit, 14 pts/img', exampleCost: '1 img: 14 | 4 imgs: 56' },
+  { name: 'Seedream 4.5', origin: 'chinese', mediaType: 'image', provider: 'ByteDance', baseCredits: 16, pricingNote: 't2i + edit, 16 pts/img', exampleCost: '1 img: 16 | 4 imgs: 64' },
+  { name: 'Qwen Multi-Angle Image', origin: 'chinese', mediaType: 'image', provider: 'Alibaba', baseCredits: 14, pricingNote: '14 pts/imagem', exampleCost: '1 img: 14 | 4 imgs: 56' },
+  { name: 'Jimeng 3.5 Pro Video', origin: 'chinese', mediaType: 'video', provider: 'ByteDance', baseCredits: 10, pricingNote: '5s: 10 | 10s: 20 | 12s: 30', exampleCost: '5s: 10 | 10s: 20 | 12s: 30' },
+  { name: 'Seedance 1.5 Pro', origin: 'chinese', mediaType: 'video', provider: 'ByteDance', baseCredits: 105, pricingNote: '480p-1080p, por duração e resolução', exampleCost: '2s 480p: 20 | 3s 720p: 63 | 3s 1080p: 141' },
+  { name: 'Seedance Lite', origin: 'chinese', mediaType: 'video', provider: 'ByteDance', baseCredits: 26, pricingNote: 't2v / i2v / ref', exampleCost: 't2v: 26 | i2v: 40 | ref: 75' },
+  { name: 'Seedance Pro Fast', origin: 'chinese', mediaType: 'video', provider: 'ByteDance', baseCredits: 100, pricingNote: 't2v / i2v rápido', exampleCost: '2s: 10 | 5s: 20 | 10s: 40' },
+  { name: 'OmniHuman v1.5', origin: 'chinese', mediaType: 'video', provider: 'ByteDance', baseCredits: 64, pricingNote: 'Áudio → vídeo (avatar)', exampleCost: '64 pts base' },
+  { name: 'Dreamactor V2', origin: 'chinese', mediaType: 'video', provider: 'ByteDance', baseCredits: null, pricingNote: 'Motion transfer, por duração', exampleCost: '5s: 100 | 10s: 200 | 15s: 300' },
+
+  // ── Chinese: Kuaishou (Kling) ──
+  { name: 'Kling O3 Standard', origin: 'chinese', mediaType: 'video', provider: 'Kuaishou', baseCredits: 336, pricingNote: 't2v / i2v / ref — por duração', exampleCost: '3s: 202 | 5s: 336 | 10s: 672' },
+  { name: 'Kling O3 Pro', origin: 'chinese', mediaType: 'video', provider: 'Kuaishou', baseCredits: 448, pricingNote: 't2v / i2v / ref — por duração', exampleCost: '3s: 269 | 5s: 448 | 10s: 896' },
+  { name: 'Kling Motion Control', origin: 'chinese', mediaType: 'video', provider: 'Kuaishou', baseCredits: 28, pricingNote: 'Transferência de movimento', exampleCost: '3s: 84 | 5s: 140 | 10s: 280' },
+
+  // ── Chinese: MiniMax (Hailuo / Conch) ──
+  { name: 'Hailuo 2.3 Standard', origin: 'chinese', mediaType: 'video', provider: 'MiniMax', baseCredits: 112, pricingNote: 't2v / i2v', exampleCost: '1x: 112 | 2x: 224' },
+  { name: 'Hailuo 2.3 Pro', origin: 'chinese', mediaType: 'video', provider: 'MiniMax', baseCredits: 196, pricingNote: 't2v / i2v', exampleCost: '196 pts fixo' },
+  { name: 'Hailuo 2.3 Fast', origin: 'chinese', mediaType: 'video', provider: 'MiniMax', baseCredits: 76, pricingNote: 'Standard: 76 | Pro: 132', exampleCost: 'Std: 76 | Pro: 132' },
+  { name: 'Conch TTS', origin: 'chinese', mediaType: 'audio', provider: 'MiniMax', baseCredits: 350, pricingNote: 'Síntese de voz', exampleCost: '100 chars: 35 | 1000 chars: 350' },
+  { name: 'Conch Voice Clone', origin: 'chinese', mediaType: 'audio', provider: 'MiniMax', baseCredits: 400, pricingNote: 'Clonagem de voz', exampleCost: '400 pts fixo' },
+  { name: 'Conch Voice Design', origin: 'chinese', mediaType: 'audio', provider: 'MiniMax', baseCredits: 400, pricingNote: 'Design de voz personalizada', exampleCost: '400 pts fixo' },
+  { name: 'Conch Music Gen', origin: 'chinese', mediaType: 'audio', provider: 'MiniMax', baseCredits: 25, pricingNote: 'Geração de música', exampleCost: '25 pts fixo' },
+
+  // ── Chinese: Alibaba (Wan) ──
+  { name: 'Wan 2.6', origin: 'chinese', mediaType: 'video', provider: 'Alibaba', baseCredits: 300, pricingNote: 't2v / i2v / ref — por duração e resolução', exampleCost: '5s 480p: 200 | 5s 720p: 300' },
+  { name: 'Wan 2.6 Flash', origin: 'chinese', mediaType: 'video', provider: 'Alibaba', baseCredits: 150, pricingNote: 'i2v rápido', exampleCost: '5s 480p: 100 | 5s 720p: 150' },
+
+  // ── Chinese: Shengshu (Vidu) ──
+  { name: 'Vidu Q3', origin: 'chinese', mediaType: 'video', provider: 'Shengshu', baseCredits: 28, pricingNote: 't2v / i2v — por duração', exampleCost: '4s: 28 | 8s: 56 | 12s: 84' },
 ]

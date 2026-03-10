@@ -8,6 +8,7 @@ import {
   CALCULATOR,
   UNIT_ECONOMICS,
   LLM_PROVIDERS,
+  NEX_AI_MODELS,
 } from './price-matrix'
 
 describe('price-matrix', () => {
@@ -69,14 +70,33 @@ describe('price-matrix', () => {
     })
   })
 
-  it('exports LLM_PROVIDERS with 12 models across 5 tiers', () => {
-    expect(LLM_PROVIDERS).toHaveLength(12)
+  it('exports LLM_PROVIDERS with 18 models across 5 tiers', () => {
+    expect(LLM_PROVIDERS).toHaveLength(18)
     const tiers = new Set(LLM_PROVIDERS.map((p) => p.tier))
     expect(tiers).toContain('reasoning')
     expect(tiers).toContain('premium')
     expect(tiers).toContain('mid')
     expect(tiers).toContain('low')
     expect(tiers).toContain('ultra')
+    const providers = new Set(LLM_PROVIDERS.map((p) => p.provider))
+    expect(providers).toContain('DeepSeek')
+    expect(providers).toContain('Alibaba')
+    expect(providers).toContain('Zhipu')
+    expect(providers).toContain('Moonshot')
+  })
+
+  it('exports NEX_AI_MODELS with all origin categories', () => {
+    expect(NEX_AI_MODELS.length).toBeGreaterThanOrEqual(30)
+    const origins = new Set(NEX_AI_MODELS.map((m) => m.origin))
+    expect(origins).toContain('openai')
+    expect(origins).toContain('google')
+    expect(origins).toContain('xai')
+    expect(origins).toContain('western')
+    expect(origins).toContain('chinese')
+    const mediaTypes = new Set(NEX_AI_MODELS.map((m) => m.mediaType))
+    expect(mediaTypes).toContain('image')
+    expect(mediaTypes).toContain('video')
+    expect(mediaTypes).toContain('audio')
   })
 
   it('exports UNIT_ECONOMICS', () => {

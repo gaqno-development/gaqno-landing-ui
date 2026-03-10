@@ -10,6 +10,7 @@ const ProductShowcase = dynamic(() => import('./price-matrix/ProductShowcase'), 
 const InteractionzSection = dynamic(() => import('./price-matrix/InteractionzSection'), { ssr: false })
 const PricingCalculator = dynamic(() => import('./price-matrix/PricingCalculator'), { ssr: false })
 const PlanMatrix = dynamic(() => import('./price-matrix/PlanMatrix'), { ssr: false })
+const NexAiCatalog = dynamic(() => import('./price-matrix/NexAiCatalog'), { ssr: false })
 const SecuritySection = dynamic(() => import('./price-matrix/SecuritySection'), { ssr: false })
 const UnitEconomicsSection = dynamic(() => import('./price-matrix/UnitEconomicsSection'), { ssr: false })
 
@@ -24,6 +25,11 @@ export default function PriceMatrixPage() {
       <PricingCalculator />
       <PlanMatrix />
       <ComparisonTable />
+      <div className="px-8 py-12">
+        <div className="mx-auto max-w-7xl">
+          <NexAiCatalog />
+        </div>
+      </div>
       <SecuritySection />
       <UnitEconomicsSection />
     </div>
