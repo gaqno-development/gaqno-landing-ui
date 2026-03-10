@@ -246,7 +246,7 @@ export default function Landing({ dict }: { dict: Dictionary['landing'] }) {
           </div>
         </div>
         <div className="relative">
-          <div className="rounded-[32px] border border-foreground/10 bg-gradient-to-br from-foreground to-black text-background p-8 shadow-2xl">
+          <div className="rounded-[32px] border border-foreground/10 dark:border-white/[0.08] bg-gradient-to-br from-foreground to-black dark:from-white/[0.06] dark:to-white/[0.02] dark:backdrop-blur-xl text-background dark:text-foreground p-8 shadow-2xl">
             <div className="flex items-center justify-between text-sm mb-6">
               <span className="uppercase tracking-[0.2em] text-white/70">
                 {dict.hero.profile.title}
