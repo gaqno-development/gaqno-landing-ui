@@ -9,16 +9,31 @@ export interface MacroIndicator {
 
 export const MACRO_INDICATORS: MacroIndicator[] = [
   { label: 'IPCA (Inflação)', value: '3,91%', note: 'Base para reajustes anuais', barValue: 3.91 },
-  { label: 'Taxa Selic', value: '12,00%', note: 'Favorece OPEX vs CAPEX (Focus Mar/26)', barValue: 12 },
+  { label: 'Taxa Selic', value: '12,13%', note: 'Favorece OPEX vs CAPEX (Focus Mar/26)', barValue: 12.13 },
   {
     label: 'Câmbio (USD/BRL)',
-    value: 'R$ 5,42',
+    value: 'R$ 5,41',
     note: 'Custo de APIs (IA e Meta)',
     highlighted: true,
     highlightColor: 'blue',
-    barValue: 54.2,
+    barValue: 54.1,
   },
   { label: 'PIB', value: '1,82%', note: 'Foco em produtividade', barValue: 1.82 },
+]
+
+export interface MacroProjection {
+  year: number
+  selic: number
+  ipca: number
+  pib: number
+  cambio: number
+}
+
+export const MACRO_PROJECTIONS: MacroProjection[] = [
+  { year: 2026, selic: 12.13, ipca: 3.91, pib: 1.82, cambio: 5.41 },
+  { year: 2027, selic: 10.5, ipca: 3.8, pib: 1.8, cambio: 5.5 },
+  { year: 2028, selic: 10.0, ipca: 3.5, pib: 2.0, cambio: 5.5 },
+  { year: 2029, selic: 9.5, ipca: 3.5, pib: 2.0, cambio: 5.5 },
 ]
 
 export interface AIModel {
@@ -65,25 +80,25 @@ export const OMNICHANNEL_CATEGORIES: OmnichannelCategory[] = [
   {
     name: 'Marketing',
     subtitle: 'Vendas e Promoção',
-    pricing: 'Custo + 15% Taxa',
+    pricing: 'R$ 0,125/msg (+ 15% Taxa)',
     nameColor: 'blue',
   },
   {
     name: 'Utilidade',
     subtitle: 'Notificações ERP (Pix, Boletos)',
-    pricing: 'Franquia + Excedente',
+    pricing: 'R$ 0,053/msg (Franquia inclusa)',
     nameColor: 'white',
   },
   {
     name: 'Autenticação',
     subtitle: 'Senhas e Segurança (OTP)',
-    pricing: 'Repasse Exato (Margem 0%)',
+    pricing: 'R$ 0,040/msg (Repasse exato)',
     nameColor: 'white',
   },
   {
     name: 'Serviço',
     subtitle: 'Suporte ao Cliente',
-    pricing: '1.000 msgs Grátis',
+    pricing: 'Grátis (janela 24h)',
     nameColor: 'muted',
     pricingColor: 'green',
   },
@@ -211,7 +226,7 @@ export const UNIFIED_PLANS: UnifiedPlan[] = [
 ]
 
 export const CALCULATOR = {
-  CAMBIO: 5.42,
+  CAMBIO: 5.41,
   COST_PER_POINT: 0.0072,
   API_COST_PER_POINT_USD: 0.0001042,
   BIG_TECH_IMG_USD: 0.17,
@@ -231,6 +246,7 @@ export const UNIT_ECONOMICS: UnitEconomicMetric[] = [
   { label: 'CAC Estimado', value: 'R$ 1.5K - 2.5K', numericValue: 2000 },
   { label: 'Payback', value: '5 a 6 meses', numericValue: 5.5 },
   { label: 'Churn Rate', value: '< 2% a.m.', color: 'green', numericValue: 2 },
+  { label: 'NRR', value: '101% mediana', color: 'blue', numericValue: 101 },
 ]
 
 export type ProductId = 'crm' | 'erp' | 'omnichannel' | 'pdv' | 'ai'
@@ -357,9 +373,9 @@ export const PRODUCT_SECTIONS: ProductSection[] = [
     ],
     chartType: 'bar',
     chartData: [
-      { model: 'Texto (1M tok)', bigtech: 65.04, gaqno: 8.64, unit: 'R$' },
-      { model: 'Imagem (100x)', bigtech: 92.14, gaqno: 28.80, unit: 'R$' },
-      { model: 'Vídeo (10seg)', bigtech: 18.97, gaqno: 25.20, unit: 'R$' },
+      { model: 'Texto (1M tok)', bigtech: 64.92, gaqno: 8.64, unit: 'R$' },
+      { model: 'Imagem (100x)', bigtech: 91.97, gaqno: 28.80, unit: 'R$' },
+      { model: 'Vídeo (10seg)', bigtech: 18.94, gaqno: 25.20, unit: 'R$' },
     ],
     chartKeys: [
       { key: 'bigtech', color: '#374151', label: 'Big Tech (R$)' },
@@ -547,7 +563,7 @@ export const INTERACTIONZ_TIERS: InteractionzTier[] = [
   },
 ]
 
-export type LLMTier = 'premium' | 'mid' | 'low' | 'ultra'
+export type LLMTier = 'reasoning' | 'premium' | 'mid' | 'low' | 'ultra'
 
 export interface LLMProvider {
   provider: string
@@ -559,12 +575,17 @@ export interface LLMProvider {
 }
 
 export const LLM_PROVIDERS: LLMProvider[] = [
+  { provider: 'OpenAI', model: 'GPT-5.2 Pro', inputPer1M: 21.00, outputPer1M: 168.00, tier: 'reasoning', context: '128K' },
   { provider: 'OpenAI', model: 'GPT-5.2', inputPer1M: 1.75, outputPer1M: 14.00, tier: 'premium', context: '128K' },
+  { provider: 'Anthropic', model: 'Claude Opus 4.6', inputPer1M: 5.00, outputPer1M: 25.00, tier: 'premium', context: '200K' },
   { provider: 'Google', model: 'Gemini 3.1 Pro', inputPer1M: 2.00, outputPer1M: 12.00, tier: 'premium', context: '2M' },
   { provider: 'Google', model: 'Gemini 2.5 Pro', inputPer1M: 1.25, outputPer1M: 10.00, tier: 'mid', context: '2M' },
   { provider: 'Anthropic', model: 'Claude Sonnet 4.6', inputPer1M: 3.00, outputPer1M: 15.00, tier: 'mid', context: '200K' },
   { provider: 'Anthropic', model: 'Claude Haiku 4.5', inputPer1M: 1.00, outputPer1M: 5.00, tier: 'low', context: '200K' },
-  { provider: 'xAI', model: 'Grok 4 Fast', inputPer1M: 0.20, outputPer1M: 0.50, tier: 'low', context: '131K' },
+  { provider: 'xAI', model: 'Grok 4.1 Fast', inputPer1M: 0.20, outputPer1M: 0.50, tier: 'low', context: '131K' },
+  { provider: 'OpenAI', model: 'GPT-5 Mini', inputPer1M: 0.25, outputPer1M: 2.00, tier: 'low', context: '128K' },
+  { provider: 'Google', model: 'Gemini 3.1 Flash-Lite', inputPer1M: 0.25, outputPer1M: 1.50, tier: 'low', context: '2M' },
+  { provider: 'OpenAI', model: 'GPT-5 Nano', inputPer1M: 0.05, outputPer1M: 0.40, tier: 'ultra', context: '128K' },
   { provider: 'DeepSeek', model: 'V3.2-Exp', inputPer1M: 0.28, outputPer1M: 0.42, tier: 'ultra', context: '128K' },
 ]
 
@@ -629,20 +650,20 @@ export const PLAN_FEATURE_MATRIX: PlanFeatureRow[] = [
 ]
 
 export const EXTENDED_REFERENCES = [
-  { label: 'IPCA 2026', source: 'Banco Central do Brasil — Relatório Focus', year: '2026' },
+  { label: 'IPCA 2026', source: 'Banco Central do Brasil — Relatório Focus', year: '2026', url: 'https://agenciabrasil.ebc.com.br/economia/noticia/2026-03/estimativas-do-mercado-para-inflacao-e-pib-ficam-estaveis-0' },
   { label: 'Taxa Selic', source: 'Banco Central do Brasil — Ata COPOM', year: '2026' },
   { label: 'Câmbio USD/BRL', source: 'B3 / Banco Central do Brasil', year: '2026' },
-  { label: 'PIB Brasil', source: 'IBGE / FGV — Projeção anual', year: '2026' },
-  { label: 'Custos WhatsApp Business API', source: 'Meta for Developers — WhatsApp Business Pricing', year: '2026', url: 'https://developers.facebook.com/docs/whatsapp/pricing' },
+  { label: 'PIB Brasil', source: 'Correio Braziliense — PIB 2025/2026', year: '2026', url: 'https://www.correiobraziliense.com.br/economia/2026/03/7095091-pib-2025-economia-cresce-3-4-e-supera-expectativas.html' },
+  { label: 'Custos WhatsApp Business API', source: 'SpurNow — WhatsApp Business API Pricing', year: '2026', url: 'https://www.spurnow.com/en/blogs/whatsapp-business-api-pricing-explained' },
   { label: 'Modelos Gemini — Preços', source: 'Google AI Studio — Pricing page', year: '2026', url: 'https://ai.google.dev/pricing' },
-  { label: 'LLM API Pricing Comparison (2026)', source: 'IntuitionLabs.ai · Adrien Laurent', year: 'Fev 2026', url: 'https://intuitionlabs.ai/pdfs/llm-api-pricing-comparison-2025-openai-gemini-claude.pdf' },
+  { label: 'LLM API Pricing Comparison (2026)', source: 'IntuitionLabs.ai — AI API Pricing Comparison', year: 'Mar 2026', url: 'https://intuitionlabs.ai/articles/ai-api-pricing-comparison-grok-gemini-openai-claude' },
   { label: 'OpenAI API Pricing', source: 'openai.com/api/pricing', year: '2026', url: 'https://openai.com/api/pricing' },
-  { label: 'Anthropic Claude Pricing', source: 'docs.anthropic.com/en/docs/about-claude/pricing', year: '2026', url: 'https://docs.anthropic.com/en/docs/about-claude/pricing' },
+  { label: 'Anthropic Claude Pricing', source: 'platform.claude.com — Pricing', year: '2026', url: 'https://platform.claude.com/docs/en/about-claude/pricing' },
   { label: 'Google Vertex AI Pricing', source: 'cloud.google.com/vertex-ai/generative-ai/pricing', year: '2026', url: 'https://cloud.google.com/vertex-ai/generative-ai/pricing' },
-  { label: 'DeepSeek API Docs', source: 'api-docs.deepseek.com/quick_start/pricing', year: '2026', url: 'https://api-docs.deepseek.com/quick_start/pricing' },
+  { label: 'DeepSeek API Pricing', source: 'CostGoat — DeepSeek API', year: '2026', url: 'https://costgoat.com/pricing/deepseek-api' },
   { label: 'xAI Grok API Launch', source: "TechCrunch — Elon Musk's xAI launches an API for Grok", year: 'Abr 2025', url: 'https://techcrunch.com/2025/04/09/elon-musks-ai-company-xai-launches-an-api-for-grok-3/' },
-  { label: 'SaaS Benchmarks — CAC e LTV', source: 'OpenView Partners — SaaS Benchmarks Report', year: '2025', url: 'https://openviewpartners.com/saas-benchmarks-report/' },
-  { label: 'Taxa de churn SaaS B2B', source: 'ChartMogul — SaaS Metrics Report', year: '2025', url: 'https://chartmogul.com/reports/saas-benchmarks/' },
+  { label: 'SaaS Benchmarks — CAC e LTV', source: 'High Alpha — SaaS Benchmarks', year: '2025', url: 'https://www.highalpha.com/saas-benchmarks' },
+  { label: 'Taxa de churn SaaS B2B', source: 'ChartMogul — SaaS Growth Report', year: '2025', url: 'https://chartmogul.com/reports/saas-growth-the-odds-of-making-it/' },
   { label: 'Mercado Global de ERP', source: 'Gartner — ERP Market Share Analysis', year: '2025', url: 'https://www.gartner.com/en/information-technology/insights/erp' },
   { label: 'CRM Market Share e Tendências', source: 'IDC — Worldwide CRM Applications Market Shares', year: '2025', url: 'https://www.idc.com/getdoc.jsp?containerId=US50389523' },
   { label: 'Transações PDV no Brasil', source: 'ABECS — Associação Brasileira das Empresas de Cartões', year: '2025', url: 'https://www.abecs.org.br/estatisticas-de-meios-de-pagamento' },

@@ -5,10 +5,11 @@ import { cn } from '@/utils/cn'
 import { formatBRL } from '@/utils/format'
 
 const TIER_STYLES: Record<LLMTier, { badge: string; label: string }> = {
-  premium: { badge: 'bg-slate-700 text-slate-300', label: 'Premium' },
-  mid:     { badge: 'bg-blue-900/60 text-blue-300', label: 'Mid-tier' },
-  low:     { badge: 'bg-green-900/60 text-green-300', label: 'Low-cost' },
-  ultra:   { badge: 'bg-emerald-900/60 text-emerald-300', label: 'Ultra-low' },
+  reasoning: { badge: 'bg-purple-900/60 text-purple-300', label: 'Reasoning' },
+  premium:   { badge: 'bg-slate-700 text-slate-300', label: 'Premium' },
+  mid:       { badge: 'bg-blue-900/60 text-blue-300', label: 'Mid-tier' },
+  low:       { badge: 'bg-green-900/60 text-green-300', label: 'Low-cost' },
+  ultra:     { badge: 'bg-emerald-900/60 text-emerald-300', label: 'Ultra-low' },
 }
 
 export default function AiComparisonCard() {

@@ -7,6 +7,7 @@ import { MACRO_INDICATORS } from '@/app/constants/price-matrix'
 import { cn } from '@/utils/cn'
 
 const MacroChart = dynamic(() => import('./MacroChart'), { ssr: false })
+const MacroProjectionsChart = dynamic(() => import('./MacroProjectionsChart'), { ssr: false })
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -87,6 +88,21 @@ export default function MacroSection() {
             </p>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-8 rounded-2xl border border-white/5 bg-slate-900/60 p-6"
+        >
+          <p className="mb-4 text-xs font-black uppercase tracking-widest text-slate-500">
+            Projeções Macro 2026–2029 — Trajetória de queda da Selic
+          </p>
+          <MacroProjectionsChart />
+          <p className="mt-3 text-center text-[10px] text-slate-600">
+            Expectativa de afrouxamento monetário reforça a narrativa OPEX: Selic de 12,13% → 9,50% até 2029.
+          </p>
+        </motion.div>
       </div>
     </section>
   )
