@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 const NAV_LINKS = [
   { label: 'Macro', href: '#cenario' },
   { label: 'Ecossistema', href: '#ecossistema' },
+  { label: 'Automação', href: '#automacao' },
   { label: 'Produtos', href: '#produtos' },
   { label: 'Interactionz', href: '#interactionz' },
   { label: 'Calculadora', href: '#calculadora' },

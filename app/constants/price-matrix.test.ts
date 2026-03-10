@@ -9,6 +9,8 @@ import {
   UNIT_ECONOMICS,
   LLM_PROVIDERS,
   NEX_AI_MODELS,
+  N8N_WORKFLOWS,
+  N8N_STATS,
 } from './price-matrix'
 
 describe('price-matrix', () => {
@@ -97,6 +99,27 @@ describe('price-matrix', () => {
     expect(mediaTypes).toContain('image')
     expect(mediaTypes).toContain('video')
     expect(mediaTypes).toContain('audio')
+  })
+
+  it('exports N8N_WORKFLOWS with 12 entries across 5 categories', () => {
+    expect(N8N_WORKFLOWS).toHaveLength(12)
+    const categories = new Set(N8N_WORKFLOWS.map((w) => w.category))
+    expect(categories).toContain('monitoring')
+    expect(categories).toContain('sales')
+    expect(categories).toContain('finance')
+    expect(categories).toContain('ai')
+    expect(categories).toContain('sync')
+    N8N_WORKFLOWS.forEach((w) => {
+      expect(w).toHaveProperty('id')
+      expect(w).toHaveProperty('name')
+      expect(w).toHaveProperty('trigger')
+      expect(w).toHaveProperty('triggerType')
+      expect(w.services.length).toBeGreaterThan(0)
+    })
+  })
+
+  it('exports N8N_STATS with 3 items', () => {
+    expect(N8N_STATS).toHaveLength(3)
   })
 
   it('exports UNIT_ECONOMICS', () => {

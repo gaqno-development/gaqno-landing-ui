@@ -826,3 +826,137 @@ export const NEX_AI_MODELS: NexAiModel[] = [
   // ── Chinese: Shengshu (Vidu) ──
   { name: 'Vidu Q3', origin: 'chinese', mediaType: 'video', provider: 'Shengshu', baseCredits: 28, pricingNote: 't2v / i2v — por duração', exampleCost: '4s: 28 | 8s: 56 | 12s: 84' },
 ]
+
+export type N8nCategory = 'monitoring' | 'sales' | 'finance' | 'ai' | 'sync'
+
+export interface N8nWorkflow {
+  id: string
+  name: string
+  trigger: string
+  triggerType: 'cron' | 'webhook' | 'event'
+  description: string
+  services: string[]
+  category: N8nCategory
+}
+
+export const N8N_WORKFLOWS: N8nWorkflow[] = [
+  {
+    id: '01',
+    name: 'Service Health Monitor',
+    trigger: 'A cada 5 min',
+    triggerType: 'cron',
+    description: 'Monitora /v1/health de todos os 13 serviços Gaqno; alerta via Telegram se algum falhar.',
+    services: ['SSO', 'AI', 'CRM', 'ERP', 'Finance', 'PDV', 'Omnichannel', 'Admin', 'Wellness', 'Lead-enrichment', 'Customer', 'Intelligence', 'RPG'],
+    category: 'monitoring',
+  },
+  {
+    id: '02',
+    name: 'Lead Enrichment Pipeline',
+    trigger: 'A cada 15 min',
+    triggerType: 'cron',
+    description: 'Busca leads no CRM, enriquece dados automaticamente e notifica o vendedor responsável.',
+    services: ['CRM'],
+    category: 'sales',
+  },
+  {
+    id: '03',
+    name: 'Order-to-Cash',
+    trigger: 'A cada 30 min',
+    triggerType: 'cron',
+    description: 'Processa pedidos confirmados no ERP, cria transações financeiras e notifica o cliente.',
+    services: ['ERP', 'Finance'],
+    category: 'finance',
+  },
+  {
+    id: '04',
+    name: 'Payment Overdue Reminder',
+    trigger: 'Diário 9:00',
+    triggerType: 'cron',
+    description: 'Identifica transações vencidas e envia lembretes automáticos de cobrança.',
+    services: ['Finance'],
+    category: 'finance',
+  },
+  {
+    id: '05',
+    name: 'Low Stock Alert',
+    trigger: 'A cada 2h',
+    triggerType: 'cron',
+    description: 'Verifica estoque por produto no ERP e alerta quando estoque cai abaixo do mínimo.',
+    services: ['ERP'],
+    category: 'finance',
+  },
+  {
+    id: '06',
+    name: 'Daily Business Summary',
+    trigger: 'Diário 19:00',
+    triggerType: 'cron',
+    description: 'Agrega métricas de CRM, Finance, ERP e PDV em um relatório consolidado enviado via Telegram.',
+    services: ['CRM', 'Finance', 'ERP', 'PDV'],
+    category: 'finance',
+  },
+  {
+    id: '07',
+    name: 'New Customer Welcome',
+    trigger: 'Webhook',
+    triggerType: 'webhook',
+    description: 'Envia WhatsApp de boas-vindas, aguarda 3 dias, envia follow-up e registra interação no CRM.',
+    services: ['CRM', 'Omnichannel'],
+    category: 'sales',
+  },
+  {
+    id: '08',
+    name: 'AI Content Generation',
+    trigger: 'Webhook',
+    triggerType: 'webhook',
+    description: 'Gera copy para redes sociais via AI Studio com callback opcional.',
+    services: ['AI'],
+    category: 'ai',
+  },
+  {
+    id: '09',
+    name: 'Message Received Notify',
+    trigger: 'Event Bridge',
+    triggerType: 'event',
+    description: 'Recebe eventos Kafka de mensagens; filtra por vendedor e notifica ou cria tarefa no CRM.',
+    services: ['Omnichannel', 'CRM'],
+    category: 'sales',
+  },
+  {
+    id: '10',
+    name: 'Pipedrive → CRM Sync',
+    trigger: 'Webhook (backend)',
+    triggerType: 'webhook',
+    description: 'Sincroniza contatos e deals do Pipedrive para o CRM Gaqno via OAuth.',
+    services: ['CRM'],
+    category: 'sync',
+  },
+  {
+    id: '11',
+    name: 'Salesforce → CRM Sync',
+    trigger: 'Webhook (backend)',
+    triggerType: 'webhook',
+    description: 'Sincroniza Contacts, Leads e Opportunities do Salesforce para o CRM Gaqno via OAuth.',
+    services: ['CRM'],
+    category: 'sync',
+  },
+  {
+    id: '12',
+    name: 'AI Viral Video Pipeline',
+    trigger: 'Webhook',
+    triggerType: 'webhook',
+    description: 'Pipeline completo: IA gera conceito → prompt de vídeo → gera vídeo via AI Studio → publica no TikTok.',
+    services: ['AI'],
+    category: 'ai',
+  },
+]
+
+export interface N8nStat {
+  value: string
+  label: string
+}
+
+export const N8N_STATS: N8nStat[] = [
+  { value: '12', label: 'Workflows Prontos' },
+  { value: '13', label: 'Serviços Conectados' },
+  { value: '3', label: 'Tipos de Trigger' },
+]

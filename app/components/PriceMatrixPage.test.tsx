@@ -46,6 +46,7 @@ describe('MatrixHero', () => {
   it('renders navigation pill anchors', () => {
     render(<MatrixHero />)
     expect(screen.getByText('Macro')).toBeInTheDocument()
+    expect(screen.getByText('Automação')).toBeInTheDocument()
     expect(screen.getByText('Produtos')).toBeInTheDocument()
     expect(screen.getByText('Calculadora')).toBeInTheDocument()
     expect(screen.getByText('Planos')).toBeInTheDocument()

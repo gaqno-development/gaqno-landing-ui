@@ -6,6 +6,7 @@ import MacroSection from './price-matrix/MacroSection'
 import ComparisonTable from './price-matrix/ComparisonTable'
 
 const EcosystemHubSection = dynamic(() => import('./price-matrix/EcosystemHubSection'), { ssr: false })
+const N8nIntegrationSection = dynamic(() => import('./price-matrix/N8nIntegrationSection'), { ssr: false })
 const ProductShowcase = dynamic(() => import('./price-matrix/ProductShowcase'), { ssr: false })
 const InteractionzSection = dynamic(() => import('./price-matrix/InteractionzSection'), { ssr: false })
 const PricingCalculator = dynamic(() => import('./price-matrix/PricingCalculator'), { ssr: false })
@@ -20,6 +21,7 @@ export default function PriceMatrixPage() {
       <MatrixHero />
       <MacroSection />
       <EcosystemHubSection />
+      <N8nIntegrationSection />
       <ProductShowcase />
       <InteractionzSection />
       <PricingCalculator />
