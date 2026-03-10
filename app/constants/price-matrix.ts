@@ -687,6 +687,14 @@ export const SECURITY_PILLARS: SecurityPillar[] = [
     accentColor: '#10b981',
   },
   {
+    icon: '☁️',
+    title: 'Cloudflare Zero Trust & Tunnel',
+    description:
+      'Todo o tráfego passa por Cloudflare Tunnel (cloudflared) — sem portas expostas na internet. DDoS mitigado na edge, SSL/TLS Full (Strict), proxy reverso com HSTS e métricas do túnel monitoradas via Prometheus + Grafana.',
+    badges: ['Zero Trust', 'Cloudflare Tunnel', 'Anti-DDoS', 'Edge SSL'],
+    accentColor: '#f97316',
+  },
+  {
     icon: '🌐',
     title: 'Infraestrutura Segura',
     description:
@@ -719,7 +727,7 @@ export interface SecurityStat {
 
 export const SECURITY_STATS: SecurityStat[] = [
   { value: 'AES-256', label: 'Criptografia em Repouso' },
+  { value: 'Zero Trust', label: 'Cloudflare Tunnel' },
   { value: 'RBAC', label: 'Controle de Acesso Granular' },
-  { value: '< 2h', label: 'SLA 1ª Resposta de Segurança' },
   { value: '100%', label: 'HTTPS com HSTS' },
 ]

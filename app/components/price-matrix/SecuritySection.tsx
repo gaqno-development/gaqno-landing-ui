@@ -42,8 +42,8 @@ export default function SecuritySection() {
             </span>
           </h2>
           <p className="mx-auto max-w-2xl text-slate-400">
-            Cada camada do portal — do banco de dados à interface — é blindada com
-            criptografia de ponta, controle de acesso granular e conformidade com a LGPD.
+            Cada camada do portal — da edge Cloudflare ao banco de dados — é blindada com
+            túnel Zero Trust, criptografia de ponta, controle de acesso granular e conformidade com a LGPD.
           </p>
         </motion.div>
 
@@ -115,8 +115,31 @@ export default function SecuritySection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-10 rounded-2xl border border-emerald-500/20 bg-emerald-950/20 p-6"
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-10 rounded-2xl border border-orange-500/20 bg-orange-950/20 p-6"
+        >
+          <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
+            <div className="shrink-0 text-4xl">☁️</div>
+            <div>
+              <h3 className="mb-1 font-bold text-white">Cloudflare Zero Trust — Nenhuma porta exposta</h3>
+              <p className="text-sm text-slate-400">
+                Toda a infraestrutura opera atrás de um{' '}
+                <strong className="text-orange-300">Cloudflare Tunnel</strong> —
+                o servidor de origem não expõe nenhuma porta pública. O tráfego é roteado pela rede global
+                da Cloudflare com proteção automática contra{' '}
+                <strong className="text-orange-300">DDoS</strong>, SSL/TLS Full (Strict),
+                WAF na edge e IPs de origem invisíveis. Métricas do túnel são monitoradas em tempo real
+                via Prometheus e Grafana, com dashboards dedicados de saúde DNS e detecção de anomalias.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.85 }}
+          className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-950/20 p-6"
         >
           <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
             <div className="shrink-0 text-4xl">🔒</div>
