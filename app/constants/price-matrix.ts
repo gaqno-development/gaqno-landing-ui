@@ -9,7 +9,7 @@ export interface MacroIndicator {
 
 export const MACRO_INDICATORS: MacroIndicator[] = [
   { label: 'IPCA (Inflação)', value: '3,91%', note: 'Base para reajustes anuais', barValue: 3.91 },
-  { label: 'Taxa Selic', value: '12,00%', note: 'Favorece OPEX vs CAPEX', barValue: 12 },
+  { label: 'Taxa Selic', value: '15,00%', note: 'Favorece OPEX vs CAPEX', barValue: 15 },
   {
     label: 'Câmbio (USD/BRL)',
     value: 'R$ 5,42',

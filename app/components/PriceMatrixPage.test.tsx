@@ -71,7 +71,7 @@ describe('MacroSection', () => {
   it('renders macro indicator values', () => {
     render(<MacroSection />)
     expect(screen.getByText('3,91%')).toBeInTheDocument()
-    expect(screen.getByText('12,00%')).toBeInTheDocument()
+    expect(screen.getByText('15,00%')).toBeInTheDocument()
   })
 })
 
