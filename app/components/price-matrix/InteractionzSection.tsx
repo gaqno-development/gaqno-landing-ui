@@ -56,8 +56,8 @@ export default function InteractionzSection() {
             — a moeda do ecossistema
           </h2>
           <p className="mx-auto max-w-2xl text-slate-400">
-            Um único saldo de pontos que alimenta IA em todos os módulos.
-            Sem planos separados por ferramenta — você compra pontos e usa onde precisar.
+            Um único saldo de Interactionz que alimenta IA em todos os módulos.
+            Sem planos separados por ferramenta — você compra Interactionz e usa onde precisar.
           </p>
         </motion.div>
 
@@ -183,7 +183,7 @@ export default function InteractionzSection() {
 
           <p className="mt-4 text-center text-[10px] text-slate-600">
             Saldo de {INTERACTIONZ_TIERS[activeTier]?.pointsPerMonth.toLocaleString('pt-BR')} Interactionz/mês inclusos no plano {INTERACTIONZ_TIERS[activeTier]?.label} ·
-            Pontos adicionais disponíveis
+            Interactionz adicionais disponíveis
           </p>
         </motion.div>
 
@@ -193,7 +193,7 @@ export default function InteractionzSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <h3 className="mb-6 text-center text-sm font-black uppercase tracking-widest text-pink-400">
-            Pacotes de Pontos Adicionais
+            Pacotes de Interactionz
           </h3>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {INTERACTIONZ_POINT_PACKS.map((pack) => {

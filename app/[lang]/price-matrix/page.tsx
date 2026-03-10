@@ -2,13 +2,13 @@ import { Metadata } from 'next'
 import PriceMatrixPage from '../../components/PriceMatrixPage'
 
 export const metadata: Metadata = {
-  title: 'Arquitetura de Precificação SaaS 2026',
+  title: 'Portal SaaS — Planos e Interactionz 2026',
   description:
-    'Síntese estratégica e económica para unificação de ERP, CRM, PDV e AI Studio. Planos Omnichannel (Starter ao Enterprise), comparativo completo de recursos, simuladores de custos IA e unit economics.',
+    'CRM, ERP, PDV, Omnichannel e AI Studio integrados em um portal. IA precificada por Interactionz — moeda universal. Planos, comparativo de recursos, simulador de custos e unit economics.',
   openGraph: {
-    title: 'Arquitetura de Precificação SaaS 2026 | gaqno development',
+    title: 'Portal SaaS — Planos e Interactionz 2026 | gaqno development',
     description:
-      'Matriz de planos SaaS, planos Omnichannel com comparativo completo de recursos, simuladores estratégicos de IA e unit economics.',
+      'Portal SaaS com módulos integrados e IA precificada por Interactionz. Planos, comparativo de recursos e simuladores de custos.',
   },
 }
 

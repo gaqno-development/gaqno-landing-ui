@@ -132,8 +132,8 @@ export const CALCULATOR = {
   API_COST_PER_POINT_USD: 0.0001042,
   BIG_TECH_IMG_USD: 0.17,
   BIG_TECH_VID_USD: 0.35,
-  NEXAI_IMG_POINTS: 40,
-  NEXAI_VID_POINTS: 350,
+  AI_IMG_POINTS: 40,
+  AI_VID_POINTS: 350,
   WPP_AVG_COST_BRL: 0.24,
 } as const
 
@@ -265,7 +265,7 @@ export const PRODUCT_SECTIONS: ProductSection[] = [
     id: 'ai',
     title: 'AI Studio',
     description:
-      'Geração de texto, imagens e vídeo com modelos de última geração. Sistema de Pontos que abstrai câmbio e protege margens.',
+      'Geração de texto, imagens e vídeo com modelos de última geração. Interactionz abstraem câmbio e protegem margens.',
     accentColor: '#ec4899',
     metrics: [
       { label: 'Custo vs Big Tech', value: '−65%', color: '#ec4899' },
@@ -280,7 +280,7 @@ export const PRODUCT_SECTIONS: ProductSection[] = [
     ],
     chartKeys: [
       { key: 'bigtech', color: '#374151', label: 'Big Tech (R$)' },
-      { key: 'gaqno', color: '#ec4899', label: 'Gaqno NexAI (R$)' },
+      { key: 'gaqno', color: '#ec4899', label: 'Gaqno AI Studio (R$)' },
     ],
     xAxisKey: 'model',
   },
@@ -351,14 +351,14 @@ export const CALCULATOR_PRODUCTS: CalculatorProduct[] = [
   {
     id: 'ai',
     label: 'AI Studio',
-    unit: 'pontos/mês',
+    unit: 'Interactionz/mês',
     min: 1000,
     max: 100000,
     step: 1000,
     defaultValue: 10000,
     gaqnoCostPer: 0.0072,
     marketCostPer: 0.02,
-    description: 'por ponto consumido',
+    description: 'por Interactionz consumido',
   },
 ]
 
