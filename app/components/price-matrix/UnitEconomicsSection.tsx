@@ -11,38 +11,12 @@ import {
   ResponsiveContainer,
   Cell,
 } from 'recharts'
-import {
-  UNIT_ECONOMICS,
-  OMNICHANNEL_CATEGORIES,
-  AI_MODELS,
-  CALCULATOR,
-  LLM_PROVIDERS,
-  EXTENDED_REFERENCES,
-  type LLMTier,
-} from '@/app/constants/price-matrix'
+import { UNIT_ECONOMICS, OMNICHANNEL_CATEGORIES } from '@/app/constants/price-matrix'
 import { cn } from '@/utils/cn'
-
-const GLOSSARY = [
-  { abbr: 'ERP', meaning: 'Enterprise Resource Planning — sistema integrado de gestão empresarial (estoque, fiscal, financeiro).' },
-  { abbr: 'CRM', meaning: 'Customer Relationship Management — gestão de relacionamento e pipeline de vendas com clientes.' },
-  { abbr: 'PDV', meaning: 'Ponto de Venda — sistema de registro de transações no varejo integrado ao estoque.' },
-  { abbr: 'SaaS', meaning: 'Software as a Service — software entregue como serviço recorrente na nuvem, sem instalação local.' },
-  { abbr: 'Interactionz', meaning: 'Moeda universal de IA da plataforma gaqno — 1 ponto = 1 interação de IA, compartilhada entre todos os módulos.' },
-  { abbr: 'IPCA', meaning: 'Índice Nacional de Preços ao Consumidor Amplo — indicador oficial de inflação no Brasil (IBGE).' },
-  { abbr: 'Selic', meaning: 'Sistema Especial de Liquidação e de Custódia — taxa básica de juros definida pelo COPOM/BCB.' },
-  { abbr: 'PIB', meaning: 'Produto Interno Bruto — soma de todos os bens e serviços produzidos no país em determinado período.' },
-  { abbr: 'CAC', meaning: 'Customer Acquisition Cost — custo médio total para adquirir um novo cliente pagante.' },
-  { abbr: 'LTV', meaning: 'Lifetime Value — receita total esperada de um cliente durante seu ciclo de vida na plataforma.' },
-  { abbr: 'NPS', meaning: 'Net Promoter Score — indicador de lealdade e probabilidade de recomendação da plataforma.' },
-  { abbr: 'SLA', meaning: 'Service Level Agreement — acordo de nível de serviço com tempo de primeira resposta garantido em contrato.' },
-  { abbr: 'ROI', meaning: 'Return on Investment — retorno financeiro gerado em relação ao investimento realizado.' },
-  { abbr: 'NF-e', meaning: 'Nota Fiscal Eletrônica — documento fiscal digital obrigatório para operações comerciais no Brasil.' },
-  { abbr: 'OPEX', meaning: 'Operational Expenditure — despesas operacionais recorrentes, como assinaturas SaaS.' },
-  { abbr: 'CAPEX', meaning: 'Capital Expenditure — investimento em ativos físicos permanentes, como servidores próprios.' },
-  { abbr: 'OTP', meaning: 'One-Time Password — senha de uso único para autenticação segura em dois fatores (2FA).' },
-  { abbr: 'RAG', meaning: 'Retrieval-Augmented Generation — técnica de IA que combina busca em documentos com geração de texto contextualizada.' },
-  { abbr: 'OCR', meaning: 'Optical Character Recognition — reconhecimento ótico de caracteres usado para digitalizar documentos físicos.' },
-]
+import { formatBRL } from '@/utils/format'
+import AiComparisonCard from './AiComparisonCard'
+import GlossaryCard from './GlossaryCard'
+import ReferencesFooter from './ReferencesFooter'
 
 const CAC_VALUE = 2000
 
@@ -53,18 +27,7 @@ const LTV_CAC_DATA = [
   { name: 'LTV 36m', value: 12600, fill: '#1e3a8a', note: 'Lifetime Value acumulado em 36 meses' },
 ]
 
-function formatBRL(v: number) {
-  return v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-}
-
-const TIER_STYLES: Record<LLMTier, { badge: string; label: string }> = {
-  premium: { badge: 'bg-slate-700 text-slate-300', label: 'Premium' },
-  mid:     { badge: 'bg-blue-900/60 text-blue-300', label: 'Mid-tier' },
-  low:     { badge: 'bg-green-900/60 text-green-300', label: 'Low-cost' },
-  ultra:   { badge: 'bg-emerald-900/60 text-emerald-300', label: 'Ultra-low' },
-}
-
-type LtvEntry = { payload: typeof LTV_CAC_DATA[number] }
+type LtvEntry = { payload: (typeof LTV_CAC_DATA)[number] }
 
 function LtvCacTooltip({ active, payload }: { active?: boolean; payload?: LtvEntry[] }) {
   if (!active || !payload?.length) return null
@@ -99,11 +62,11 @@ function LtvCacTooltip({ active, payload }: { active?: boolean; payload?: LtvEnt
 }
 
 export default function UnitEconomicsSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(sectionRef, { once: true, margin: '-80px' })
 
   return (
-    <section id="economics" ref={ref} className="px-8 py-16 scroll-mt-20">
+    <section id="economics" ref={sectionRef} className="px-8 py-20 scroll-mt-20">
       <div className="mx-auto max-w-7xl space-y-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -140,7 +103,7 @@ export default function UnitEconomicsSection() {
               </BarChart>
             </ResponsiveContainer>
             <p className="mt-3 text-center text-[10px] text-slate-600">
-              LTV/CAC ratio {'>'}  5x ao final de 36 meses. Payback estimado: 5-6 meses.
+              LTV/CAC ratio {'>'} 5x ao final de 36 meses. Payback estimado: 5-6 meses.
             </p>
           </div>
 
@@ -241,132 +204,19 @@ export default function UnitEconomicsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="rounded-2xl border border-pink-500/10 bg-slate-900/60 p-6"
         >
-          <h3 className="mb-4 text-lg font-bold text-white">AI Studio — Comparativo de Modelos</h3>
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-            {AI_MODELS.map((model) => {
-              const bigTechBRL = model.bigTechUsd * CALCULATOR.CAMBIO
-              return (
-                <div key={model.name} className="rounded-xl border border-white/5 bg-white/5 p-4">
-                  <div className="mb-3 flex items-center gap-2">
-                    <span className="text-xl">{model.icon}</span>
-                    <span className="text-sm font-semibold text-white">{model.name}</span>
-                  </div>
-                  <div className="space-y-2 text-xs">
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Big Tech (USD→BRL)</span>
-                      <span className="font-mono text-slate-300">R$ {formatBRL(bigTechBRL)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-pink-400">NexAI</span>
-                      <span className="font-mono text-pink-300">{model.cost}</span>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-          <p className="mt-4 text-center text-[10px] text-slate-600">
-            Câmbio referência: USD {CALCULATOR.CAMBIO.toFixed(2)} BRL · Custo/ponto: R$ {CALCULATOR.COST_PER_POINT}
-          </p>
-
-          <div className="mt-8 border-t border-white/5 pt-6">
-            <h4 className="mb-1 text-sm font-black uppercase tracking-widest text-slate-500">
-              Mercado LLM — Preços API por Provedor
-            </h4>
-            <p className="mb-4 text-[10px] text-slate-600">
-              Preços verificados fev/2026 · Fonte: IntuitionLabs.ai LLM API Pricing Comparison
-            </p>
-            <div className="overflow-x-auto rounded-xl border border-white/5">
-              <table className="w-full text-xs">
-                <thead>
-                  <tr className="border-b border-white/5 bg-white/[0.02]">
-                    <th className="py-2.5 pl-4 text-left font-black uppercase tracking-widest text-slate-600">Provedor</th>
-                    <th className="py-2.5 text-left font-black uppercase tracking-widest text-slate-600">Modelo</th>
-                    <th className="py-2.5 text-right font-black uppercase tracking-widest text-slate-600">Context</th>
-                    <th className="py-2.5 text-right font-black uppercase tracking-widest text-slate-600">Input / 1M</th>
-                    <th className="py-2.5 pr-4 text-right font-black uppercase tracking-widest text-slate-600">Output / 1M</th>
-                    <th className="py-2.5 pr-4 text-center font-black uppercase tracking-widest text-slate-600">Tier</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {LLM_PROVIDERS.map((p) => (
-                    <tr key={`${p.provider}-${p.model}`} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
-                      <td className="py-2.5 pl-4 font-semibold text-slate-300">{p.provider}</td>
-                      <td className="py-2.5 font-mono text-slate-400">{p.model}</td>
-                      <td className="py-2.5 text-right font-mono text-slate-500">{p.context}</td>
-                      <td className="py-2.5 text-right font-mono text-slate-300">${p.inputPer1M.toFixed(2)}</td>
-                      <td className="py-2.5 pr-4 text-right font-mono text-slate-300">${p.outputPer1M.toFixed(2)}</td>
-                      <td className="py-2.5 pr-4 text-center">
-                        <span className={cn('rounded-md px-2 py-0.5 text-[9px] font-black uppercase tracking-wide', TIER_STYLES[p.tier].badge)}>
-                          {TIER_STYLES[p.tier].label}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <AiComparisonCard />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="rounded-2xl border border-white/5 bg-slate-900/60 p-6"
         >
-          <h3 className="mb-6 text-lg font-bold text-white">Glossário de Siglas</h3>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {GLOSSARY.map((item) => (
-              <div key={item.abbr} className="flex gap-3 rounded-xl border border-white/5 bg-white/5 px-4 py-3">
-                <span className="shrink-0 rounded-md bg-slate-800 px-2 py-0.5 font-mono text-xs font-black text-blue-400 self-start mt-0.5">
-                  {item.abbr}
-                </span>
-                <p className="text-xs leading-relaxed text-slate-400">{item.meaning}</p>
-              </div>
-            ))}
-          </div>
+          <GlossaryCard />
         </motion.div>
 
-        <footer className="border-t border-white/5 pb-4 pt-10">
-          <p className="mx-auto max-w-2xl text-center text-xs italic text-slate-500">
-            &ldquo;Posicionar o software não como custo de TI, mas como substituto de headcounts
-            caros. Um SaaS de R$ 899 que economiza 40h de um analista de R$ 5.000 possui ROI
-            inquestionável.&rdquo;
-          </p>
-
-          <div className="mt-10 border-t border-white/5 pt-8">
-            <p className="mb-4 text-center text-xs font-black uppercase tracking-widest text-slate-600">
-              Fontes &amp; Referências
-            </p>
-            <ol className="mx-auto max-w-4xl grid grid-cols-1 gap-2 sm:grid-cols-2 list-none">
-              {EXTENDED_REFERENCES.map((ref, i) => (
-                <li key={i} className="flex gap-2 text-[11px] text-slate-600">
-                  <span className="shrink-0 font-mono text-slate-700">[{i + 1}]</span>
-                  <span>
-                    {'url' in ref && ref.url ? (
-                      <a
-                        href={(ref as { url: string }).url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-semibold text-slate-500 hover:text-blue-400 transition-colors"
-                      >
-                        {ref.label}
-                      </a>
-                    ) : (
-                      <span className="font-semibold text-slate-500">{ref.label}</span>
-                    )}
-                    {' — '}
-                    {ref.source}
-                    {ref.year ? ` · ${ref.year}` : ''}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </footer>
+        <ReferencesFooter />
       </div>
     </section>
   )

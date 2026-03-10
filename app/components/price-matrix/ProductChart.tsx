@@ -126,10 +126,11 @@ function ProductBarChart({ product }: { product: ProductSection }) {
           cursor={{ fill: 'rgba(255,255,255,0.03)' }}
           content={<BarTooltip product={product} />}
         />
-        {product.chartKeys.map((k) => (
-          <Bar key={k.key} dataKey={k.key} name={k.label} fill={k.color} radius={[4, 4, 0, 0]} />
-        ))}
-        {product.chartKeys.length === 1 && (
+        {isMultiBar ? (
+          product.chartKeys.map((k) => (
+            <Bar key={k.key} dataKey={k.key} name={k.label} fill={k.color} radius={[4, 4, 0, 0]} />
+          ))
+        ) : (
           <Bar dataKey="value" fill={product.accentColor} radius={[4, 4, 0, 0]}>
             {product.chartData.map((entry, i) => (
               <Cell key={i} fill={entry.fill as string} />

@@ -76,14 +76,17 @@ function PlanCard({ plan }: { plan: Plan }) {
 
 export default function OmnichannelPlanCards() {
   return (
-    <section id="planos-omnichannel" className="relative px-8 py-16 scroll-mt-20">
+    <section id="planos-omnichannel" className="relative px-8 py-20 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.3em] text-blue-400">
-          Omnichannel
+          Módulo Complementar
         </p>
         <h2 className="mb-3 text-center text-3xl font-bold text-white">Planos Omnichannel</h2>
-        <p className="mb-12 text-center text-slate-400">
+        <p className="mb-2 text-center text-slate-400">
           Mensagens em massa, IA generativa e canais integrados. Escolha o que cabe no seu negócio.
+        </p>
+        <p className="mb-12 text-center text-xs text-slate-500">
+          Complementa seu plano de portal. As Interactionz do portal são compartilhadas com este módulo.
         </p>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">

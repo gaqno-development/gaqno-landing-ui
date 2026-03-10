@@ -32,8 +32,7 @@ function CheckIcon({ value }: { value: boolean | string }) {
 }
 
 const INTERACTIONZ_HIGHLIGHT = [
-  'Interactionz incluídas',
-  'Pontos inclusos',
+  'Interactionz de IA',
 ]
 
 export default function PlanMatrix() {
@@ -43,7 +42,7 @@ export default function PlanMatrix() {
   const tableInView = useInView(tableRef, { once: true, margin: '-80px' })
 
   return (
-    <section id="planos" ref={ref} className="relative px-8 py-16 scroll-mt-20">
+    <section id="planos" ref={ref} className="relative px-8 py-20 scroll-mt-20">
       <div className="-z-10 absolute inset-0 skew-y-3 bg-blue-900/10" />
       <div className="mx-auto max-w-7xl">
         <motion.div
@@ -59,6 +58,10 @@ export default function PlanMatrix() {
           <p className="text-slate-400">
             Acesso ao ecossistema completo — infraestrutura, módulos e{' '}
             <span className="font-semibold text-purple-400">Interactionz de IA</span> inclusos.
+          </p>
+          <p className="mt-2 text-xs text-slate-500">
+            Escolha seu plano de portal abaixo. Os módulos CRM/ERP/PDV e Omnichannel possuem planos
+            complementares detalhados nas seções seguintes.
           </p>
         </motion.div>
 
@@ -112,7 +115,7 @@ export default function PlanMatrix() {
                     Interactionz de IA
                   </p>
                   <p className="text-lg font-black text-white">
-                    {plan.features.find((f) => f.includes('Pontos') || f.includes('Interactionz'))?.match(/[\d.]+\.?[\d]*/)?.[0] ?? '—'}
+                    {plan.features.find((f) => f.includes('Interactionz'))?.match(/[\d.]+/)?.[0] ?? '—'}
                     {' '}
                     <span className="text-sm font-bold text-purple-300">pts / mês</span>
                   </p>
@@ -122,7 +125,7 @@ export default function PlanMatrix() {
 
               <ul className="mb-8 space-y-3 text-sm text-slate-300">
                 {plan.features
-                  .filter((f) => !f.includes('Pontos') && !f.includes('Interactionz'))
+                  .filter((f) => !f.includes('Interactionz'))
                   .map((f) => (
                     <li key={f} className="flex items-center gap-3">
                       {plan.highlighted ? (

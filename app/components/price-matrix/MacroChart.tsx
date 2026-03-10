@@ -9,14 +9,18 @@ import {
   ResponsiveContainer,
   Cell,
 } from 'recharts'
+import { MACRO_INDICATORS } from '@/app/constants/price-matrix'
 
-const CHART_DATA = [
-  { name: 'IPCA', value: 3.91, color: '#64748b', source: 'Focus/BCB', desc: 'Inflação oficial' },
-  { name: 'Selic', value: 12.0, color: '#3b82f6', source: 'COPOM/BCB', desc: 'Taxa básica de juros' },
-  { name: 'PIB', value: 1.82, color: '#64748b', source: 'IBGE/FGV', desc: 'Crescimento econômico' },
-]
+const CHART_DATA = MACRO_INDICATORS.filter((ind) => ind.label !== 'Câmbio (USD/BRL)').map((ind) => ({
+  name: ind.label.split(' ')[0],
+  value: ind.barValue,
+  color: ind.highlighted ? '#3b82f6' : '#64748b',
+  source: ind.note,
+}))
 
-function MacroTooltip({ active, payload }: { active?: boolean; payload?: Array<{ payload: typeof CHART_DATA[number] }> }) {
+type ChartEntry = (typeof CHART_DATA)[number]
+
+function MacroTooltip({ active, payload }: { active?: boolean; payload?: Array<{ payload: ChartEntry }> }) {
   if (!active || !payload?.length) return null
   const d = payload[0].payload
   return (
@@ -32,8 +36,7 @@ function MacroTooltip({ active, payload }: { active?: boolean; payload?: Array<{
       }}
     >
       <p style={{ fontWeight: 700, marginBottom: 4 }}>{d.name} · {d.source}</p>
-      <p style={{ color: '#94a3b8', marginBottom: 6, fontSize: 11 }}>{d.desc}</p>
-      <p style={{ fontSize: 18, fontWeight: 900, color: '#fff' }}>{d.value.toFixed(2).replace('.', ',')}% a.a.</p>
+      <p style={{ fontSize: 18, fontWeight: 900, color: '#fff' }}>{d.value.toFixed(2).replace('.', ',')}%</p>
     </div>
   )
 }

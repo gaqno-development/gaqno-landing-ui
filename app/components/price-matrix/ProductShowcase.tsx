@@ -38,7 +38,7 @@ export default function ProductShowcase() {
   const moduleConnection = MODULE_CONNECTIONS.find((m) => m.id === active)
 
   return (
-    <section id="produtos" ref={ref} className="px-8 py-16 scroll-mt-20">
+    <section id="produtos" ref={ref} className="px-8 py-20 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,6 +54,8 @@ export default function ProductShowcase() {
 
         <motion.div
           className="mb-8 flex flex-wrap items-center justify-center gap-2"
+          role="tablist"
+          aria-label="Produtos do ecossistema"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -62,6 +64,9 @@ export default function ProductShowcase() {
             <motion.button
               key={p.id}
               type="button"
+              role="tab"
+              aria-selected={active === p.id}
+              aria-controls={`panel-${p.id}`}
               onClick={() => setActive(p.id)}
               variants={tabVariants}
               whileHover={{ scale: 1.05 }}
@@ -90,6 +95,8 @@ export default function ProductShowcase() {
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
+            id={`panel-${active}`}
+            role="tabpanel"
             variants={contentVariants}
             initial="enter"
             animate="center"

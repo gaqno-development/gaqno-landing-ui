@@ -23,7 +23,7 @@ export default function MacroSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="cenario" ref={ref} className="px-8 py-10 scroll-mt-20">
+    <section id="cenario" ref={ref} className="px-8 py-20 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}

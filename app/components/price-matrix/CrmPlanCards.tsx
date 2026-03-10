@@ -77,14 +77,17 @@ export default function CrmPlanCards() {
   const [billing, setBilling] = useState<Billing>('annual')
 
   return (
-    <section id="planos-crm" className="relative px-8 py-16 scroll-mt-20">
+    <section id="planos-crm" className="relative px-8 py-20 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.3em] text-blue-400">
-          CRM · ERP · PDV
+          Módulo Complementar
         </p>
-        <h2 className="mb-3 text-center text-3xl font-bold text-white">Planos CRM</h2>
-        <p className="mb-8 text-center text-slate-400">
+        <h2 className="mb-3 text-center text-3xl font-bold text-white">Planos CRM / ERP / PDV</h2>
+        <p className="mb-2 text-center text-slate-400">
           Gestão de vendas, estoque, fiscal e marketplaces em um único sistema.
+        </p>
+        <p className="mb-8 text-center text-xs text-slate-500">
+          Estes planos complementam seu plano de portal (Professional ou Enterprise) com recursos avançados de gestão.
         </p>
 
         <div className="flex items-center justify-center gap-2 mb-10">

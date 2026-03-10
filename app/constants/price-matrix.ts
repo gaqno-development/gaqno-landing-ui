@@ -26,7 +26,7 @@ export interface AIModel {
   name: string
   cost: string
   bigTechUsd: number
-  nexaiPoints: number
+  interactionzPoints: number
 }
 
 export const AI_MODELS: AIModel[] = [
@@ -35,21 +35,21 @@ export const AI_MODELS: AIModel[] = [
     name: 'Gemini 3 Pro (Texto)',
     cost: '12.000 pts / 1M tokens',
     bigTechUsd: 1.25,
-    nexaiPoints: 12000,
+    interactionzPoints: 12000,
   },
   {
     icon: '🖼️',
     name: 'Imagen 4 Standard',
     cost: '40 pts / img',
     bigTechUsd: 0.17,
-    nexaiPoints: 40,
+    interactionzPoints: 40,
   },
   {
     icon: '🎬',
     name: 'Veo 2 (Vídeo)',
     cost: '350 pts / seg',
     bigTechUsd: 0.35,
-    nexaiPoints: 350,
+    interactionzPoints: 350,
   },
 ]
 
@@ -76,7 +76,7 @@ export const OMNICHANNEL_CATEGORIES: OmnichannelCategory[] = [
   },
   {
     name: 'Autenticação',
-    subtitle: 'Palavras-passe e Segurança (OTP)',
+    subtitle: 'Senhas e Segurança (OTP)',
     pricing: 'Repasse Exato (Margem 0%)',
     nameColor: 'white',
   },
@@ -107,7 +107,7 @@ export const SAAS_PLANS: SaaSPlan[] = [
       'Infraestrutura: VPS Partilhada',
       'Até 5 Utilizadores Inclusos',
       '1 Canal Oficial WhatsApp',
-      '1.000 Pontos AI Inclusos',
+      '1.000 Interactionz Inclusos',
     ],
     cta: 'Pilar de Escala',
   },
@@ -119,7 +119,7 @@ export const SAAS_PLANS: SaaSPlan[] = [
       'Infra: VPS Solo Dedicada (8 vCPU / 32GB)',
       'Utilizadores Ilimitados',
       'Múltiplos Canais Omnichannel',
-      '5.000 Pontos AI Inclusos',
+      '5.000 Interactionz Inclusos',
     ],
     highlighted: true,
     cta: 'Margem e Retenção',
@@ -435,7 +435,7 @@ export const INTERACTIONZ_TIERS: InteractionzTier[] = [
     pointsPerMonth: 100,
     examplesOmnichannel: 100,
     examplesCrmLeads: 12,
-    examplesImages: 50,
+    examplesImages: 2,
     color: '#64748b',
   },
   {
@@ -443,7 +443,7 @@ export const INTERACTIONZ_TIERS: InteractionzTier[] = [
     pointsPerMonth: 500,
     examplesOmnichannel: 500,
     examplesCrmLeads: 62,
-    examplesImages: 250,
+    examplesImages: 12,
     color: '#8b5cf6',
   },
   {
@@ -451,7 +451,7 @@ export const INTERACTIONZ_TIERS: InteractionzTier[] = [
     pointsPerMonth: 2000,
     examplesOmnichannel: 2000,
     examplesCrmLeads: 250,
-    examplesImages: 1000,
+    examplesImages: 50,
     color: '#3b82f6',
   },
   {
@@ -459,7 +459,7 @@ export const INTERACTIONZ_TIERS: InteractionzTier[] = [
     pointsPerMonth: 5000,
     examplesOmnichannel: 5000,
     examplesCrmLeads: 625,
-    examplesImages: 2500,
+    examplesImages: 125,
     color: '#ec4899',
   },
 ]
@@ -485,19 +485,19 @@ export const LLM_PROVIDERS: LLMProvider[] = [
   { provider: 'DeepSeek', model: 'V3.2-Exp', inputPer1M: 0.28, outputPer1M: 0.42, tier: 'ultra', context: '128K' },
 ]
 
-export interface NexAIPointPack {
+export interface InteractionzPointPack {
   points: number
   images: number
-  videos: number
+  videoSeconds: number
   priceUsd: number
   highlighted?: boolean
 }
 
-export const NEXAI_POINT_PACKS: NexAIPointPack[] = [
-  { points: 2_000, images: 1_000, videos: 200, priceUsd: 2.99 },
-  { points: 7_000, images: 3_500, videos: 700, priceUsd: 9.99 },
-  { points: 15_000, images: 7_500, videos: 1_500, priceUsd: 19.99, highlighted: true },
-  { points: 75_000, images: 37_500, videos: 7_500, priceUsd: 99.99 },
+export const INTERACTIONZ_POINT_PACKS: InteractionzPointPack[] = [
+  { points: 2_000, images: 50, videoSeconds: 5, priceUsd: 2.99 },
+  { points: 7_000, images: 175, videoSeconds: 20, priceUsd: 9.99 },
+  { points: 15_000, images: 375, videoSeconds: 42, priceUsd: 19.99, highlighted: true },
+  { points: 75_000, images: 1_875, videoSeconds: 214, priceUsd: 99.99 },
 ]
 
 export const ROI_CONFIG = {
@@ -617,10 +617,9 @@ export const PLAN_FEATURE_MATRIX: PlanFeatureRow[] = [
   { feature: 'Isolamento de dados', professional: false, enterprise: true },
   { category: 'Omnichannel', feature: 'Canais WhatsApp', professional: '1 canal', enterprise: 'Múltiplos canais' },
   { feature: 'Chatbots ativos', professional: 'Até 5', enterprise: 'Ilimitados' },
-  { feature: 'Interactionz incluídas', professional: '1.000', enterprise: '5.000+' },
+  { feature: 'Interactionz de IA (todos os módulos)', professional: '1.000', enterprise: '5.000+' },
   { feature: 'IA Generativa', professional: true, enterprise: true },
-  { category: 'AI Studio', feature: 'Pontos inclusos', professional: '1.000 pts', enterprise: '5.000 pts' },
-  { feature: 'Modelos disponíveis', professional: 'Texto + Imagem', enterprise: 'Todos (incl. Vídeo)' },
+  { category: 'AI Studio', feature: 'Modelos disponíveis', professional: 'Texto + Imagem', enterprise: 'Todos (incl. Vídeo)' },
   { feature: 'API de IA', professional: true, enterprise: true },
   { category: 'Suporte', feature: 'SLA 1ª resposta', professional: 'Até 2h', enterprise: 'Até 30min' },
   { feature: 'Account manager', professional: false, enterprise: true },

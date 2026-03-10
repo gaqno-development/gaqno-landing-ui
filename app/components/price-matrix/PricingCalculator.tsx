@@ -16,10 +16,7 @@ import {
   type ProductId,
 } from '@/app/constants/price-matrix'
 import { cn } from '@/utils/cn'
-
-function formatBRL(v: number) {
-  return v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-}
+import { formatBRL } from '@/utils/format'
 
 type AreaEntry = { name: string; value: number; color: string }
 
@@ -136,7 +133,7 @@ export default function PricingCalculator() {
     [selected],
   )
 
-  const roiValue = hoursSaved * ROI_CONFIG.ANALYST_HOURLY_RATE_BRL * ROI_CONFIG.WORKING_HOURS_MONTH / 100
+  const roiValue = hoursSaved * ROI_CONFIG.ANALYST_HOURLY_RATE_BRL
   const savings = monthlyMarket - monthlyGaqno
   const projectionData = useMemo(
     () => buildProjectionData(selected, volumes),
@@ -202,6 +199,7 @@ export default function PricingCalculator() {
                         max={p.max}
                         step={p.step}
                         value={volumes[id]}
+                        aria-label={`Volume de ${p.label} em ${p.unit}`}
                         onChange={(e) =>
                           setVolumes((prev) => ({ ...prev, [id]: Number(e.target.value) }))
                         }

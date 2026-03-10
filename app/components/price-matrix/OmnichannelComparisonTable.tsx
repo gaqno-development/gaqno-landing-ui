@@ -22,7 +22,7 @@ function CellValue({ value }: { value: string }) {
 
 export default function OmnichannelComparisonTable() {
   return (
-    <section id="comparativo-omnichannel" className="px-8 pb-16 scroll-mt-20">
+    <section id="comparativo-omnichannel" className="px-8 py-20 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.3em] text-blue-400">
           Comparativo

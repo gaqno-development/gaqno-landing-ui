@@ -3,16 +3,13 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
 import {
-  NEXAI_POINT_PACKS,
+  INTERACTIONZ_POINT_PACKS,
   INTERACTIONZ_TIERS,
   MODULE_CONNECTIONS,
   CALCULATOR,
 } from '@/app/constants/price-matrix'
 import { cn } from '@/utils/cn'
-
-function formatBRL(v: number) {
-  return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-}
+import { formatBRLCurrency } from '@/utils/format'
 
 const CONSUMPTION_EXAMPLES = [
   { action: 'Mensagem respondida por bot IA (Omnichannel)', pts: 1, icon: '💬', color: '#8b5cf6' },
@@ -104,11 +101,14 @@ export default function InteractionzSection() {
             O que cada plano permite por mês
           </h3>
 
-          <div className="mb-6 flex flex-wrap justify-center gap-2">
+          <div className="mb-6 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Planos de Interactionz">
             {INTERACTIONZ_TIERS.map((tier, i) => (
               <button
                 key={tier.label}
                 type="button"
+                role="tab"
+                aria-selected={activeTier === i}
+                aria-controls={`tier-panel-${tier.label}`}
                 onClick={() => setActiveTier(i)}
                 className={cn(
                   'rounded-full px-4 py-1.5 text-sm font-bold transition-all',
@@ -132,6 +132,8 @@ export default function InteractionzSection() {
               activeTier === i ? (
                 <motion.div
                   key={tier.label}
+                  id={`tier-panel-${tier.label}`}
+                  role="tabpanel"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -194,7 +196,7 @@ export default function InteractionzSection() {
             Pacotes de Pontos Adicionais
           </h3>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {NEXAI_POINT_PACKS.map((pack) => {
+            {INTERACTIONZ_POINT_PACKS.map((pack) => {
               const apiCostUsd = pack.points * CALCULATOR.API_COST_PER_POINT_USD
               const apiCostBrl = apiCostUsd * CALCULATOR.CAMBIO
               const packPriceBrl = pack.priceUsd * CALCULATOR.CAMBIO
@@ -236,7 +238,7 @@ export default function InteractionzSection() {
                     </div>
                     <div className="flex items-center justify-center gap-1.5">
                       <span>🎬</span>
-                      <span>{pack.videos.toLocaleString('pt-BR')} vídeos</span>
+                      <span>{pack.videoSeconds.toLocaleString('pt-BR')} seg de vídeo</span>
                     </div>
                     <div className="flex items-center justify-center gap-1.5">
                       <span>💬</span>
@@ -249,7 +251,7 @@ export default function InteractionzSection() {
                     style={{ background: pack.highlighted ? 'rgba(236,72,153,0.15)' : 'rgba(255,255,255,0.04)' }}
                   >
                     <p className="text-xl font-black text-white">
-                      {formatBRL(packPriceBrl)}
+                      {formatBRLCurrency(packPriceBrl)}
                     </p>
                     <p className="text-[10px] text-slate-500">${pack.priceUsd.toFixed(2)} USD</p>
                   </div>
@@ -257,7 +259,7 @@ export default function InteractionzSection() {
                   <div className="border-t border-white/5 pt-3 space-y-1">
                     <p className="text-[10px] text-slate-600">
                       Custo API:{' '}
-                      <span className="font-mono text-slate-700">{formatBRL(apiCostBrl)}</span>
+                      <span className="font-mono text-slate-700">{formatBRLCurrency(apiCostBrl)}</span>
                     </p>
                     <p className="text-xs font-black text-green-400">
                       Margem {marginPct.toFixed(0)}%
@@ -271,13 +273,13 @@ export default function InteractionzSection() {
           <div className="mt-6 rounded-xl border border-white/5 bg-white/5 p-4">
             <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
               <div className="space-x-4 text-sm text-slate-500">
-                <span>1 imagem = 2 pts</span>
+                <span>1 imagem = 40 pts</span>
                 <span>·</span>
-                <span>1 seg de vídeo = 10 pts</span>
+                <span>1 seg de vídeo = 350 pts</span>
                 <span>·</span>
                 <span>1 msg bot = 1 pt</span>
                 <span>·</span>
-                <span className="text-purple-400 font-semibold">Pontos não expiram</span>
+                <span className="text-purple-400 font-semibold">Interactionz não expiram</span>
               </div>
             </div>
           </div>
