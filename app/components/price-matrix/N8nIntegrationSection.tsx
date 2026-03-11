@@ -59,17 +59,17 @@ export default function N8nIntegrationSection() {
           className="mb-10 text-center"
         >
           <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-orange-400">
-            Integração sem código
+            Automação Integrada
           </p>
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-            Automação com{' '}
+            Fluxos visuais com{' '}
             <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
               n8n
             </span>
           </h2>
           <p className="mx-auto max-w-2xl text-slate-400">
-            12 workflows prontos para usar conectam todos os serviços Gaqno — CRM, ERP, PDV, Omnichannel, AI Studio
-            — via cron, webhooks e eventos Kafka. Automações poderosas sem escrever uma linha de código.
+            12 automações pré-configuradas conectam todos os serviços Gaqno — CRM, ERP, PDV, Omnichannel, AI Studio.
+            Cada fluxo é exibido como uma interface visual integrada ao painel, com histórico, alertas e retorno em tempo real — sem sair da plataforma.
           </p>
         </motion.div>
 
@@ -185,12 +185,12 @@ export default function N8nIntegrationSection() {
           <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
             <div className="shrink-0 text-4xl">n8n</div>
             <div>
-              <h3 className="mb-1 font-bold text-white">Crie suas automações em minutos</h3>
+              <h3 className="mb-1 font-bold text-white">Fluxos visuais direto no painel</h3>
               <p className="text-sm text-slate-400">
-                O n8n conecta todos os serviços Gaqno via <strong className="text-orange-300">webhooks</strong>,{' '}
-                <strong className="text-orange-300">eventos Kafka</strong> e{' '}
-                <strong className="text-orange-300">agendamento cron</strong>. Arraste, conecte e automatize —
-                de lead enrichment a pipelines de vídeo viral com IA. Sem precisar escrever código.
+                Ao contrário de acessar o n8n diretamente — onde não há retorno visual integrado — cada automação
+                do ecossistema Gaqno gera <strong className="text-orange-300">fluxos de UI nativos</strong>:
+                acompanhe execuções, veja métricas e receba alertas diretamente no contexto de cada módulo.
+                Tudo dentro da plataforma.
               </p>
             </div>
           </div>
