@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { N8N_WORKFLOWS, N8N_STATS, type N8nCategory } from '@/app/constants/price-matrix'
 import { cn } from '@/utils/cn'
@@ -43,6 +43,14 @@ export default function N8nIntegrationSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
   const [active, setActive] = useState<N8nCategory | 'all'>('all')
 
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: N8N_WORKFLOWS.length }
+    for (const wf of N8N_WORKFLOWS) {
+      counts[wf.category] = (counts[wf.category] ?? 0) + 1
+    }
+    return counts
+  }, [])
+
   const filtered = active === 'all'
     ? N8N_WORKFLOWS
     : N8N_WORKFLOWS.filter((w) => w.category === active)
@@ -77,7 +85,7 @@ export default function N8nIntegrationSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="mb-8 grid grid-cols-3 gap-4"
+          className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4"
         >
           {N8N_STATS.map((stat) => (
             <div
@@ -101,9 +109,7 @@ export default function N8nIntegrationSection() {
           aria-label="Workflow category filter"
         >
           {CATEGORY_FILTERS.map((cat) => {
-            const count = cat.id === 'all'
-              ? N8N_WORKFLOWS.length
-              : N8N_WORKFLOWS.filter((w) => w.category === cat.id).length
+            const count = categoryCounts[cat.id] ?? 0
             return (
               <button
                 key={cat.id}
@@ -183,7 +189,14 @@ export default function N8nIntegrationSection() {
           className="mt-10 rounded-2xl border border-orange-500/20 bg-orange-950/20 p-6"
         >
           <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
-            <div className="shrink-0 text-4xl">n8n</div>
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-orange-500/15">
+              <svg className="h-7 w-7 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="3" width="6" height="6" rx="1" />
+                <rect x="16" y="3" width="6" height="6" rx="1" />
+                <rect x="9" y="15" width="6" height="6" rx="1" />
+                <path d="M8 6h8M12 9v6" />
+              </svg>
+            </div>
             <div>
               <h3 className="mb-1 font-bold text-white">Fluxos visuais direto no painel</h3>
               <p className="text-sm text-slate-400">

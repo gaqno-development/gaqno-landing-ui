@@ -956,7 +956,7 @@ export interface N8nStat {
 }
 
 export const N8N_STATS: N8nStat[] = [
-  { value: '12', label: 'Workflows Prontos' },
-  { value: '13', label: 'Serviços Conectados' },
+  { value: '12', label: 'Automações Integradas' },
+  { value: '13', label: 'Módulos Conectados' },
   { value: '3', label: 'Tipos de Trigger' },
 ]
